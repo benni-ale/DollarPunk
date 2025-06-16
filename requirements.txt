@@ -3,4 +3,6 @@ pandas
 numpy
 vaderSentiment
 newsapi-python
-python-dotenv 
+python-dotenv
+pyspark
+delta-spark 

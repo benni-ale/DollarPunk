@@ -8,6 +8,8 @@ import logging
 import time
 from typing import Optional, Dict, List
 import json
+from pyspark.sql import SparkSession
+from delta.tables import DeltaTable
 
 # Configure logging
 logging.basicConfig(
@@ -21,6 +23,16 @@ load_dotenv()
 
 # Ensure data directory exists
 os.makedirs('data', exist_ok=True)
+
+# Inizializza la sessione Spark
+spark = (SparkSession.builder
+    .appName("StockNewsFetcher")
+    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
+    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
+    .getOrCreate())
+
+# Imposta il livello di log
+spark.sparkContext.setLogLevel("WARN")
 
 class StockNewsFetcher:
     def __init__(self, max_retries: int = 3, retry_delay: int = 2):
@@ -83,19 +95,33 @@ class StockNewsFetcher:
             return []
 
     def save_results(self, ticker: str, stock_data: pd.DataFrame, news_articles: List[Dict]):
-        """Save results to JSON file"""
+        """Save results to Delta Lake table with upsert (merge)"""
         try:
+            # Prepara i dati per il DataFrame
             results = {
                 'ticker': ticker,
                 'timestamp': datetime.now().isoformat(),
-                'stock_data': stock_data.to_dict(orient='records') if stock_data is not None else [],
-                'news': news_articles
+                'stock_data': json.dumps(stock_data.to_dict(orient='records') if stock_data is not None else []),
+                'news': json.dumps(news_articles)
             }
             
-            filename = f"data/{ticker}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-            with open(filename, 'w') as f:
-                json.dump(results, f, indent=2)
-            logger.info(f"Results saved to {filename}")
+            # Converti in DataFrame Spark
+            df = spark.createDataFrame([results])
+            
+            # Percorso della tabella Delta
+            delta_path = f"data/delta_table_{ticker}"
+            
+            # Se la tabella esiste, fai merge (upsert), altrimenti creala
+            if os.path.exists(delta_path):
+                deltaTable = DeltaTable.forPath(spark, delta_path)
+                deltaTable.alias("old").merge(
+                    df.alias("new"),
+                    "old.timestamp = new.timestamp"
+                ).whenMatchedUpdateAll().whenNotMatchedInsertAll().execute()
+            else:
+                df.write.format("delta").mode("overwrite").save(delta_path)
+            
+            logger.info(f"Results saved to Delta table at {delta_path}")
         except Exception as e:
             logger.error(f"Error saving results: {str(e)}")
 
