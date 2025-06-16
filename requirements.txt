@@ -5,4 +5,6 @@ vaderSentiment
 newsapi-python
 python-dotenv
 pyspark
-delta-spark 
+delta-spark
+flask
+plotly 
