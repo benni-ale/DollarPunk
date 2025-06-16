@@ -92,7 +92,7 @@ class StockNewsFetcher:
                 'news': news_articles
             }
             
-            filename = f"data/{ticker}_{datetime.now().strftime('%Y%m%d')}.json"
+            filename = f"data/{ticker}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
             with open(filename, 'w') as f:
                 json.dump(results, f, indent=2)
             logger.info(f"Results saved to {filename}")
