@@ -94,37 +94,66 @@ class StockNewsFetcher:
             logger.error(f"Error fetching news: {str(e)}")
             return []
 
-    def save_results(self, ticker: str, stock_data: pd.DataFrame, news_articles: List[Dict]):
-        """Save results to Delta Lake table with upsert (merge)"""
-        try:
-            # Prepara i dati per il DataFrame
-            results = {
-                'ticker': ticker,
-                'timestamp': datetime.now().isoformat(),
-                'stock_data': json.dumps(stock_data.to_dict(orient='records') if stock_data is not None else []),
-                'news': json.dumps(news_articles)
-            }
+def save_results(self, ticker: str, stock_data: pd.DataFrame, news_articles: List[Dict]):
+    """Save results to two separate Delta Lake tables"""
+    try:
+        # 1. Prepara i dati per la tabella stock_data
+        if stock_data is not None:
+            # Converti l'indice datetime in colonna
+            stock_data = stock_data.reset_index()
+            # Aggiungi il ticker come colonna
+            stock_data['ticker'] = ticker
+            # Converti in DataFrame Spark
+            stock_df = spark.createDataFrame(stock_data)
+            
+            # Percorso della tabella Delta per i dati azionari
+            stock_delta_path = f"data/stock_data_delta"
+            
+            # Crea o aggiorna la tabella con le proprietà corrette
+            stock_df.write.format("delta") \
+                .option("delta.columnMapping.mode", "name") \
+                .option("delta.minReaderVersion", "2") \
+                .option("delta.minWriterVersion", "5") \
+                .mode("overwrite") \
+                .save(stock_delta_path)
+            
+            logger.info(f"Stock data saved to Delta table at {stock_delta_path}")
+
+        # 2. Prepara i dati per la tabella news
+        if news_articles:
+            # Crea una lista di dizionari con i dati delle news
+            news_data = []
+            for article in news_articles:
+                news_data.append({
+                    'ticker': ticker,
+                    'url': article['url'],
+                    'published_at': article['publishedAt'],
+                    'title': article['title'],
+                    'source': article['source']['name'],
+                    'description': article.get('description', ''),
+                    'content': article.get('content', ''),
+                    'author': article.get('author', ''),
+                    'timestamp': datetime.now().isoformat()
+                })
             
             # Converti in DataFrame Spark
-            df = spark.createDataFrame([results])
+            news_df = spark.createDataFrame(news_data)
             
-            # Percorso della tabella Delta
-            delta_path = f"data/delta_table_{ticker}"
+            # Percorso della tabella Delta per le news
+            news_delta_path = f"data/news_delta"
             
-            # Se la tabella esiste, fai merge (upsert), altrimenti creala
-            if os.path.exists(delta_path):
-                deltaTable = DeltaTable.forPath(spark, delta_path)
-                deltaTable.alias("old").merge(
-                    df.alias("new"),
-                    "old.timestamp = new.timestamp"
-                ).whenMatchedUpdateAll().whenNotMatchedInsertAll().execute()
-            else:
-                df.write.format("delta").mode("overwrite").save(delta_path)
+            # Crea o aggiorna la tabella con le proprietà corrette
+            news_df.write.format("delta") \
+                .option("delta.columnMapping.mode", "name") \
+                .option("delta.minReaderVersion", "2") \
+                .option("delta.minWriterVersion", "5") \
+                .mode("overwrite") \
+                .save(news_delta_path)
             
-            logger.info(f"Results saved to Delta table at {delta_path}")
-        except Exception as e:
-            logger.error(f"Error saving results: {str(e)}")
+            logger.info(f"News data saved to Delta table at {news_delta_path}")
 
+    except Exception as e:
+        logger.error(f"Error saving results: {str(e)}")
 def main():
     # Example parameters
     ticker = "AAPL"  # Apple stock
