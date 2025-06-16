@@ -5,6 +5,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.utils
 import json
+from pyspark.sql.types import DateType, TimestampType
 
 app = Flask(__name__)
 
@@ -25,7 +26,11 @@ def get_stock_data():
     stock_df = spark.read.format("delta").load("data/stock_data_delta")
     stock_df = stock_df.filter(f"ticker = '{ticker}'")
     
-    # Converti in pandas per la visualizzazione
+    # Converti le colonne datetime in stringa PRIMA di chiamare toPandas
+    for field in stock_df.schema.fields:
+        if isinstance(field.dataType, (DateType, TimestampType)):
+            stock_df = stock_df.withColumn(field.name, stock_df[field.name].cast("string"))
+    
     pdf = stock_df.toPandas()
     
     # Crea il grafico con Plotly
@@ -57,6 +62,13 @@ def execute_query():
         # Esegui la query SQL
         result_df = spark.sql(query)
         pdf = result_df.toPandas()
+        # Fix per colonne datetime
+        for col in pdf.columns:
+            if str(pdf[col].dtype).startswith('datetime64') or str(pdf[col].dtype) == 'object':
+                try:
+                    pdf[col] = pd.to_datetime(pdf[col])
+                except Exception:
+                    pass
         return jsonify({
             'success': True,
             'data': pdf.to_dict(orient='records'),
@@ -67,6 +79,5 @@ def execute_query():
             'success': False,
             'error': str(e)
         })
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True) 
