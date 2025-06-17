@@ -7,6 +7,7 @@ import plotly.utils
 import json
 from pyspark.sql.types import DateType, TimestampType
 import sys
+import plotly.graph_objects as go
 
 app = Flask(__name__)
 
@@ -25,7 +26,17 @@ def index():
 def get_stock_data():
     ticker = request.args.get('ticker', 'AAPL')
     stock_df = spark.read.format("delta").load("data/stock_data_delta")
+    
+    # Debug: stampa lo schema Spark
+    print("Schema Spark:", stock_df.schema, file=sys.stderr)
+    
+    # Debug: stampa i dati Spark prima del filtro
+    print("Dati Spark prima del filtro:", stock_df.show(5), file=sys.stderr)
+    
     stock_df = stock_df.filter(f"ticker = '{ticker}'")
+    
+    # Debug: stampa i dati dopo il filtro
+    print("Dati Spark dopo il filtro:", stock_df.show(5), file=sys.stderr)
     
     # Converti le colonne datetime in stringa PRIMA di chiamare toPandas
     for field in stock_df.schema.fields:
@@ -33,20 +44,58 @@ def get_stock_data():
             stock_df = stock_df.withColumn(field.name, stock_df[field.name].cast("string"))
     
     pdf = stock_df.toPandas()
-    # Debug: stampa tutte le colonne e le prime righe
-    print("Colonne disponibili:", pdf.columns, file=sys.stderr)
+    
+    # Debug: stampa i dati dopo la conversione a Pandas
+    print("Dati Pandas dopo la conversione:", file=sys.stderr)
+    print(pdf.dtypes, file=sys.stderr)
     print(pdf.head(), file=sys.stderr)
-    if 'Close' not in pdf.columns:
-        print("Colonna 'Close' non trovata!", file=sys.stderr)
-    else:
-        print(pdf[['Date', 'Close']], file=sys.stderr)
+    
+    # Forza la colonna Close a numerica mantenendo i valori originali
     pdf['Close'] = pd.to_numeric(pdf['Close'], errors='coerce')
+    
+    # Debug: stampa i dati dopo la conversione numerica
+    print("Dati dopo conversione numerica:", file=sys.stderr)
+    print(pdf[['Date', 'Close']].head(), file=sys.stderr)
+    
     # Converte e ordina la colonna Date
     pdf['Date'] = pd.to_datetime(pdf['Date'])
     pdf = pdf.sort_values('Date')
     
+    # Debug: stampa i dati finali
+    print("Dati finali prima del plot:", file=sys.stderr)
+    print(pdf[['Date', 'Close']].head(), file=sys.stderr)
+    
     # Crea il grafico solo per il prezzo di chiusura
-    fig = px.line(pdf, x='Date', y='Close', title=f'Close Price for {ticker}')
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=pdf['Date'],
+            y=pdf['Close'],
+            mode='lines',
+            name='Close Price'
+        )
+    )
+    
+    # Configura il layout
+    fig.update_layout(
+        title=f'Close Price for {ticker}',
+        yaxis=dict(
+            title='Price ($)',
+            tickformat='.2f',
+            tickprefix='$',
+            range=[pdf['Close'].min() * 0.99, pdf['Close'].max() * 1.01]
+        ),
+        xaxis=dict(
+            title='Date',
+            tickformat='%Y-%m-%d'
+        ),
+        hovermode='x unified'
+    )
+    
+    # Configura il formato del tooltip
+    fig.update_traces(
+        hovertemplate='$%{y:.2f}<extra></extra>'
+    )
     
     return jsonify({
         'data': pdf.to_dict(orient='records'),
