@@ -1,95 +1,119 @@
+import os
 import yfinance as yf
+from newsapi import NewsApiClient
 import pandas as pd
 from datetime import datetime, timedelta
-from newsapi import NewsApiClient
-import os
-from dotenv import load_dotenv
+from typing import Dict, List, Optional
 import logging
-import time
-from typing import Optional, Dict, List
-import json
-from pyspark.sql import SparkSession
-from delta.tables import DeltaTable
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
-# Ensure data directory exists
-os.makedirs('data', exist_ok=True)
-
-# Inizializza la sessione Spark
-spark = (SparkSession.builder
-    .appName("StockNewsFetcher")
-    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
-    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
-    .getOrCreate())
-
-# Imposta il livello di log
-spark.sparkContext.setLogLevel("WARN")
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class StockNewsFetcher:
-    def __init__(self, max_retries: int = 3, retry_delay: int = 2):
-        self.max_retries = max_retries
-        self.retry_delay = retry_delay
-        self.newsapi = NewsApiClient(api_key=os.getenv('NEWS_API_KEY'))
+    def __init__(self):
+        """Initialize the fetcher with API keys"""
+        self.news_api = NewsApiClient(api_key=os.getenv('NEWS_API_KEY'))
         
-    def _retry_on_failure(self, func, *args, **kwargs):
-        """Generic retry mechanism for API calls"""
-        for attempt in range(self.max_retries):
+    def _retry_on_failure(self, func, max_retries=3, *args, **kwargs):
+        """Retry a function call on failure"""
+        for attempt in range(max_retries):
             try:
                 return func(*args, **kwargs)
             except Exception as e:
-                if attempt == self.max_retries - 1:
-                    logger.error(f"Failed after {self.max_retries} attempts: {str(e)}")
-                    raise
-                logger.warning(f"Attempt {attempt + 1} failed: {str(e)}. Retrying...")
-                time.sleep(self.retry_delay)
-
+                if attempt == max_retries - 1:
+                    raise e
+                logger.warning(f"Attempt {attempt + 1} failed: {str(e)}")
+                continue
+    
     def get_stock_data(self, ticker: str, start_date: str, end_date: str) -> Optional[pd.DataFrame]:
-        """Fetch stock data with retry mechanism"""
+        """
+        Fetch stock data from Yahoo Finance
+        """
         try:
-            logger.info(f"Fetching stock data for {ticker}")
+            # Convert string dates to datetime if needed
+            if isinstance(start_date, str):
+                start_date = datetime.strptime(start_date, '%Y-%m-%d')
+            if isinstance(end_date, str):
+                end_date = datetime.strptime(end_date, '%Y-%m-%d')
+
+            # Add one day to end_date to include the last day in the range
+            end_date = end_date + timedelta(days=1)
+
+            # Download data
             stock = yf.Ticker(ticker)
-            data = self._retry_on_failure(
-                stock.history,
-                start=start_date,
-                end=end_date
-            )
+            df = stock.history(start=start_date, end=end_date)
             
-            if data.empty:
-                logger.warning(f"No data found for {ticker}")
+            if df.empty:
+                logger.warning(f"No stock data found for {ticker}")
                 return None
                 
-            return data
+            # Reset index to make date a column and ensure it's in the correct format
+            df = df.reset_index()
+            df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
+            
+            # Rename columns to match database schema
+            df = df.rename(columns={
+                'Date': 'date',
+                'Open': 'open',
+                'High': 'high',
+                'Low': 'low',
+                'Close': 'close',
+                'Volume': 'volume'
+            })
+            
+            return df[['date', 'open', 'high', 'low', 'close', 'volume']]
+            
         except Exception as e:
             logger.error(f"Error fetching stock data: {str(e)}")
             return None
 
-    def get_news(self, ticker: str, from_date: str, to_date: str) -> List[Dict]:
-        """Fetch news articles with retry mechanism"""
+    def get_news(self, ticker: str, start_date: str, end_date: str) -> List[Dict]:
+        """
+        Fetch news articles from News API
+        """
         try:
-            logger.info(f"Fetching news for {ticker}")
+            # Convert string dates to datetime if needed
+            if isinstance(start_date, str):
+                start_date = datetime.strptime(start_date, '%Y-%m-%d')
+            if isinstance(end_date, str):
+                end_date = datetime.strptime(end_date, '%Y-%m-%d')
+
+            # Format dates for News API
+            from_date = start_date.strftime('%Y-%m-%d')
+            to_date = end_date.strftime('%Y-%m-%d')
+
+            # Get news articles
             news = self._retry_on_failure(
-                self.newsapi.get_everything,
+                self.news_api.get_everything,
                 q=ticker,
                 from_param=from_date,
                 to=to_date,
                 language='en',
-                sort_by='relevancy'
+                sort_by='publishedAt'
             )
-            
-            if not news.get('articles'):
+
+            if not news['articles']:
                 logger.warning(f"No news found for {ticker}")
                 return []
-                
-            return news['articles']
+
+            # Process articles
+            articles = []
+            for article in news['articles']:
+                articles.append({
+                    'title': article['title'],
+                    'description': article['description'],
+                    'url': article['url'],
+                    'published_at': article['publishedAt'],
+                    'source': article['source']['name'] if article['source'] else None
+                })
+
+            return articles
+
         except Exception as e:
             logger.error(f"Error fetching news: {str(e)}")
             return []
@@ -135,12 +159,12 @@ class StockNewsFetcher:
                     news_data.append({
                         'ticker': ticker,
                         'url': article['url'],
-                        'published_at': article['publishedAt'],
+                        'published_at': article['published_at'],
                         'title': article['title'],
-                        'source': article['source']['name'],
-                        'description': article.get('description', ''),
-                        'content': article.get('content', ''),
-                        'author': article.get('author', ''),
+                        'source': article['source'],
+                        'description': article['description'],
+                        'content': '',
+                        'author': '',
                         'timestamp': datetime.now().isoformat()
                     })
                 
@@ -190,7 +214,7 @@ def main():
     stock_data = fetcher.get_stock_data(ticker, start_str, end_str)
     if stock_data is not None:
         logger.info("\nStock Data:")
-        logger.info(stock_data[['Open', 'Close', 'Volume']].tail())
+        logger.info(stock_data[['date', 'open', 'high', 'low', 'close', 'volume']].tail())
     
     # Get news
     news_articles = fetcher.get_news(ticker, start_str, end_str)
@@ -198,8 +222,8 @@ def main():
         logger.info("\nRecent News Articles:")
         for article in news_articles[:5]:  # Show top 5 articles
             logger.info(f"\nTitle: {article['title']}")
-            logger.info(f"Published: {article['publishedAt']}")
-            logger.info(f"Source: {article['source']['name']}")
+            logger.info(f"Published: {article['published_at']}")
+            logger.info(f"Source: {article['source']}")
             logger.info(f"URL: {article['url']}")
     
     # Save results

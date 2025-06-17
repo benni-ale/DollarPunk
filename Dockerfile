@@ -1,18 +1,37 @@
-FROM bitnami/spark:3.4.1
+FROM postgres:16-alpine as postgres
 
-USER root
-RUN install_packages python3-pip
-USER 1001
+# Create a custom PostgreSQL configuration
+RUN echo "listen_addresses='*'" >> /usr/local/share/postgresql/postgresql.conf
+
+FROM python:3.11-slim
+
+# Install system dependencies including PostgreSQL client and locales
+RUN apt-get update && apt-get install -y \
+    gcc \
+    postgresql-client \
+    libpq-dev \
+    locales \
+    && rm -rf /var/lib/apt/lists/* \
+    && sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
+    && locale-gen
+
+# Set the locale environment variables
+ENV LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8
 
 WORKDIR /app
-COPY requirements.txt ./
-RUN pip3 install --no-cache-dir -r requirements.txt
-COPY .env ./
-COPY *.py ./
-COPY templates/ ./templates/
-RUN mkdir -p /app/data
-VOLUME /app/data
 
-ENV PYSPARK_SUBMIT_ARGS="--packages io.delta:delta-core_2.12:2.4.0 pyspark-shell"
+# Copy requirements first to leverage Docker cache
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application
+COPY . .
+
+# Create data directory
+RUN mkdir -p data
+
 EXPOSE 5000
-CMD ["python3", "app.py"] 
+
+CMD ["python", "app.py"] 

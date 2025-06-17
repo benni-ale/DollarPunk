@@ -1,26 +1,28 @@
-from flask import Flask, render_template, jsonify, request
-from pyspark.sql import SparkSession
-from delta.tables import DeltaTable
-import pandas as pd
-import plotly.express as px
-import plotly.utils
-import json
-from pyspark.sql.types import DateType, TimestampType
-import sys
-import plotly.graph_objects as go
 import os
-from stock_news import StockNewsFetcher
 from datetime import datetime, timedelta
+import json
+import pandas as pd
+import plotly.graph_objects as go
+from flask import Flask, render_template, jsonify, request
+from stock_news import StockNewsFetcher
+from sqlalchemy import create_engine, text
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__)
 
-# Inizializza Spark
-spark = (SparkSession.builder
-    .appName("StockNewsViewer")
-    .config("spark.jars.packages", "io.delta:delta-core_2.12:2.4.0")
-    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
-    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
-    .getOrCreate())
+# Database configuration
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://dollarpunk:dollarpunk@db:5432/dollarpunk')
+engine = create_engine(DATABASE_URL)
+
+def init_db():
+    """Initialize the database with the schema"""
+    with engine.connect() as conn:
+        with app.open_resource('schema.sql', mode='r') as f:
+            conn.execute(text(f.read()))
+            conn.commit()
 
 @app.route('/')
 def index():
@@ -28,163 +30,216 @@ def index():
 
 @app.route('/api/stock_data')
 def get_stock_data():
-    ticker = request.args.get('ticker', 'AAPL')
-    stock_df = spark.read.format("delta").load("data/stock_data_delta")
-    
-    # Debug: stampa lo schema Spark
-    print("Schema Spark:", stock_df.schema, file=sys.stderr)
-    
-    # Debug: stampa i dati Spark prima del filtro
-    print("Dati Spark prima del filtro:", stock_df.show(5), file=sys.stderr)
-    
-    stock_df = stock_df.filter(f"ticker = '{ticker}'")
-    
-    # Debug: stampa i dati dopo il filtro
-    print("Dati Spark dopo il filtro:", stock_df.show(5), file=sys.stderr)
-    
-    # Converti le colonne datetime in stringa PRIMA di chiamare toPandas
-    for field in stock_df.schema.fields:
-        if isinstance(field.dataType, (DateType, TimestampType)):
-            stock_df = stock_df.withColumn(field.name, stock_df[field.name].cast("string"))
-    
-    pdf = stock_df.toPandas()
-    
-    # Debug: stampa i dati dopo la conversione a Pandas
-    print("Dati Pandas dopo la conversione:", file=sys.stderr)
-    print(pdf.dtypes, file=sys.stderr)
-    print(pdf.head(), file=sys.stderr)
-    
-    # Forza la colonna Close a numerica mantenendo i valori originali
-    pdf['Close'] = pd.to_numeric(pdf['Close'], errors='coerce')
-    
-    # Debug: stampa i dati dopo la conversione numerica
-    print("Dati dopo conversione numerica:", file=sys.stderr)
-    print(pdf[['Date', 'Close']].head(), file=sys.stderr)
-    
-    # Converte e ordina la colonna Date
-    pdf['Date'] = pd.to_datetime(pdf['Date'])
-    
-    # Ordina i dati per data
-    pdf = pdf.sort_values('Date')
-    
-    # Converti i dati in liste
-    dates = pdf['Date'].tolist()
-    prices = pdf['Close'].tolist()
-    
-    print("Debug - Date:", dates)
-    print("Debug - Prezzi:", prices)
-    
-    # Crea il grafico solo per il prezzo di chiusura
-    fig = go.Figure()
-    
-    # Aggiungi la traccia con i dati come liste
-    fig.add_trace(
-        go.Scatter(
-            x=dates,
-            y=prices,
-            mode='lines+markers',
-            name='Close Price',
-            line=dict(color='#1f77b4', width=3),
-            marker=dict(size=8)
-        )
-    )
-    
-    # Configura il layout
-    fig.update_layout(
-        title=f'Close Price for {ticker}',
-        yaxis=dict(
-            title='Price ($)',
-            tickformat='.2f',
-            tickprefix='$',
-            range=[min(prices) * 0.99, max(prices) * 1.01]
-        ),
-        xaxis=dict(
-            title='Date',
-            tickformat='%Y-%m-%d'
-        ),
-        hovermode='x unified',
-        showlegend=True
-    )
-    
-    # Configura il formato del tooltip
-    fig.update_traces(
-        hovertemplate='$%{y:.2f}<extra></extra>'
-    )
-    
-    return jsonify({
-        'data': pdf.to_dict(orient='records'),
-        'plot': json.loads(fig.to_json())
-    })
-
-@app.route('/api/news')
-def get_news():
-    ticker = request.args.get('ticker', 'AAPL')
-    news_df = spark.read.format("delta").load("data/news_delta")
-    news_df = news_df.filter(f"ticker = '{ticker}'")
-    
-    # Converti in pandas per la visualizzazione
-    pdf = news_df.toPandas()
-    return jsonify(pdf.to_dict(orient='records'))
-
-@app.route('/api/query', methods=['POST'])
-def execute_query():
-    query = request.json.get('query', '')
     try:
-        # Registra le Delta table come temporary view
-        spark.read.format("delta").load("data/stock_data_delta").createOrReplaceTempView("stock_data_delta")
-        spark.read.format("delta").load("data/news_delta").createOrReplaceTempView("news_delta")
-        # Esegui la query SQL
-        result_df = spark.sql(query)
-        pdf = result_df.toPandas()
-        # Fix per colonne datetime
-        for col in pdf.columns:
-            if str(pdf[col].dtype).startswith('datetime64') or str(pdf[col].dtype) == 'object':
-                try:
-                    pdf[col] = pd.to_datetime(pdf[col])
-                except Exception:
-                    pass
+        ticker = request.args.get('ticker', 'AAPL')
+        
+        # Get stock data from database
+        query = """
+            SELECT date, open, high, low, close, volume 
+            FROM stocks 
+            WHERE ticker = :ticker 
+            ORDER BY date
+        """
+        df = pd.read_sql_query(
+            query,
+            engine,
+            params={'ticker': ticker},
+            parse_dates=['date']
+        )
+        
+        if df.empty:
+            return jsonify({
+                'success': False,
+                'error': 'No data found for this ticker'
+            }), 404
+        
+        # Create the plot
+        fig = go.Figure()
+        fig.add_trace(
+            go.Scatter(
+                x=df['date'],
+                y=df['close'],
+                mode='lines+markers',
+                name='Close Price',
+                line=dict(color='#1f77b4', width=2),
+                marker=dict(size=6)
+            )
+        )
+        
+        fig.update_layout(
+            title=f'Stock Price for {ticker}',
+            yaxis=dict(
+                title='Price ($)',
+                tickformat='.2f',
+                tickprefix='$'
+            ),
+            xaxis=dict(
+                title='Date',
+                tickformat='%Y-%m-%d'
+            ),
+            hovermode='x unified',
+            showlegend=True
+        )
+        
+        fig.update_traces(
+            hovertemplate='$%{y:.2f}<extra></extra>'
+        )
+        
         return jsonify({
             'success': True,
-            'data': pdf.to_dict(orient='records'),
-            'columns': pdf.columns.tolist()
+            'data': df.to_dict(orient='records'),
+            'plot': json.loads(fig.to_json())
         })
     except Exception as e:
         return jsonify({
             'success': False,
             'error': str(e)
+        }), 500
+
+@app.route('/api/news')
+def get_news():
+    try:
+        ticker = request.args.get('ticker', 'AAPL')
+        
+        # Get news from database
+        query = """
+            SELECT title, description, url, published_at, source 
+            FROM news 
+            WHERE ticker = :ticker 
+            ORDER BY published_at DESC
+            LIMIT 10
+        """
+        df = pd.read_sql_query(
+            query,
+            engine,
+            params={'ticker': ticker},
+            parse_dates=['published_at']
+        )
+        
+        return jsonify({
+            'success': True,
+            'data': df.to_dict(orient='records')
         })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
 
 @app.route('/api/tables')
 def get_tables():
-    """Ottiene la lista delle tabelle Delta disponibili"""
-    tables = []
-    data_dir = "data"
-    
-    # Cerca tutte le directory che contengono file _delta_log
-    for root, dirs, files in os.walk(data_dir):
-        if "_delta_log" in dirs:
-            table_name = os.path.basename(root)
-            try:
-                # Carica la tabella per ottenere lo schema
-                delta_table = DeltaTable.forPath(spark, root)
-                df = delta_table.toDF()
-                schema = df.schema.jsonValue()
-                tables.append({
-                    "name": table_name,
-                    "path": root,
-                    "columns": [field["name"] for field in schema["fields"]]
-                })
-            except Exception as e:
-                print(f"Errore nel caricare la tabella {table_name}: {str(e)}")
-    
-    return jsonify({
-        "success": True,
-        "tables": tables
-    })
+    """Get information about available tables"""
+    try:
+        tables = []
+        for table_name in ['stocks', 'news']:
+            # Get column information
+            columns_query = """
+                SELECT column_name 
+                FROM information_schema.columns 
+                WHERE table_name = :table_name
+                ORDER BY ordinal_position
+            """
+            with engine.connect() as conn:
+                columns = [row[0] for row in conn.execute(text(columns_query), {'table_name': table_name})]
+            
+            # Get row count
+            count_query = f"SELECT COUNT(*) FROM {table_name}"
+            with engine.connect() as conn:
+                row_count = conn.execute(text(count_query)).scalar()
+            
+            tables.append({
+                "name": table_name,
+                "display_name": "Stock Data" if table_name == "stocks" else "News Articles",
+                "columns": columns,
+                "row_count": row_count
+            })
+        
+        return jsonify({
+            "success": True,
+            "tables": tables
+        })
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500
 
-@app.route('/api/extract_data', methods=['POST'])
+@app.route('/api/table_details/<table_name>')
+def get_table_details(table_name):
+    """Get detailed information about a specific table"""
+    try:
+        if table_name not in ['stocks', 'news']:
+            raise ValueError("Invalid table name")
+        
+        # Get basic table information
+        df = pd.read_sql_query(f"SELECT * FROM {table_name} LIMIT 5", engine)
+        
+        # Get table statistics
+        if table_name == 'stocks':
+            stats_query = """
+                SELECT 
+                    'count' as statistic,
+                    COUNT(*)::text as value
+                FROM stocks
+                UNION ALL
+                SELECT 
+                    'avg_close' as statistic,
+                    ROUND(AVG(close)::numeric, 2)::text as value
+                FROM stocks
+                UNION ALL
+                SELECT 
+                    'min_date' as statistic,
+                    MIN(date)::text as value
+                FROM stocks
+                UNION ALL
+                SELECT 
+                    'max_date' as statistic,
+                    MAX(date)::text as value
+                FROM stocks
+            """
+        else:
+            stats_query = """
+                SELECT 
+                    'count' as statistic,
+                    COUNT(*)::text as value
+                FROM news
+                UNION ALL
+                SELECT 
+                    'sources' as statistic,
+                    COUNT(DISTINCT source)::text as value
+                FROM news
+                UNION ALL
+                SELECT 
+                    'oldest_article' as statistic,
+                    MIN(published_at)::text as value
+                FROM news
+                UNION ALL
+                SELECT 
+                    'newest_article' as statistic,
+                    MAX(published_at)::text as value
+                FROM news
+            """
+        
+        stats_df = pd.read_sql_query(stats_query, engine)
+        
+        return jsonify({
+            "success": True,
+            "details": {
+                "sample_data": df.to_dict(orient='records'),
+                "statistics": stats_df.to_dict(orient='records'),
+                "total_rows": len(df),
+                "columns": list(df.columns)
+            }
+        })
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 400
+
+@app.route('/api/extract', methods=['POST'])
 def extract_data():
-    """Estrae nuovi dati per un ticker specifico"""
+    """Extract new data for a specific ticker"""
     try:
         ticker = request.json.get('ticker', '').upper()
         days = int(request.json.get('days', 7))
@@ -206,8 +261,15 @@ def extract_data():
         stock_data = fetcher.get_stock_data(ticker, start_str, end_str)
         news_articles = fetcher.get_news(ticker, start_str, end_str)
         
-        # Save to Delta Lake
-        fetcher.save_results(ticker, stock_data, news_articles)
+        # Save to database
+        if stock_data is not None:
+            stock_data['ticker'] = ticker
+            stock_data.to_sql('stocks', engine, if_exists='append', index=True, index_label='date')
+        
+        if news_articles:
+            news_df = pd.DataFrame(news_articles)
+            news_df['ticker'] = ticker
+            news_df.to_sql('news', engine, if_exists='append', index=False)
         
         return jsonify({
             'success': True,
@@ -217,8 +279,12 @@ def extract_data():
         
     except Exception as e:
         return jsonify({
+            'success': False,
             'error': str(e)
         }), 500
 
 if __name__ == '__main__':
+    # Create database and tables if they don't exist
+    init_db()
+    
     app.run(host='0.0.0.0', port=5000, debug=True) 
