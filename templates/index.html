@@ -330,11 +330,13 @@
                 if (response.ok) {
                     statusDiv.className = 'status-message status-success';
                     statusDiv.textContent = `${result.message} ${result.period}`;
-                    // Ricarica il catalogo e i dati
+                    
+                    // Aggiorna il ticker input principale e ricarica i dati
+                    document.getElementById('tickerInput').value = ticker;
+                    loadStockData();
+                    
+                    // Ricarica il catalogo
                     loadTableCatalog();
-                    if (document.getElementById('ticker').value === ticker) {
-                        loadStockData();
-                    }
                 } else {
                     throw new Error(result.error || 'Failed to extract data');
                 }
