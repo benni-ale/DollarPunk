@@ -59,20 +59,29 @@ def get_stock_data():
     
     # Converte e ordina la colonna Date
     pdf['Date'] = pd.to_datetime(pdf['Date'])
+    
+    # Ordina i dati per data
     pdf = pdf.sort_values('Date')
     
-    # Debug: stampa i dati finali
-    print("Dati finali prima del plot:", file=sys.stderr)
-    print(pdf[['Date', 'Close']].head(), file=sys.stderr)
+    # Converti i dati in liste
+    dates = pdf['Date'].tolist()
+    prices = pdf['Close'].tolist()
+    
+    print("Debug - Date:", dates)
+    print("Debug - Prezzi:", prices)
     
     # Crea il grafico solo per il prezzo di chiusura
     fig = go.Figure()
+    
+    # Aggiungi la traccia con i dati come liste
     fig.add_trace(
         go.Scatter(
-            x=pdf['Date'],
-            y=pdf['Close'],
-            mode='lines',
-            name='Close Price'
+            x=dates,
+            y=prices,
+            mode='lines+markers',
+            name='Close Price',
+            line=dict(color='#1f77b4', width=3),
+            marker=dict(size=8)
         )
     )
     
@@ -83,13 +92,14 @@ def get_stock_data():
             title='Price ($)',
             tickformat='.2f',
             tickprefix='$',
-            range=[pdf['Close'].min() * 0.99, pdf['Close'].max() * 1.01]
+            range=[min(prices) * 0.99, max(prices) * 1.01]
         ),
         xaxis=dict(
             title='Date',
             tickformat='%Y-%m-%d'
         ),
-        hovermode='x unified'
+        hovermode='x unified',
+        showlegend=True
     )
     
     # Configura il formato del tooltip
