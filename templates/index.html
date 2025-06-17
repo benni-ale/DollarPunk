@@ -366,18 +366,28 @@
 
         // Load table catalog
         function loadTableCatalog() {
+            const catalogDiv = document.getElementById('tableCatalogList');
+            catalogDiv.innerHTML = '<div class="alert alert-info">Loading available tables...</div>';
+            
             fetch('/api/tables')
                 .then(response => response.json())
                 .then(data => {
-                    const catalogDiv = document.getElementById('tableCatalogList');
-                    catalogDiv.innerHTML = data.tables.map(table => `
-                        <div class="table-item">
-                            <h6>${table.name}</h6>
-                            <div class="columns-list">
-                                <strong>Columns:</strong> ${table.columns.join(', ')}
+                    if (data.success && data.tables && data.tables.length > 0) {
+                        catalogDiv.innerHTML = data.tables.map(table => `
+                            <div class="table-item">
+                                <h6>${table.name}</h6>
+                                <div class="columns-list">
+                                    <strong>Columns:</strong> ${table.columns.join(', ')}
+                                </div>
                             </div>
-                        </div>
-                    `).join('');
+                        `).join('');
+                    } else {
+                        catalogDiv.innerHTML = '<div class="alert alert-warning">No tables found. Try extracting some data first!</div>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading tables:', error);
+                    catalogDiv.innerHTML = '<div class="alert alert-danger">Error loading tables. Please try again later.</div>';
                 });
         }
 

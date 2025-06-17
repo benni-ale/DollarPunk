@@ -177,7 +177,10 @@ def get_tables():
             except Exception as e:
                 print(f"Errore nel caricare la tabella {table_name}: {str(e)}")
     
-    return jsonify(tables)
+    return jsonify({
+        "success": True,
+        "tables": tables
+    })
 
 @app.route('/api/extract_data', methods=['POST'])
 def extract_data():
