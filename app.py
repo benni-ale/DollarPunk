@@ -6,6 +6,7 @@ import plotly.express as px
 import plotly.utils
 import json
 from pyspark.sql.types import DateType, TimestampType
+import sys
 
 app = Flask(__name__)
 
@@ -32,10 +33,20 @@ def get_stock_data():
             stock_df = stock_df.withColumn(field.name, stock_df[field.name].cast("string"))
     
     pdf = stock_df.toPandas()
+    # Debug: stampa tutte le colonne e le prime righe
+    print("Colonne disponibili:", pdf.columns, file=sys.stderr)
+    print(pdf.head(), file=sys.stderr)
+    if 'Close' not in pdf.columns:
+        print("Colonna 'Close' non trovata!", file=sys.stderr)
+    else:
+        print(pdf[['Date', 'Close']], file=sys.stderr)
+    pdf['Close'] = pd.to_numeric(pdf['Close'], errors='coerce')
+    # Converte e ordina la colonna Date
+    pdf['Date'] = pd.to_datetime(pdf['Date'])
+    pdf = pdf.sort_values('Date')
     
-    # Crea il grafico con Plotly
-    fig = px.line(pdf, x='Date', y=['Open', 'Close', 'High', 'Low'],
-                  title=f'Stock Prices for {ticker}')
+    # Crea il grafico solo per il prezzo di chiusura
+    fig = px.line(pdf, x='Date', y='Close', title=f'Close Price for {ticker}')
     
     return jsonify({
         'data': pdf.to_dict(orient='records'),
