@@ -6,6 +6,8 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 import logging
 from dotenv import load_dotenv
+import requests
+from time import sleep
 
 # Load environment variables
 load_dotenv()
@@ -19,17 +21,6 @@ class StockNewsFetcher:
         """Initialize the fetcher with API keys"""
         self.news_api = NewsApiClient(api_key=os.getenv('NEWS_API_KEY'))
         
-    def _retry_on_failure(self, func, max_retries=3, *args, **kwargs):
-        """Retry a function call on failure"""
-        for attempt in range(max_retries):
-            try:
-                return func(*args, **kwargs)
-            except Exception as e:
-                if attempt == max_retries - 1:
-                    raise e
-                logger.warning(f"Attempt {attempt + 1} failed: {str(e)}")
-                continue
-    
     def get_stock_data(self, ticker: str, start_date: str, end_date: str) -> Optional[pd.DataFrame]:
         """
         Fetch stock data from Yahoo Finance
@@ -44,9 +35,34 @@ class StockNewsFetcher:
             # Add one day to end_date to include the last day in the range
             end_date = end_date + timedelta(days=1)
 
-            # Download data
-            stock = yf.Ticker(ticker)
-            df = stock.history(start=start_date, end=end_date)
+            def fetch_data():
+                # Download historical data directly without checking info
+                hist = yf.download(
+                    ticker,
+                    start=start_date.strftime('%Y-%m-%d'),
+                    end=end_date.strftime('%Y-%m-%d'),
+                    interval='1d',
+                    progress=False,
+                    show_errors=False,
+                    timeout=10
+                )
+                
+                if hist.empty:
+                    raise ValueError(f"No historical data found for {ticker}")
+                
+                return hist
+
+            # Try to fetch data with retries and longer waits
+            for attempt in range(3):
+                try:
+                    df = fetch_data()
+                    break
+                except Exception as e:
+                    if attempt == 2:  # Last attempt
+                        raise
+                    wait_time = (2 ** attempt) * 5  # 5s, 10s, 20s
+                    logger.warning(f"Attempt {attempt + 1} failed: {str(e)}. Retrying in {wait_time}s")
+                    sleep(wait_time)
             
             if df.empty:
                 logger.warning(f"No stock data found for {ticker}")
@@ -66,6 +82,19 @@ class StockNewsFetcher:
                 'Volume': 'volume'
             })
             
+            # Ensure all numeric columns are float
+            numeric_columns = ['open', 'high', 'low', 'close']
+            for col in numeric_columns:
+                df[col] = pd.to_numeric(df[col], errors='coerce')
+            
+            # Ensure volume is int
+            df['volume'] = pd.to_numeric(df['volume'], errors='coerce').fillna(0).astype(int)
+            
+            # Add some debug logging
+            logger.info(f"Successfully fetched data for {ticker}")
+            logger.info(f"Data shape: {df.shape}")
+            logger.info(f"Date range: {df['date'].min()} to {df['date'].max()}")
+            
             return df[['date', 'open', 'high', 'low', 'close', 'volume']]
             
         except Exception as e:
@@ -83,21 +112,25 @@ class StockNewsFetcher:
             if isinstance(end_date, str):
                 end_date = datetime.strptime(end_date, '%Y-%m-%d')
 
+            # Limit the date range to last 30 days for free API
+            today = datetime.now()
+            from_date = max(start_date, today - timedelta(days=30))
+            to_date = min(end_date, today)
+
             # Format dates for News API
-            from_date = start_date.strftime('%Y-%m-%d')
-            to_date = end_date.strftime('%Y-%m-%d')
+            from_param = from_date.strftime('%Y-%m-%d')
+            to_param = to_date.strftime('%Y-%m-%d')
 
             # Get news articles
-            news = self._retry_on_failure(
-                self.news_api.get_everything,
+            news = self.news_api.get_everything(
                 q=ticker,
-                from_param=from_date,
-                to=to_date,
+                from_param=from_param,
+                to=to_param,
                 language='en',
                 sort_by='publishedAt'
             )
 
-            if not news['articles']:
+            if not news or not news.get('articles'):
                 logger.warning(f"No news found for {ticker}")
                 return []
 
