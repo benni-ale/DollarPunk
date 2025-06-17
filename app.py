@@ -9,6 +9,8 @@ from pyspark.sql.types import DateType, TimestampType
 import sys
 import plotly.graph_objects as go
 import os
+from stock_news import StockNewsFetcher
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
@@ -176,6 +178,44 @@ def get_tables():
                 print(f"Errore nel caricare la tabella {table_name}: {str(e)}")
     
     return jsonify(tables)
+
+@app.route('/api/extract_data', methods=['POST'])
+def extract_data():
+    """Estrae nuovi dati per un ticker specifico"""
+    try:
+        ticker = request.json.get('ticker', '').upper()
+        days = int(request.json.get('days', 7))
+        
+        if not ticker:
+            return jsonify({'error': 'Ticker is required'}), 400
+            
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=days)
+        
+        # Format dates
+        start_str = start_date.strftime('%Y-%m-%d')
+        end_str = end_date.strftime('%Y-%m-%d')
+        
+        # Initialize fetcher
+        fetcher = StockNewsFetcher()
+        
+        # Get data
+        stock_data = fetcher.get_stock_data(ticker, start_str, end_str)
+        news_articles = fetcher.get_news(ticker, start_str, end_str)
+        
+        # Save to Delta Lake
+        fetcher.save_results(ticker, stock_data, news_articles)
+        
+        return jsonify({
+            'success': True,
+            'message': f'Data extracted successfully for {ticker}',
+            'period': f'from {start_str} to {end_str}'
+        })
+        
+    except Exception as e:
+        return jsonify({
+            'error': str(e)
+        }), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True) 

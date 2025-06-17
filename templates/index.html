@@ -91,6 +91,47 @@
             font-family: monospace;
             min-height: 100px;
         }
+        .data-extractor {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .form-control {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .status-message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
     </style>
 </head>
 <body>
@@ -133,6 +174,15 @@
                         <h5 class="mb-0">Table Catalog</h5>
                     </div>
                     <div class="card-body">
+                        <div class="data-extractor">
+                            <h3>Extract New Data</h3>
+                            <div class="form-group">
+                                <input type="text" id="extractTicker" placeholder="Enter ticker (e.g. AAPL)" class="form-control">
+                                <input type="number" id="extractDays" value="7" min="1" max="365" class="form-control" style="width: 100px;">
+                                <button onclick="extractData()" class="btn-primary">Extract Data</button>
+                            </div>
+                            <div id="extractStatus" class="status-message"></div>
+                        </div>
                         <div id="tableCatalog" class="table-catalog">
                             <!-- Le tabelle verranno caricate qui dinamicamente -->
                         </div>
@@ -251,6 +301,48 @@
 
         // Carica il catalogo delle tabelle all'avvio
         loadTableCatalog();
+
+        async function extractData() {
+            const ticker = document.getElementById('extractTicker').value.trim();
+            const days = parseInt(document.getElementById('extractDays').value);
+            const statusDiv = document.getElementById('extractStatus');
+            
+            if (!ticker) {
+                statusDiv.className = 'status-message status-error';
+                statusDiv.textContent = 'Please enter a ticker symbol';
+                return;
+            }
+            
+            try {
+                statusDiv.className = 'status-message';
+                statusDiv.textContent = 'Extracting data...';
+                
+                const response = await fetch('/api/extract_data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ ticker, days })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    statusDiv.className = 'status-message status-success';
+                    statusDiv.textContent = `${result.message} ${result.period}`;
+                    // Ricarica il catalogo e i dati
+                    loadTableCatalog();
+                    if (document.getElementById('ticker').value === ticker) {
+                        loadStockData();
+                    }
+                } else {
+                    throw new Error(result.error || 'Failed to extract data');
+                }
+            } catch (error) {
+                statusDiv.className = 'status-message status-error';
+                statusDiv.textContent = `Error: ${error.message}`;
+            }
+        }
     </script>
 </body>
 </html> 
