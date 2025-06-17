@@ -7,6 +7,75 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .main-content {
+            flex: 2;
+        }
+        .sidebar {
+            flex: 1;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        input {
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .table-catalog {
+            margin-top: 20px;
+        }
+        .table-item {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .table-item:hover {
+            background: #e9ecef;
+        }
+        .columns-list {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        #sqlQuery {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+        }
         .card {
             margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -59,6 +128,17 @@
             </div>
 
             <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Table Catalog</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="tableCatalog" class="table-catalog">
+                            <!-- Le tabelle verranno caricate qui dinamicamente -->
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0">Latest News</h5>
@@ -139,9 +219,38 @@
             });
         }
 
+        // Funzione per caricare il catalogo delle tabelle
+        async function loadTableCatalog() {
+            try {
+                const response = await fetch('/api/tables');
+                const tables = await response.json();
+                const catalogDiv = document.getElementById('tableCatalog');
+                
+                catalogDiv.innerHTML = tables.map(table => `
+                    <div class="table-item" onclick="insertTableName('${table.name}')">
+                        <strong>${table.name}</strong>
+                        <div class="columns-list">
+                            Columns: ${table.columns.join(', ')}
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading tables:', error);
+            }
+        }
+
+        // Funzione per inserire il nome della tabella nella query SQL
+        function insertTableName(tableName) {
+            const sqlQuery = document.getElementById('queryEditor');
+            sqlQuery.value = `select * from ${tableName}`;
+        }
+
         // Carica i dati iniziali
         document.getElementById('tickerInput').addEventListener('change', loadStockData);
         loadStockData();
+
+        // Carica il catalogo delle tabelle all'avvio
+        loadTableCatalog();
     </script>
 </body>
 </html> 

@@ -8,12 +8,14 @@ import json
 from pyspark.sql.types import DateType, TimestampType
 import sys
 import plotly.graph_objects as go
+import os
 
 app = Flask(__name__)
 
 # Inizializza Spark
 spark = (SparkSession.builder
     .appName("StockNewsViewer")
+    .config("spark.jars.packages", "io.delta:delta-core_2.12:2.4.0")
     .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
     .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
     .getOrCreate())
@@ -149,5 +151,31 @@ def execute_query():
             'success': False,
             'error': str(e)
         })
+
+@app.route('/api/tables')
+def get_tables():
+    """Ottiene la lista delle tabelle Delta disponibili"""
+    tables = []
+    data_dir = "data"
+    
+    # Cerca tutte le directory che contengono file _delta_log
+    for root, dirs, files in os.walk(data_dir):
+        if "_delta_log" in dirs:
+            table_name = os.path.basename(root)
+            try:
+                # Carica la tabella per ottenere lo schema
+                delta_table = DeltaTable.forPath(spark, root)
+                df = delta_table.toDF()
+                schema = df.schema.jsonValue()
+                tables.append({
+                    "name": table_name,
+                    "path": root,
+                    "columns": [field["name"] for field in schema["fields"]]
+                })
+            except Exception as e:
+                print(f"Errore nel caricare la tabella {table_name}: {str(e)}")
+    
+    return jsonify(tables)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True) 
