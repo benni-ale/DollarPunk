@@ -131,6 +131,34 @@ def main():
             )
             st.plotly_chart(fig_corr, use_container_width=True)
             
+            # Tabella interattiva dei dati raw
+            st.subheader("Raw Daily Stock Data")
+            # Filtro per ticker
+            tickers_for_table = st.multiselect(
+                "Select Tickers for Table:",
+                options=df['Ticker'].unique(),
+                default=df['Ticker'].unique(),
+                key="table_tickers"
+            )
+            # Filtro per intervallo di date
+            min_date = df['Date'].min()
+            max_date = df['Date'].max()
+            date_range = st.date_input(
+                "Select Date Range:",
+                value=(min_date, max_date),
+                min_value=min_date,
+                max_value=max_date,
+                key="table_dates"
+            )
+            filtered_table = df[
+                (df['Ticker'].isin(tickers_for_table)) &
+                (df['Date'] >= pd.to_datetime(date_range[0])) &
+                (df['Date'] <= pd.to_datetime(date_range[1]))
+            ]
+            # Mostra solo le colonne principali se esistono
+            main_cols = [c for c in ['Date', 'Ticker', 'Open', 'High', 'Low', 'Close', 'Volume'] if c in filtered_table.columns]
+            st.dataframe(filtered_table[main_cols].sort_values(['Ticker', 'Date']))
+            
     elif operation == "📰 Fetch News":
         st.header("Fetch Financial News")
         
