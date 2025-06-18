@@ -5,9 +5,12 @@ from datetime import datetime
 import glob
 from fetch_news import fetch_and_save_news
 from sentiment_analysis import process_json_file, load_finbert
+from fetch_historical_prices import main as fetch_historical_prices
 import pandas as pd
 import plotly.express as px
 import yfinance as yf
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 st.set_page_config(page_title="DollarPunk Dashboard", layout="wide")
 
@@ -42,10 +45,105 @@ def main():
     st.sidebar.title("Operations")
     operation = st.sidebar.radio(
         "Select Operation",
-        ["📰 Fetch News", "🎭 Analyze Sentiment", "📊 View Results", "📈 Compare Changes"]
+        ["📈 Historical Analysis", "📰 Fetch News", "🎭 Analyze Sentiment", "📊 View Results", "📈 Compare Changes"]
     )
     
-    if operation == "📰 Fetch News":
+    if operation == "📈 Historical Analysis":
+        st.header("Historical Price Analysis")
+        
+        col1, col2 = st.columns([3, 1])
+        with col2:
+            if st.button("🔄 Refresh Historical Data"):
+                with st.spinner('Fetching latest historical data...'):
+                    try:
+                        fetch_historical_prices()
+                        st.success("Historical data updated successfully!")
+                        st.rerun()
+                    except Exception as e:
+                        st.error(f"Error updating historical data: {str(e)}")
+        
+        # Check if historical data exists
+        hist_file = 'data/historical_prices.csv'
+        if not os.path.exists(hist_file):
+            st.warning("No historical data found. Click 'Refresh Historical Data' to fetch the data!")
+            return
+            
+        # Load historical data
+        df = pd.read_csv(hist_file)
+        df['Date'] = pd.to_datetime(df['Date'])
+        
+        # Sidebar controls
+        st.sidebar.subheader("Chart Controls")
+        selected_tickers = st.sidebar.multiselect(
+            "Select Stocks",
+            options=df['Ticker'].unique(),
+            default=df['Ticker'].unique()
+        )
+        
+        metrics = st.sidebar.multiselect(
+            "Select Metrics",
+            options=['Close', 'Volume', 'Daily_Return', 'Volatility', 'MA50', 'MA200', 'Volume_MA20'],
+            default=['Close', 'MA50', 'MA200']
+        )
+        
+        # Main chart
+        if selected_tickers and metrics:
+            filtered_df = df[df['Ticker'].isin(selected_tickers)]
+            
+            # Create figure with secondary y-axis
+            fig = make_subplots(
+                rows=len(metrics), 
+                cols=1,
+                shared_xaxes=True,
+                vertical_spacing=0.05,
+                subplot_titles=metrics
+            )
+            
+            for i, metric in enumerate(metrics, 1):
+                for ticker in selected_tickers:
+                    ticker_df = filtered_df[filtered_df['Ticker'] == ticker]
+                    fig.add_trace(
+                        go.Scatter(
+                            x=ticker_df['Date'],
+                            y=ticker_df[metric],
+                            name=f"{ticker} - {metric}",
+                            mode='lines'
+                        ),
+                        row=i,
+                        col=1
+                    )
+            
+            fig.update_layout(
+                height=300 * len(metrics),
+                showlegend=True,
+                title_text="Historical Analysis"
+            )
+            st.plotly_chart(fig, use_container_width=True)
+            
+            # Summary statistics
+            st.subheader("Summary Statistics")
+            summary = filtered_df.groupby('Ticker').agg({
+                'Close': ['last', 'mean', 'std', 'min', 'max'],
+                'Volume': 'mean',
+                'Daily_Return': ['mean', 'std'],
+                'Volatility': 'mean'
+            }).round(4)
+            
+            st.dataframe(summary)
+            
+            # Correlation matrix
+            st.subheader("Price Correlation Matrix")
+            pivot_df = filtered_df.pivot(index='Date', columns='Ticker', values='Close')
+            corr_matrix = pivot_df.corr()
+            
+            fig_corr = px.imshow(
+                corr_matrix,
+                labels=dict(color="Correlation"),
+                color_continuous_scale="RdBu"
+            )
+            st.plotly_chart(fig_corr, use_container_width=True)
+            
+    elif operation == "📰 Fetch News":
         st.header("Fetch Financial News")
         
         # Load and display current portfolio
