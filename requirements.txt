@@ -4,4 +4,6 @@ requests==2.31.0
 transformers==4.35.2
 torch==2.1.1
 tqdm==4.66.1
-streamlit==1.29.0 
+streamlit==1.29.0
+yfinance==0.2.36
+plotly==5.18.0 
