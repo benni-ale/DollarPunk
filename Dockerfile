@@ -16,7 +16,6 @@ RUN pip install --no-cache-dir \
     streamlit==1.29.0 \
     transformers==4.35.2 \
     plotly==5.18.0 \
-    yfinance==0.2.36 \
     pandas==2.1.4 \
     && pip install --no-cache-dir torch==2.1.1+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
 
@@ -26,8 +25,11 @@ COPY . .
 # Create data directory and ensure it's writable
 RUN mkdir -p data && chmod 777 data
 
+# Make start script executable
+RUN chmod +x start.sh
+
 # Expose Streamlit port
 EXPOSE 8501
 
-# Run Streamlit
-CMD ["streamlit", "run", "app.py", "--server.address", "0.0.0.0"] 
+# Run startup script
+CMD ["/app/start.sh"] 

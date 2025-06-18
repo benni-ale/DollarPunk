@@ -1,10 +1,10 @@
-import yfinance as yf
+import requests
 import pandas as pd
 import json
 from datetime import datetime, timedelta
 import os
 import time
-from requests.exceptions import RequestException
+from dotenv import load_dotenv
 
 def load_portfolio():
     """Load stock tickers from portfolio.json"""
@@ -13,80 +13,74 @@ def load_portfolio():
     return portfolio['stocks']
 
 def fetch_historical_data(ticker, start_date, end_date, max_retries=3):
-    """Fetch historical data for a single ticker with retries"""
+    """Fetch historical data for a single ticker with retries using FMP API"""
+    load_dotenv()
+    api_key = os.getenv('FMP_KEY')
+    if not api_key:
+        raise ValueError("FMP_KEY not found in .env file")
+
+    base_url = f"https://financialmodelingprep.com/api/v3/historical-price-full/{ticker}"
+    params = {
+        "apikey": api_key,
+        "serietype": "line"
+    }
     for attempt in range(max_retries):
         try:
-            # Add delay between attempts
             if attempt > 0:
                 time.sleep(2)
-            
             print(f"Attempt {attempt + 1} for {ticker}")
-            
-            # Initialize ticker with session
-            stock = yf.Ticker(ticker)
-            
-            # Force download of info to verify ticker validity
-            info = stock.info
-            if not info:
-                print(f"No info available for {ticker}, might be delisted")
+            response = requests.get(base_url, params=params)
+            response.raise_for_status()
+            data = response.json()
+            if 'historical' not in data or not data['historical']:
+                print(f"No data available for {ticker}")
                 return None
-            
-            # Get history with progress=False to avoid TQDM output
-            hist = stock.history(
-                start=start_date, 
-                end=end_date, 
-                interval='1d',
-                progress=False,
-                timeout=10
-            )
-            
-            if hist.empty:
-                print(f"No historical data available for {ticker}")
+            df = pd.DataFrame(data['historical'])
+            df['date'] = pd.to_datetime(df['date'])
+            df = df[(df['date'] >= start_date) & (df['date'] <= end_date)]
+            if df.empty:
+                print(f"No data in specified date range for {ticker}")
                 return None
-            
-            # Reset index to make Date a column
-            hist = hist.reset_index()
-            
-            # Add ticker column
-            hist['Ticker'] = ticker
-            
-            # Calculate daily returns
-            hist['Daily_Return'] = hist['Close'].pct_change()
-            
-            # Calculate volatility (20-day rolling standard deviation of returns)
-            hist['Volatility'] = hist['Daily_Return'].rolling(window=20).std()
-            
-            # Calculate moving averages
-            hist['MA50'] = hist['Close'].rolling(window=50).mean()
-            hist['MA200'] = hist['Close'].rolling(window=200).mean()
-            
-            # Calculate trading volume moving average
-            hist['Volume_MA20'] = hist['Volume'].rolling(window=20).mean()
-            
+            df = df.sort_values('date')
+            df['Ticker'] = ticker
+            # Rinomina solo le colonne che esistono
+            rename_map = {k: v for k, v in {
+                'date': 'Date',
+                'open': 'Open',
+                'high': 'High',
+                'low': 'Low',
+                'close': 'Close',
+                'volume': 'Volume'
+            }.items() if k in df.columns}
+            df.rename(columns=rename_map, inplace=True)
+            # Calcola metriche solo se le colonne esistono
+            if 'Close' in df.columns:
+                df['Daily_Return'] = df['Close'].pct_change()
+                df['Volatility'] = df['Daily_Return'].rolling(window=20).std()
+                df['MA50'] = df['Close'].rolling(window=50).mean()
+                df['MA200'] = df['Close'].rolling(window=200).mean()
+            if 'Volume' in df.columns:
+                df['Volume_MA20'] = df['Volume'].rolling(window=20).mean()
             print(f"Successfully fetched data for {ticker}")
-            return hist
-            
-        except Exception as e:
+            return df
+        except requests.exceptions.RequestException as e:
             print(f"Attempt {attempt + 1} failed for {ticker}: {str(e)}")
+            if attempt == max_retries - 1:
+                print(f"All attempts failed for {ticker}")
+                return None
+        except Exception as e:
+            print(f"Unexpected error for {ticker}: {str(e)}")
             if attempt == max_retries - 1:
                 print(f"All attempts failed for {ticker}")
                 return None
 
 def main():
-    # Create data directory if it doesn't exist
     os.makedirs('data', exist_ok=True)
-    
-    # Set date range (5 years from today)
     end_date = datetime.now()
     start_date = end_date - timedelta(days=5*365)
-    
-    # Load portfolio
     tickers = load_portfolio()
-    
-    # Fetch data for all tickers
     all_data = []
     failed_tickers = []
-    
     for ticker in tickers:
         print(f"\nFetching historical data for {ticker}...")
         hist_data = fetch_historical_data(ticker, start_date, end_date)
@@ -94,31 +88,24 @@ def main():
             all_data.append(hist_data)
         else:
             failed_tickers.append(ticker)
-    
+        time.sleep(0.5)
     if all_data:
-        # Combine all data
         combined_data = pd.concat(all_data, ignore_index=True)
-        
-        # Sort by Date and Ticker
         combined_data = combined_data.sort_values(['Date', 'Ticker'])
-        
-        # Save to CSV
         output_file = os.path.join('data', 'historical_prices.csv')
         combined_data.to_csv(output_file, index=False)
         print(f"\nHistorical data saved to {output_file}")
-        
-        # Save summary statistics
-        summary = combined_data.groupby('Ticker').agg({
+        # Calcola summary solo sulle colonne esistenti
+        summary_cols = {k: v for k, v in {
             'Close': ['last', 'mean', 'std', 'min', 'max'],
             'Volume': 'mean',
             'Daily_Return': ['mean', 'std'],
             'Volatility': 'mean'
-        }).round(4)
-        
+        }.items() if k in combined_data.columns}
+        summary = combined_data.groupby('Ticker').agg(summary_cols).round(4)
         summary_file = os.path.join('data', 'price_summary.json')
         summary.to_json(summary_file)
         print(f"Summary statistics saved to {summary_file}")
-        
         if failed_tickers:
             print(f"\nWarning: Failed to fetch data for: {', '.join(failed_tickers)}")
     else:

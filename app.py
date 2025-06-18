@@ -8,7 +8,6 @@ from sentiment_analysis import process_json_file, load_finbert
 from fetch_historical_prices import main as fetch_historical_prices
 import pandas as pd
 import plotly.express as px
-import yfinance as yf
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -51,21 +50,10 @@ def main():
     if operation == "📈 Historical Analysis":
         st.header("Historical Price Analysis")
         
-        col1, col2 = st.columns([3, 1])
-        with col2:
-            if st.button("🔄 Refresh Historical Data"):
-                with st.spinner('Fetching latest historical data...'):
-                    try:
-                        fetch_historical_prices()
-                        st.success("Historical data updated successfully!")
-                        st.rerun()
-                    except Exception as e:
-                        st.error(f"Error updating historical data: {str(e)}")
-        
         # Check if historical data exists
         hist_file = 'data/historical_prices.csv'
         if not os.path.exists(hist_file):
-            st.warning("No historical data found. Click 'Refresh Historical Data' to fetch the data!")
+            st.error("No historical data found! The data should be automatically updated when the container starts.")
             return
             
         # Load historical data
