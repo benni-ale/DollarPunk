@@ -1,0 +1,1121 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-18T10:43:53.403630",
+    "source_api": "NewsAPI",
+    "api_version": "v2",
+    "stocks_count": 5,
+    "total_articles": 50
+  },
+  "stocks": {
+    "TSLA": [
+      {
+        "source": {
+          "id": null,
+          "name": "Electrek"
+        },
+        "author": "Fred Lambert",
+        "title": "Tesla gears up to start selling Tesla Semi electric truck in Europe",
+        "description": "Tesla is gearing up to start selling its upcoming Tesla Semi electric truck in Europe with a new hire to develop the market.\n\n\n\n more…",
+        "url": "http://electrek.co/2025/06/17/tesla-start-selling-semi-electric-truck-europe/",
+        "urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2025/04/Tesla-Semi-factory-hero.png?resize=1200%2C628&quality=82&strip=all&ssl=1",
+        "publishedAt": "2025-06-17T07:46:51Z",
+        "content": "Tesla is gearing up to start selling its upcoming Tesla Semi electric truck in Europe with a new hire to develop the market.\r\nTesla Semi is finally about to go into volume production in the US after … [+3946 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "9f7fff5285f48ca0",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205488"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "New Atlas"
+        },
+        "author": "Joe Salas",
+        "title": "4-door grocery-getting cell phone EV sets Nürburgring record",
+        "description": "The company best known for churning out affordable smartphones and other consumer electronics – that may or may not be reporting back to the CCP – just made the fastest electric sedan on the planet to lap the famed Nürburgring Nordschleife racetrack.Continue …",
+        "url": "https://newatlas.com/automotive/xiaomi-su7-ultra-nurburgring-production-record/",
+        "urlToImage": "https://assets.newatlas.com/dims4/default/9609e44/2147483647/strip/true/crop/1500x788+0+97/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F06%2F40%2Fc5b1c83945d4aa689b35461d5c1a%2F1-xiaomi-su7-ultra-front-edit.jpg&na.image_optimisation=0",
+        "publishedAt": "2025-06-17T00:39:28Z",
+        "content": "The company best known for churning out affordable smartphones and other consumer electronics that may or may not be reporting back to the CCP just made the fastest electric sedan on the planet to la… [+3919 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "cf6dd3885b87e97c",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205511"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Utility Stocks To Keep An Eye On – June 15th",
+        "description": "Tesla, Berkshire Hathaway, Ford Motor, PG&E, and Eaton are the five Utility stocks to watch today, according to MarketBeat’s stock screener tool. Utility stocks are shares of companies that provide essential public services—such as electricity, natural gas, w…",
+        "url": "https://www.etfdailynews.com/2025/06/17/utility-stocks-to-keep-an-eye-on-june-15th/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/tesla-inc-logo-1200x675.png?v=20221020135629&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-17T06:02:49Z",
+        "content": "Tesla, Berkshire Hathaway, Ford Motor, PG&amp;E, and Eaton are the five Utility stocks to watch today, according to MarketBeat’s stock screener tool. Utility stocks are shares of companies that provi… [+5881 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "76fc12ba6c768579",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205517"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Digitimes"
+        },
+        "author": "Elaine Chen",
+        "title": "Powin files for bankruptcy due to supply chain crisis",
+        "description": "Powin, once a major player in the global energy storage market and a fierce competitor to Tesla and Fluence, has recently filed for bankruptcy under Chapter 11 of the US Bankruptcy Code at the District Court for the District of New Jersey",
+        "url": "https://www.digitimes.com/news/a20250613PD233/powin-energy-bankruptcy-energy-storage-us-china-trade-war.html",
+        "urlToImage": "https://img.digitimes.com/newsshow/20250613pd233_files/1_b.jpg",
+        "publishedAt": "2025-06-17T01:47:02Z",
+        "content": "Save my User ID and Password\r\nSome subscribers prefer to save their log-in information so they do not have to enter their User ID and Password each time they visit the site. To activate this function… [+307 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "1e6c2881f152526f",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205523"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Securityaffairs.com"
+        },
+        "author": "Pierluigi Paganini",
+        "title": "India-based car-sharing company Zoomcar suffered a data breach impacting 8.4M users",
+        "description": "Zoomcar disclosed a data breach impacting 8.4M users after attackers compromised its systems and contacted the company staff. Zoomcar is an India-based car-sharing and self-drive car rental company. Zoomcar discovered a data breach impacting 8.4M users after …",
+        "url": "https://securityaffairs.com/179058/data-breach/india-based-car-sharing-company-zoomcar-suffered-a-data-breach-impacting-8-4m-users.html",
+        "urlToImage": "https://securityaffairs.com/wp-content/uploads/2012/04/data-breach.jpg",
+        "publishedAt": "2025-06-17T07:42:40Z",
+        "content": "India-based car-sharing company Zoomcar suffered a data breach impacting 8.4M users\r\n | State-sponsored hackers compromised the email accounts of several Washington Post journalists\r\n | Law enforceme… [+173130 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "5481d0291b7ea3c8",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205530"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Mark A. Cohen, Contributor, \n Mark A. Cohen, Contributor\n https://www.forbes.com/sites/markcohen1/",
+        "title": "AI: The Partnership Model’s Coup De Grace And Enabler Of What’s Next",
+        "description": "AI will crater the partnership structure and its pyramidal economic model. It will also facilitate new models that better serve clients and greatly expand legal access.",
+        "url": "https://www.forbes.com/sites/markcohen1/2025/06/17/ai-the-partnership-models-coup-de-grace-and-enabler-of-whats-next/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/685026235b2ca92237dbb6bc/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-17T07:07:29Z",
+        "content": "Banking pyramids. A crisis. A pyramid of red brick with a native destroyed corner. Facing a pyramid ... More of notes of 1, 10, 50 and 100 US dollars. Digitally Generated Image. Isolated on white bac… [+31063 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "c0937a8fb232b3b9",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205535"
+        }
+      },
+      {
+        "source": {
+          "id": "the-times-of-india",
+          "name": "The Times of India"
+        },
+        "author": "Global Desk",
+        "title": "Elon Musk shares urine test results on X, responds with ‘Lol’",
+        "description": "Elon Musk publicly posted a full drug test report on X dated June 17, 2025, confirming negative results for all tested substances including amphetamines, cannabis, and opioids. The urine test, conducted by United States Drug Testing, was collected on June 11 …",
+        "url": "https://economictimes.indiatimes.com/news/international/us/elon-musk-shares-urine-test-results-on-x-responds-with-lol/articleshow/121906029.cms",
+        "urlToImage": "https://img.etimg.com/thumb/msid-121906201,width-1200,height-630,imgsize-52352,overlay-economictimes/articleshow.jpg",
+        "publishedAt": "2025-06-17T08:56:46Z",
+        "content": "Elon Musks drug test results show no controlled substances detected\r\nElon Musk posted a drug testing report to X on June 17, 2025, verifying a negative screening for a comprehensive list of controlle… [+1607 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "0adc6ed78a3d685d",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205541"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "International Business Times"
+        },
+        "author": "Paul RICARD",
+        "title": "Poll Finds Public Turning To AI Bots For News Updates",
+        "description": "People are increasingly turning to generative artificial intelligence chatbots like ChatGPT to follow day-to-day news, a respected media report published Tuesday found.",
+        "url": "https://www.ibtimes.com/poll-finds-public-turning-ai-bots-news-updates-3775917",
+        "urlToImage": "https://d.ibtimes.com/en/full/4605486/yearly-survey-reuters-institute-study-journalism-found-first-time-that-significant.jpg",
+        "publishedAt": "2025-06-17T10:06:18Z",
+        "content": "People are increasingly turning to generative artificial intelligence chatbots like ChatGPT to follow day-to-day news, a respected media report published Tuesday found.\r\nThe yearly survey from the Re… [+3033 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "0b7702103346b901",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205554"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Naturalnews.com"
+        },
+        "author": "Laura Harris",
+        "title": "Former USAID contracting officer, three corporate executives plead guilty to $550M federal contract bribery scheme",
+        "description": "Former USAID contracting officer Roderick Watson and three corporate executives pleaded guilty to a decade-long bribery scheme that secured over $550 million in federal contracts through corruption. The scheme involved Apprio, Inc. and PM Consulting Group LLC…",
+        "url": "https://www.naturalnews.com/2025-06-17-usaid-official-executives-plead-guilty-bribery-scheme.html",
+        "urlToImage": "https://www.naturalnews.com/wp-content/uploads/sites/91/2025/06/USAID-generic-image-12.jpg",
+        "publishedAt": "2025-06-17T06:00:00Z",
+        "content": "<ul><li>Former USAID contracting officer Roderick Watson and three corporate executives pleaded guilty to a decade-long bribery scheme that secured over $550 million in federal contracts through corr… [+5539 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "015bff0ff927bab8",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205567"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Biztoc.com"
+        },
+        "author": "barrons.com",
+        "title": "Tesla Stock Falls. Why Wall Street Is Split on Musk’s Robotaxi Launch",
+        "description": "",
+        "url": "https://biztoc.com/x/374f21729d6ad993",
+        "urlToImage": "https://biztoc.com/cdn/374f21729d6ad993_s.webp",
+        "publishedAt": "2025-06-17T08:29:00Z",
+        "content": "{ window.open(this.href, '_blank'); }, 200); return false;\"&gt;Why is the Senate passing crypto bill excluding Trump investments? { window.open(this.href, '_blank'); }, 200); return false;\"&gt;How wi… [+752 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "75ac4dc4efa326fe",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:48.205573"
+        }
+      }
+    ],
+    "AAPL": [
+      {
+        "source": {
+          "id": null,
+          "name": "Android Central"
+        },
+        "author": "nirave@hot.tech (Nirave Gondhia) , Nirave Gondhia",
+        "title": "Apple should ditch Siri for Gemini and Google Cloud, here's why",
+        "description": "Apple has faced numerous challenges with Apple Intelligence, and with Gemini so far ahead of the new Siri, here's why it's time for Apple to let Google do the hard work of building a chatbot.",
+        "url": "https://www.androidcentral.com/phones/apple-iphone/apple-should-ditch-siri-for-gemini-and-google-cloud-heres-why",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/S4NsoYm7QWdNXLMmer3dyR.png",
+        "publishedAt": "2025-06-17T07:00:00Z",
+        "content": "It’s been a year since Apple unveiled Apple Intelligence, its long-awaited foray into the world of artificial intelligence on phones. The company promised many features, but a year on, these have bee… [+8201 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "3249fdf8bc847582",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678353"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "AppleInsider"
+        },
+        "author": "news@appleinsider.com (William Gallagher)",
+        "title": "Brad Pitt and Tim Cook gatecrash 'Severance' event to promote 'F1'",
+        "description": "A Today at Apple session with the makers of Apple TV+ hit \"Severance\" was capped by a surprise visit from Tim Cook and Brad Pitt, as Apple's \"F1\" promotion tour continues to ramp up.Brad Pitt (left) and Tim Cook promoting \"F1\" at Apple Fifth Avenue — image cr…",
+        "url": "https://appleinsider.com/articles/25/06/17/brad-pitt-and-tim-cook-gatecrash-severance-event-to-promote-f1",
+        "urlToImage": "https://photos5.appleinsider.com/gallery/64046-133304-000-lead-iPadOS-windows-xl.jpg",
+        "publishedAt": "2025-06-17T10:31:38Z",
+        "content": "A Today at Apple session with the makers of Apple TV+ hit \"Severance\" was capped by a surprise visit from Tim Cook and Brad Pitt, as Apple's \"F1\" promotion tour continues to ramp up.\r\nDespite spendin… [+2275 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "fc9d77bc9e532533",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678368"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Android Authority"
+        },
+        "author": "Adamya Sharma",
+        "title": "Google just made an iPhone tease the Pixel 10 in its latest ‘Best Phones Forever’ ad",
+        "description": "Google has officially teased the Pixel 10 for the first time, but an iPhone is doing the talking.",
+        "url": "https://www.androidauthority.com/google-best-phones-forever-pixel-10-teaser-3568149/",
+        "urlToImage": "https://www.androidauthority.com/wp-content/uploads/2025/02/Google-Pixel-10-Pro-XL-Android-Headlines-scaled.jpg",
+        "publishedAt": "2025-06-17T07:16:16Z",
+        "content": "<ul><li>Google has teased the Pixel 10 for the first time in a new Best Phones Forever ad, but an iPhone is actually doing the marketing.</li><li>The ad pokes fun at Apples recently announced Pixel-i… [+2002 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "0a57860ecc53c511",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678372"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Phandroid - News for Android"
+        },
+        "author": "Tyler Lee",
+        "title": "iPhone 13 Price Drops to $289 (Unlocked, Refurbished)",
+        "description": "Unlocked iPhone 13 refurbished price drops to $289. Amazon Best Seller in renewed phones. Excellent condition. Limited stock.\nThe post iPhone 13 Price Drops to $289 (Unlocked, Refurbished) appeared first on Phandroid.",
+        "url": "https://phandroid.com/2025/06/17/iphone-13-price-drops-to-289-unlocked-refurbished/",
+        "urlToImage": "https://phandroid.com/wp-content/uploads/2021/10/How-to-SIM-Unlock-iPhone-13-4.jpg",
+        "publishedAt": "2025-06-17T10:28:55Z",
+        "content": "If youre shopping for an iPhone without paying top dollar, this deal is hard to beat. Right now, you can get the iPhone 13 (128GB, unlocked, refurbished) for just $289 on Amazon and it’s currently th… [+1527 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "a471d022265f012e",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678374"
+        }
+      },
+      {
+        "source": {
+          "id": "techradar",
+          "name": "TechRadar"
+        },
+        "author": "Roland Moore-Colyer",
+        "title": "I think the iPhone 17 will be boring, but iOS 26 could save it",
+        "description": "WWDC left me forecasting a boring iPhone 17, but here's why that doesn't matter one bit.",
+        "url": "https://www.techradar.com/phones/iphone/i-think-the-iphone-17-will-be-boring-but-ios-26-could-save-it",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/fYiknYQteLSt8emoFfNWNH.jpg",
+        "publishedAt": "2025-06-17T10:12:58Z",
+        "content": "I’d have placed a decent bet on Apple making a big deal about Apple Intelligence at WWDC this year, and from that I’d have predicted that the iPhone 17 would be Cupertino’s first proper AI phone.\r\nTh… [+3995 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "e8c6fb1230f85bca",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678377"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Android Authority"
+        },
+        "author": "Nick Fernandez",
+        "title": "These retro SEGA games are now free on Android until they disappear forever",
+        "description": "Classic Sonic, Shining Force, Crazy Taxi, and other SEGA titles are now free on Android, but they'll be disappearing soon.",
+        "url": "https://www.androidauthority.com/sega-retro-games-android-free-3568153/",
+        "urlToImage": "https://www.androidauthority.com/wp-content/uploads/2024/10/Sonic-the-Hedgehog-Classic-Android-game-scaled.jpg",
+        "publishedAt": "2025-06-17T09:04:18Z",
+        "content": "<ul><li>Nine retro SEGA games ported to mobile are now free without ads, but will lose support soon.</li><li>You can still download them, and they will likely remain in your account forever.</li><li>… [+1863 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "113f240ea1e9ac00",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678380"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "NPR"
+        },
+        "author": "Amelia Edelman",
+        "title": "10 ways travel insiders deal with annoying flight delays",
+        "description": "Clever advice on how to quickly rebook your flight, skip long lines and avoid flight issues in the future. One tip? Try queuing up for an agent in the airport lounge.",
+        "url": "https://www.npr.org/2025/06/17/nx-s1-5359391/flight-delay-flight-cancellation-rebook-ticket",
+        "urlToImage": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6000x3375+0+625/resize/1400/quality/100/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F99%2F09%2Fc1c20b8a41a790e08c606c071404%2Flk-travel-awry-gettyimages-2199142469.jpg",
+        "publishedAt": "2025-06-17T09:00:00Z",
+        "content": "Earlier this year, my partner, two kids and I got stuck in Los Angeles for three days. We were on a layover, trying to get to Hawaii for a family reunion. But the airline kept canceling our next flig… [+6318 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "76619775abfd65c6",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678383"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "redmondpie.com"
+        },
+        "author": "RP Staff",
+        "title": "9 Must-Try Stock Photography Sites For Creators",
+        "description": "Explore the best stock photography websites for creators. From free to premium, these top nine platforms offer high-quality, diverse visuals to boost your creative projects.\nThe post 9 Must-Try Stock Photography Sites For Creators first appeared on Redmond Pi…",
+        "url": "https://www.redmondpie.com/9-must-try-stock-photography-sites-for-creators/",
+        "urlToImage": "https://cdn.redmondpie.com/wp-content/uploads/2025/06/image_2025-06-17_012557738.png",
+        "publishedAt": "2025-06-17T00:38:52Z",
+        "content": "Explore the best stock photography websites for creators. From free to premium, these top nine platforms offer high-quality, diverse visuals to boost your creative projects.\r\nTop 9 Stock Photography … [+6481 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "bc0b37c748f27955",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678385"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Twistedsifter.com"
+        },
+        "author": "Heide Lazaro",
+        "title": "Customer Returned A Broken Laptop And Honestly Admitted What Had Happened, So This Man Bent The Rules To Help Her Out",
+        "description": "A little compassion can lead to the sweetest rewards... like brownies or something.",
+        "url": "http://twistedsifter.com/2025/06/customer-returned-a-broken-laptop-and-honestly-admitted-what-had-happened-so-this-man-bent-the-rules-to-help-her-out/",
+        "urlToImage": "https://twistedsifter.com/wp-content/uploads/2025/05/Twisted-Sifter-917.jpg",
+        "publishedAt": "2025-06-17T04:45:11Z",
+        "content": "Pexels/Reddit\r\nThere are still a lot of compassionate workers in retail.\r\nImagine being completely honest with a retail worker about why something was broken. How would you react if they helped you o… [+2318 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "d20792ae6d3c8eb7",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678395"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Securityaffairs.com"
+        },
+        "author": "Pierluigi Paganini",
+        "title": "India-based car-sharing company Zoomcar suffered a data breach impacting 8.4M users",
+        "description": "Zoomcar disclosed a data breach impacting 8.4M users after attackers compromised its systems and contacted the company staff. Zoomcar is an India-based car-sharing and self-drive car rental company. Zoomcar discovered a data breach impacting 8.4M users after …",
+        "url": "https://securityaffairs.com/179058/data-breach/india-based-car-sharing-company-zoomcar-suffered-a-data-breach-impacting-8-4m-users.html",
+        "urlToImage": "https://securityaffairs.com/wp-content/uploads/2012/04/data-breach.jpg",
+        "publishedAt": "2025-06-17T07:42:40Z",
+        "content": "India-based car-sharing company Zoomcar suffered a data breach impacting 8.4M users\r\n | State-sponsored hackers compromised the email accounts of several Washington Post journalists\r\n | Law enforceme… [+173130 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "5481d0291b7ea3c8",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:49.678398"
+        }
+      }
+    ],
+    "NVDA": [
+      {
+        "source": {
+          "id": null,
+          "name": "Tom's Hardware UK"
+        },
+        "author": "stephen.warwick@futurenet.com (Stephen Warwick) , Stephen Warwick",
+        "title": "Anthropic fires back at Nvidia CEO Jensen Huang, says it has never claimed only Anthropic can build safe and powerful AI",
+        "description": "Anthropic has hit back at claims made by Nvidia CEO Jensen Huang in which he said Anthropic thinks AI is so scary that only they should do it.",
+        "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-fires-back-at-nvidia-ceo-jensen-huang-says-it-has-never-claimed-only-anthropic-can-build-safe-and-powerful-ai",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/GqTjtJ88Bg3qrjTnUUjSm7.jpg",
+        "publishedAt": "2025-06-17T10:14:46Z",
+        "content": "Anthropic, the AI company behind popular (Large Language Model) LLM Claude, has hit back at comments made by Nvidia CEO Jensen Huang, in which he stated that Anthropic believes AI is so scary and exp… [+2327 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "1fa4a173ad64a53b",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241337"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Phandroid - News for Android"
+        },
+        "author": "Tyler Lee",
+        "title": "Nothing Phone 3 chipset confirmed: Snapdragon 8s Gen 4",
+        "description": "Nothing Phone 3 uses the Snapdragon 8s Gen 4, offering flagship-level performance with trimmed-down features like no 8K video or mmWave 5G.\nThe post Nothing Phone 3 chipset confirmed: Snapdragon 8s Gen 4 appeared first on Phandroid.",
+        "url": "https://phandroid.com/2025/06/17/nothing-phone-3-chipset-confirmed-snapdragon-8s-gen-4/",
+        "urlToImage": "https://phandroid.com/wp-content/uploads/2023/07/nothing-phone-2-1.jpg",
+        "publishedAt": "2025-06-17T10:13:21Z",
+        "content": "The Nothing Phone 3 chipset has reportedly been revealed, and its not Qualcomms best. According to leaker Yogesh Brar, the phone will pack the Snapdragon 8s Gen 4, not the top-tier Snapdragon 8 Elite… [+1221 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "e1026daf0604aa18",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241361"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Just-auto.com"
+        },
+        "author": "GlobalData",
+        "title": "Xpeng working to integrate advanced AI chips into VW cars in China",
+        "description": "The company is also engaged in discussions to provide chips to additional car manufacturers.",
+        "url": "https://www.just-auto.com/news/xpeng-turing-ai-chip-integration/",
+        "urlToImage": "https://s.yimg.com/ny/api/res/1.2/yoq_y5SF_fDbuP7eV.YYww--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/just_auto_187/6d7862dcb30fe111b0cc1aa744421e0a",
+        "publishedAt": "2025-06-17T10:21:32Z",
+        "content": "Chinese EV manufacturer Xpeng is reportedly working to integrate its self-developed AI chip into certain car models that Volkswagen (VW) plans to launch in China next year.\r\nXpeng expects that in add… [+3259 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "1b1530bb12f3ff11",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241367"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Digitimes"
+        },
+        "author": "Jingyue Hsiao",
+        "title": "Singapore sharpens sovereign AI edge as global competition intensifies",
+        "description": "The artificial intelligence (AI) wave led by Nvidia has continuously driven rapid development in data centers and advanced semiconductor supply chains in recent years. As Nvidia CEO Jensen Huang stated, the company is no longer just a chip design firm but an …",
+        "url": "https://www.digitimes.com/news/a20250617PD214/singapore-government-ai-policy-johor-digitimes.html",
+        "urlToImage": "https://img.digitimes.com/newsshow/20250617pd214_files/2_b.jpg",
+        "publishedAt": "2025-06-17T03:38:21Z",
+        "content": "Save my User ID and Password\r\nSome subscribers prefer to save their log-in information so they do not have to enter their User ID and Password each time they visit the site. To activate this function… [+307 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "0a0a3e077ca50766",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241371"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Naturalnews.com"
+        },
+        "author": "Laura Harris",
+        "title": "Micron expands U.S. investment to $200 billion amid Trump push to onshore semiconductor supply chains",
+        "description": "Micron Technology is increasing its domestic investment to $200 billion, including $150 billion for manufacturing, building a new chip fab in Idaho and expanding one in Virginia and $50 billion for R&D. The expansion includes advanced memory packaging and Hig…",
+        "url": "https://www.naturalnews.com/2025-06-17-micron-expands-us-investment-to-200-billion.html",
+        "urlToImage": "https://www.naturalnews.com/wp-content/uploads/sites/91/2025/06/Donald-Trump-Image-3.jpg",
+        "publishedAt": "2025-06-17T06:00:00Z",
+        "content": "<ul><li>Micron Technology is increasing its domestic investment to $200 billion, including $150 billion for manufacturing, building a new chip fab in Idaho and expanding one in Virginia and $50 billi… [+5715 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "6d0ef12952675771",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241376"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Teresa Ghilarducci, Senior Contributor, \n Teresa Ghilarducci, Senior Contributor\n https://www.forbes.com/sites/teresaghilarducci/",
+        "title": "The Myth Of The Free Market: Chris Hughes’ American Economic History",
+        "description": "He shatters the myth that free markets alone produced American prosperity. Instead, he chronicles a persistent, bipartisan tradition of “market crafting”",
+        "url": "https://www.forbes.com/sites/teresaghilarducci/2025/06/16/the-myth-of-the-free-market-chris-hughes-american-economic-history/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/6850b0e2ec52157f0d350f08/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-17T00:06:21Z",
+        "content": "(Original Caption) High Officials Attend Funeral of William Woodin. Vice President John Nance ... More Garner, (left), and Jesse Jones, Chairman of the Reconstruction Finance Corporation, pictured le… [+9093 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "61260d4ec9644cea",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241381"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Digitimes"
+        },
+        "author": "Levi Li",
+        "title": "China's AMEC eyes global lead with plan to double semiconductor equipment reach",
+        "description": "Advanced Micro-Fabrication Equipment Inc., China (AMEC) Chairman Gerald Yin announced that the company is entering a new strategic expansion phase. Over the next five to ten years, AMEC plans to double its share of the high-end semiconductor equipment market …",
+        "url": "https://www.digitimes.com/news/a20250617PD212/amec-equipment-production-metrology-expansion.html",
+        "urlToImage": "https://img.digitimes.com/newsshow/20250617pd212_files/2_b.jpg",
+        "publishedAt": "2025-06-17T02:18:31Z",
+        "content": "Save my User ID and Password\r\nSome subscribers prefer to save their log-in information so they do not have to enter their User ID and Password each time they visit the site. To activate this function… [+307 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "912c45081104352f",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241385"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "NVIDIA Co. (NASDAQ:NVDA) Stock Holdings Increased by Breakwater Capital Group",
+        "description": "Breakwater Capital Group grew its position in shares of NVIDIA Co. (NASDAQ:NVDA – Free Report) by 10.0% during the 1st quarter, according to the company in its most recent filing with the SEC. The firm owned 36,233 shares of the computer hardware maker’s stoc…",
+        "url": "https://www.etfdailynews.com/2025/06/17/nvidia-co-nasdaqnvda-stock-holdings-increased-by-breakwater-capital-group/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-17T08:38:49Z",
+        "content": "Breakwater Capital Group grew its position in shares of NVIDIA Co. (NASDAQ:NVDA – Free Report) by 10.0% during the 1st quarter, according to the company in its most recent filing with the SEC. The fi… [+5711 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "a90a244b927e6e64",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241390"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "NVIDIA Co. (NASDAQ:NVDA) Shares Acquired by Edge Wealth Management LLC",
+        "description": "Edge Wealth Management LLC grew its stake in shares of NVIDIA Co. (NASDAQ:NVDA – Free Report) by 29.0% in the 1st quarter, according to the company in its most recent 13F filing with the Securities and Exchange Commission (SEC). The institutional investor own…",
+        "url": "https://www.etfdailynews.com/2025/06/17/nvidia-co-nasdaqnvda-shares-acquired-by-edge-wealth-management-llc/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-17T08:38:51Z",
+        "content": "Edge Wealth Management LLC grew its stake in shares of NVIDIA Co. (NASDAQ:NVDA – Free Report) by 29.0% in the 1st quarter, according to the company in its most recent 13F filing with the Securities a… [+6035 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "1a4ba190d3adc9b2",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241394"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Charles Schwab Trust Co Sells 6,370 Shares of NVIDIA Co. (NASDAQ:NVDA)",
+        "description": "Charles Schwab Trust Co trimmed its holdings in shares of NVIDIA Co. (NASDAQ:NVDA – Free Report) by 26.9% in the 1st quarter, according to the company in its most recent disclosure with the Securities & Exchange Commission. The institutional investor owned 17…",
+        "url": "https://www.etfdailynews.com/2025/06/17/charles-schwab-trust-co-sells-6370-shares-of-nvidia-co-nasdaqnvda/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-17T08:38:52Z",
+        "content": "Charles Schwab Trust Co trimmed its holdings in shares of NVIDIA Co. (NASDAQ:NVDA – Free Report) by 26.9% in the 1st quarter, according to the company in its most recent disclosure with the Securitie… [+5879 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "5df97960de95e488",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:51.241399"
+        }
+      }
+    ],
+    "MSFT": [
+      {
+        "source": {
+          "id": null,
+          "name": "Slashdot.org"
+        },
+        "author": "BeauHD",
+        "title": "Google Cloud Caused Outage By Ignoring Its Usual Code Quality Protections",
+        "description": "Google Cloud has attributed last week's widespread outage to a flawed code update in its Service Control system that triggered a global crash loop due to missing error handling and lack of feature flag protection. The Register reports: Google's explanation of…",
+        "url": "https://tech.slashdot.org/story/25/06/16/2141250/google-cloud-caused-outage-by-ignoring-its-usual-code-quality-protections",
+        "urlToImage": "https://a.fsdn.com/sd/topics/cloud_64.png",
+        "publishedAt": "2025-06-17T00:50:00Z",
+        "content": "Google's explanation of the incident opens by informing readers that its APIs, and Google Cloud's, are served through our Google API management and control planes.\" Those two planes are distributed r… [+2189 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "99f573a77a2b19e5",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135336"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Zak Doffman, Contributor, \n Zak Doffman, Contributor\n https://www.forbes.com/sites/zakdoffman/",
+        "title": "Microsoft Confirms Windows Upgrade Choice—100 Day Deadline Nears",
+        "description": "Do not miss this deadline — you must act now.",
+        "url": "https://www.forbes.com/sites/zakdoffman/2025/06/17/microsoft-confirms-windows-upgrade-choice-100-day-deadline-nears/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/665fd748f52ec6750cddbbf1/0x0.jpg?format=jpg&crop=1087,613,x1774,y569,safe&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-17T04:11:09Z",
+        "content": "Users must act now as deadline nears.\r\nNurPhoto via Getty Images\r\nThe awkwardness of Microsofts multiple emergency updates to resolve failed installs continues, with yet another warning of a Windows … [+2686 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "08a1e60a4fb98c0b",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135358"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "PCWorld"
+        },
+        "author": "Mark Hachman",
+        "title": "Which CPU is best for your Copilot+ laptop? Intel vs AMD vs Snapdragon",
+        "description": "If you own a Windows 10 PC, now is a good time to consider the question: should I buy something to replace it before support expires this October? And if so, what?\r\n\n\n\n\nFor years, the choice between Intel and AMD was a toss-up. Both offered compelling options…",
+        "url": "https://www.pcworld.com/article/2806864/intel-vs-amd-vs-qualcomm-which-copilot-pc-cpu-is-best-for-you.html",
+        "urlToImage": "https://www.pcworld.com/wp-content/uploads/2025/06/pexels-waterhouse-3665444.jpg?quality=50&strip=all&w=1024",
+        "publishedAt": "2025-06-17T10:30:00Z",
+        "content": "Skip to contentType your search and hit enter\r\nWhen you purchase through links in our articles, we may earn a small commission. This doesn't affect our editorial independence\r\n.\r\nIf you own a Windows… [+10580 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "a415510f679feb3d",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135364"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Zak Doffman, Contributor, \n Zak Doffman, Contributor\n https://www.forbes.com/sites/zakdoffman/",
+        "title": "Millions Of Windows Users Get Microsoft’s Free Upgrade Offer",
+        "description": "Tens of millions suddenly upgrade — what to know.",
+        "url": "https://www.forbes.com/sites/zakdoffman/2025/06/17/millions-of-windows-users-get-microsofts-free-upgrade-offer/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/665fd748f52ec6750cddbbf1/0x0.jpg?format=jpg&crop=2276,1281,x624,y297,safe&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-17T08:38:45Z",
+        "content": "Millions of Windows users suddenly move\r\nNurPhoto via Getty Images\r\nWhat a difference two weeks makes. June started badly for Microsoft, with news that its all-important Windows 11 upgrades had flatl… [+2794 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "f6e877843cd058fd",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135371"
+        }
+      },
+      {
+        "source": {
+          "id": "business-insider",
+          "name": "Business Insider"
+        },
+        "author": "Dakin Campbell",
+        "title": "It sucks to live next to a data center",
+        "description": "As data centers crop up across Northern Virginia's sleepy suburbs, residents are divided over whether the noise and fumes outweigh the benefits.",
+        "url": "https://www.businessinsider.com/data-centers-northern-virginia-noise-air-pollution-cost-2025-5",
+        "urlToImage": "https://i.insider.com/6838ab286ffb6822ec61bf62?width=1200&format=jpeg",
+        "publishedAt": "2025-06-17T08:15:01Z",
+        "content": "An Amazon data center on the edge of Loudoun Meadows — one of many neighborhoods in northern Virginia witnessing data center development.Greg Kahn for BI\r\nMustafa Kaya thought he had found his perfec… [+22753 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "db13328cf72a42d0",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135376"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Infosecurity Magazine"
+        },
+        "author": "James Coker",
+        "title": "Microsoft Promises to Keep European Cloud Data in Europe",
+        "description": "Microsoft’s Sovereign Cloud solutions are designed to ensure European cloud data is stored and processed in Europe",
+        "url": "https://www.infosecurity-magazine.com/news/microsoft-european-cloud-data/",
+        "urlToImage": "https://assets.infosecurity-magazine.com/webpage/og/ab17fbcf-504b-4a5e-8d2a-520e29abdbc2.jpg",
+        "publishedAt": "2025-06-17T10:15:00Z",
+        "content": "Microsoft has vowed to ensure that European cloud data will be stored and processed in Europe after announcing a package of ‘Sovereign Cloud’ solutions.\r\nThese solutions will ensure European customer… [+3495 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "a017ce52b0855809",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135382"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Yahoo Entertainment"
+        },
+        "author": "Simply Wall St",
+        "title": "Discover 3 European Stocks Estimated To Trade Below Intrinsic Value By Up To 48.2%",
+        "description": "The European stock markets have recently experienced a downturn, with the pan-European STOXX Europe 600 Index falling 1.57% amid renewed uncertainty...",
+        "url": "https://finance.yahoo.com/news/discover-3-european-stocks-estimated-053747549.html",
+        "urlToImage": "https://media.zenfs.com/en/simply_wall_st__316/0fe4d5d105492213ce106a92b49639d4",
+        "publishedAt": "2025-06-17T05:37:47Z",
+        "content": "The European stock markets have recently experienced a downturn, with the pan-European STOXX Europe 600 Index falling 1.57% amid renewed uncertainty surrounding U.S. trade policy and escalating geopo… [+5198 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "8602afe6d1cff4b5",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135387"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Bernard Marr, Contributor, \n Bernard Marr, Contributor\n https://www.forbes.com/sites/bernardmarr/",
+        "title": "The 11 Best Online Courses To Master AI Agents",
+        "description": "AI agents represent the next major wave of digital transformation, capable of performing complex, multi-step tasks with minimal human intervention.",
+        "url": "https://www.forbes.com/sites/bernardmarr/2025/06/17/the-11-best-online-courses-to-master-ai-agents/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/6851030ce89bc888d249d5bd/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-17T05:55:27Z",
+        "content": "AI agents represent the next major wave of digital transformation, capable of performing complex, ... More multi-step tasks with minimal human intervention.\r\nAdobe Stock\r\nThe next big wave of digital… [+5759 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "0debc3dc44e484a7",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135391"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Michael Praeger, Forbes Councils Member, \n Michael Praeger, Forbes Councils Member\n https://www.forbes.com/councils/forbestechcouncil/people/michaelpraeger/",
+        "title": "Preparing For The CEO Role: Lessons From A Fintech Leader",
+        "description": "Over the course of my career, I’ve learned there’s no single roadmap to success. However, three key practices can strengthen leadership.",
+        "url": "https://www.forbes.com/councils/forbestechcouncil/2025/06/17/preparing-for-the-ceo-role-lessons-from-a-fintech-leader/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/6849f09e09dff13927f93cf3/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-17T10:30:00Z",
+        "content": "Michael Praeger is Cofounder and CEO of AvidXchange, a leading provider of accounts payable and payment automation technology.\r\ngetty\r\nThis year, AvidXchange celebrates its 25th anniversary, and I ce… [+3955 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "dee8dd12581a1be7",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135396"
+        }
+      },
+      {
+        "source": {
+          "id": "business-insider",
+          "name": "Business Insider"
+        },
+        "author": "Hannah Beckler,Rosemarie Ho,Narimes Parakul,Dakin Campbell",
+        "title": "How Business Insider investigated the true cost of data centers",
+        "description": "How Business Insider calculated data centers' true cost, from their electricity and water use to their impact on the environment and public health.",
+        "url": "https://www.businessinsider.com/how-calculate-data-center-cost-environmental-impact-methodology-2025-6",
+        "urlToImage": "https://i.insider.com/6841ebdb9d73a0031e8df915?width=1200&format=jpeg",
+        "publishedAt": "2025-06-17T08:13:01Z",
+        "content": "A data center under construction in Chandler, Arizona.Jesse Rieser for BI\r\nTech companies are spending hundreds of billions of dollars building data centers, racing to power an AI revolution they say… [+11889 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "31f261d48e2c1aec",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:52.135401"
+        }
+      }
+    ],
+    "GOOGL": [
+      {
+        "source": {
+          "id": null,
+          "name": "Android Central"
+        },
+        "author": "nirave@hot.tech (Nirave Gondhia) , Nirave Gondhia",
+        "title": "Apple should ditch Siri for Gemini and Google Cloud, here's why",
+        "description": "Apple has faced numerous challenges with Apple Intelligence, and with Gemini so far ahead of the new Siri, here's why it's time for Apple to let Google do the hard work of building a chatbot.",
+        "url": "https://www.androidcentral.com/phones/apple-iphone/apple-should-ditch-siri-for-gemini-and-google-cloud-heres-why",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/S4NsoYm7QWdNXLMmer3dyR.png",
+        "publishedAt": "2025-06-17T07:00:00Z",
+        "content": "It’s been a year since Apple unveiled Apple Intelligence, its long-awaited foray into the world of artificial intelligence on phones. The company promised many features, but a year on, these have bee… [+8201 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "3249fdf8bc847582",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402344"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Slashdot.org"
+        },
+        "author": "BeauHD",
+        "title": "Google Cloud Caused Outage By Ignoring Its Usual Code Quality Protections",
+        "description": "Google Cloud has attributed last week's widespread outage to a flawed code update in its Service Control system that triggered a global crash loop due to missing error handling and lack of feature flag protection. The Register reports: Google's explanation of…",
+        "url": "https://tech.slashdot.org/story/25/06/16/2141250/google-cloud-caused-outage-by-ignoring-its-usual-code-quality-protections",
+        "urlToImage": "https://a.fsdn.com/sd/topics/cloud_64.png",
+        "publishedAt": "2025-06-17T00:50:00Z",
+        "content": "Google's explanation of the incident opens by informing readers that its APIs, and Google Cloud's, are served through our Google API management and control planes.\" Those two planes are distributed r… [+2189 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "99f573a77a2b19e5",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402358"
+        }
+      },
+      {
+        "source": {
+          "id": "the-verge",
+          "name": "The Verge"
+        },
+        "author": "Jess Weatherbed",
+        "title": "OpenAI awarded $200 million US defense contract",
+        "description": "OpenAI is officially on the Pentagon’s payroll. The Department of Defence announced a $200 million contract with OpenAI to provide the US government with new artificial intelligence tools, including those used for proactive cyber defense. In a post outlining …",
+        "url": "https://www.theverge.com/news/688041/openai-us-defense-department-200-million-contract",
+        "urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STK155_OPEN_AI_2025_CVirgiia_C.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+        "publishedAt": "2025-06-17T09:35:46Z",
+        "content": "OpenAI will provide the DoD with AI tools for admin, data collection, and proactive cyber defense.\r\nOpenAI is officially on the Pentagons payroll. The Department of Defence announced a $200 million c… [+2393 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "604fbe843397abe1",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402361"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Variety"
+        },
+        "author": "John Gruber",
+        "title": "Trump Mobile — The President Launches a Mobile Carrier and a $500 ‘T1’ Android Phone",
+        "description": "President Trump and his family are getting into the wireless business, in partnership with the three major U.S. carriers.",
+        "url": "https://variety.com/2025/digital/news/trump-mobile-wireless-phone-service-launch-1236431690/",
+        "urlToImage": "https://variety.com/wp-content/uploads/2025/06/Donald-Trump.jpg?w=1000&h=563&crop=1",
+        "publishedAt": "2025-06-17T01:14:50Z",
+        "content": "President Trump and his family are getting into the wireless business, in partnership with the three major U.S. carriers.\r\nThe Trump Organization on Monday announced Trump Mobile, which will offer 5G… [+4175 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "362538f69d9b4337",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402364"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Android Authority"
+        },
+        "author": "Nick Fernandez",
+        "title": "These retro SEGA games are now free on Android until they disappear forever",
+        "description": "Classic Sonic, Shining Force, Crazy Taxi, and other SEGA titles are now free on Android, but they'll be disappearing soon.",
+        "url": "https://www.androidauthority.com/sega-retro-games-android-free-3568153/",
+        "urlToImage": "https://www.androidauthority.com/wp-content/uploads/2024/10/Sonic-the-Hedgehog-Classic-Android-game-scaled.jpg",
+        "publishedAt": "2025-06-17T09:04:18Z",
+        "content": "<ul><li>Nine retro SEGA games ported to mobile are now free without ads, but will lose support soon.</li><li>You can still download them, and they will likely remain in your account forever.</li><li>… [+1863 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "113f240ea1e9ac00",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402367"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Android Authority"
+        },
+        "author": "Joe Maring",
+        "title": "5 Android phones you should buy instead of Trump’s T1 Phone",
+        "description": "The Trump phone is real, and it's ... something. Before spending $499 on it, here are five other phones you should buy instead.",
+        "url": "https://www.androidauthority.com/android-phones-you-should-buy-instead-of-trump-t1-phone-3567827/",
+        "urlToImage": "https://www.androidauthority.com/wp-content/uploads/2025/06/trump-t1-phone-alternatives-hero.jpg",
+        "publishedAt": "2025-06-17T10:00:54Z",
+        "content": "Theres a new Android phone on the block, and its an interesting one. On June 16, the Trump Organization announced the T1 Phone. Its an Android phone part of the new Trump Mobile brand, described as a… [+9760 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "2bc02403f3a3cf5d",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402369"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Digiday"
+        },
+        "author": "Ronan Shields",
+        "title": "Ad Tech Briefing: The CMA tosses Google’s Privacy Sandbox a lifeline, as many declare it DOA",
+        "description": "Google Privacy Sandbox may be released from its market commitments by the CMA, just as it faces crunch regulatory rulings in the U.S.",
+        "url": "http://digiday.com/marketing/ad-tech-briefing-the-cma-tosses-googles-privacy-sandbox-a-lifeline-as-many-declare-it-doa/",
+        "urlToImage": "https://digiday.com/wp-content/uploads/sites/3/2021/01/Privacy_sandbox-02-01.jpg",
+        "publishedAt": "2025-06-17T04:01:00Z",
+        "content": "This Ad Tech Briefing covers the latest in ad tech and platforms for Digiday+ members and is distributed over email every Tuesday at 10 a.m. ET. More from the series →The U.K. Competition and Markets… [+4731 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "1497a2d6e9a28dc3",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402372"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Trefis Team, Contributor, \n Trefis Team, Contributor\n https://www.forbes.com/sites/greatspeculations/people/trefis/",
+        "title": "50% Downside For Coca-Cola Stock?",
+        "description": "Is KO stock currently overpriced, and is it possible that it could face a significant correction, perhaps by 25-30% or even 50% to below $40?",
+        "url": "https://www.forbes.com/sites/greatspeculations/2025/06/17/50-downside-for-coca-cola-stock/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/67fc91ce4a8d51327e0f7f24/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-17T10:30:41Z",
+        "content": "Coca Cola cans are pictured in a supermarket in Bayonne, New Jersey, on April 8, 2025. (Photo by ... More CHARLY TRIBALLEAU / AFP) (Photo by CHARLY TRIBALLEAU/AFP via Getty Images)\r\nAFP via Getty Ima… [+5011 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "d37e8c5239904e49",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402375"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Digiday"
+        },
+        "author": "Ronan Shields",
+        "title": "The DOJ faces growing calls to coordinate Google antitrust remedy efforts",
+        "description": "Movement for the Open Web calls on the Justice Department to merge technical committees and coordinate remedies in separate antitrust trials.",
+        "url": "http://digiday.com/media-buying/the-doj-faces-growing-calls-to-coordinate-google-antitrust-remedy-efforts/",
+        "urlToImage": "https://digiday.com/wp-content/uploads/sites/3/2024/09/google-scales-digiday.png",
+        "publishedAt": "2025-06-17T04:01:00Z",
+        "content": "Lobby group Movement for an Open Web has issued fresh calls for the Justice Department to coordinate its proposed remedies to address Googles monopolies in the ongoing separate search and ad tech cas… [+4728 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "609ec2bbcbab16a7",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402377"
+        }
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Trefis Team, Contributor, \n Trefis Team, Contributor\n https://www.forbes.com/sites/greatspeculations/people/trefis/",
+        "title": "AppLovin Stock: Worth It At $365?",
+        "description": "While the stock dropped nearly 57% from the peaks observed in early February 2025 following a report from a short-seller claiming...",
+        "url": "https://www.forbes.com/sites/greatspeculations/2025/06/17/applovin-stock-worth-it-at-365/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/67c000238dd3b1ad7c2cbecc/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-17T10:00:54Z",
+        "content": "The AppLovin Corporation logo appears on a smartphone screen in this illustration photo in Reno, ... More United States, on December 20, 2024. (Photo by Jaque Silva/NurPhoto via Getty Images)\r\nNurPho… [+7167 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "11a0f3be7f591a7b",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-18T10:43:53.402380"
+        }
+      }
+    ]
+  }
+}
