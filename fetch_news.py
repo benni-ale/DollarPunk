@@ -1,24 +1,14 @@
 import os
+import json
 from datetime import datetime, timedelta
 from newsapi import NewsApiClient
 from dotenv import load_dotenv
-import psycopg2
-from psycopg2.extras import execute_values
 
 # Load environment variables
 load_dotenv()
 
 # Initialize NewsAPI client
 newsapi = NewsApiClient(api_key=os.getenv('NEWS_API_KEY'))
-
-# Database connection parameters
-DB_PARAMS = {
-    'dbname': os.getenv('DB_NAME', 'dollarpunk'),
-    'user': os.getenv('DB_USER', 'postgres'),
-    'password': os.getenv('DB_PASSWORD'),
-    'host': os.getenv('DB_HOST', 'localhost'),
-    'port': os.getenv('DB_PORT', '5432')
-}
 
 def fetch_news():
     """
@@ -40,48 +30,33 @@ def fetch_news():
         print(f"Error fetching news: {e}")
         return []
 
-def store_news(articles):
+def save_news(articles):
     """
-    Store news articles in PostgreSQL database
+    Save news articles to a JSON file
     """
     if not articles:
-        print("No articles to store")
+        print("No articles to save")
         return
     
-    # Prepare data for insertion
-    values = [
-        (
-            article['title'],
-            article.get('description'),
-            article['url'],
-            article['publishedAt'],
-            article['source']['name']
-        )
-        for article in articles
-    ]
+    # Create data directory if it doesn't exist
+    os.makedirs('data', exist_ok=True)
     
-    # SQL query for inserting data
-    insert_query = """
-        INSERT INTO news_articles (title, description, url, published_at, source_name)
-        VALUES %s
-        ON CONFLICT DO NOTHING
-    """
+    # Generate filename with current timestamp
+    filename = f"data/news_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     
     try:
-        with psycopg2.connect(**DB_PARAMS) as conn:
-            with conn.cursor() as cur:
-                execute_values(cur, insert_query, values)
-            conn.commit()
-            print(f"Successfully stored {len(values)} articles")
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(articles, f, indent=2, ensure_ascii=False)
+        print(f"Successfully saved {len(articles)} articles to {filename}")
     except Exception as e:
-        print(f"Error storing articles in database: {e}")
+        print(f"Error saving articles to file: {e}")
 
 def main():
     # Fetch news articles
     articles = fetch_news()
     
-    # Store articles in database
-    store_news(articles)
+    # Save articles to JSON file
+    save_news(articles)
 
 if __name__ == "__main__":
     main() 

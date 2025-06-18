@@ -1,26 +1,9 @@
 version: '3.8'
 
 services:
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_DB: dollarpunk
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
-
   app:
     build: .
-    env_file: .env
+    volumes:
+      - ./data:/app/data
     environment:
-      DB_HOST: db
-      DB_NAME: dollarpunk
-      DB_USER: postgres
-      DB_PASSWORD: ${DB_PASSWORD}
-    depends_on:
-      - db
-
-volumes:
-  postgres_data: 
+      - NEWS_API_KEY=${NEWS_API_KEY} 
