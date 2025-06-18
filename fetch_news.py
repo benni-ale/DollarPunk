@@ -81,17 +81,18 @@ def fetch_stock_news(ticker, stock_info):
 
 def save_news_by_stock(all_articles):
     """
-    Save news articles organized by stock
+    Save news articles organized by stock and return the filename
     """
     if not all_articles:
         print("No articles to save")
-        return
+        return None
     
     # Create data directory if it doesn't exist
     os.makedirs('data', exist_ok=True)
     
     # Generate filename with current timestamp
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    filename = f"data/portfolio_news_{timestamp}.json"
     
     # Organize articles by stock
     news_by_stock = {}
@@ -114,7 +115,6 @@ def save_news_by_stock(all_articles):
     }
     
     # Save organized news
-    filename = f"data/portfolio_news_{timestamp}.json"
     try:
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(output_data, f, indent=2, ensure_ascii=False)
@@ -123,21 +123,25 @@ def save_news_by_stock(all_articles):
         # Print summary
         for ticker, articles in news_by_stock.items():
             print(f"{ticker}: {len(articles)} articles found")
+            
+        return filename
     except Exception as e:
         print(f"Error saving articles to file: {e}")
+        return None
 
-def main():
+def fetch_and_save_news():
+    """
+    Main function to fetch and save news, returns the filename where news was saved
+    """
     # Load portfolio and keywords
     portfolio = load_portfolio()
     keywords = load_keywords()
     
     if not portfolio:
-        print("No stocks found in portfolio!")
-        return
+        raise Exception("No stocks found in portfolio!")
     
     if not keywords:
-        print("No keywords found!")
-        return
+        raise Exception("No keywords found!")
     
     # Fetch news for each stock in portfolio
     all_articles = []
@@ -150,7 +154,10 @@ def main():
             print(f"No keywords found for {ticker}, skipping...")
     
     # Save all articles organized by stock
-    save_news_by_stock(all_articles)
+    filename = save_news_by_stock(all_articles)
+    if not filename:
+        raise Exception("Failed to save news articles")
+    return filename
 
 if __name__ == "__main__":
-    main() 
+    fetch_and_save_news() 

@@ -3,7 +3,18 @@ version: '3.8'
 services:
   app:
     build: .
+    ports:
+      - "8501:8501"
     volumes:
       - ./data:/app/data
+      - ./portfolio.json:/app/portfolio.json
+      - ./keywords.json:/app/keywords.json
     environment:
-      - NEWS_API_KEY=${NEWS_API_KEY} 
+      - NEWS_API_KEY=${NEWS_API_KEY}
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 12G
+        reservations:
+          memory: 8G 
