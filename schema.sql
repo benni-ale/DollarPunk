@@ -14,16 +14,19 @@ CREATE TABLE IF NOT EXISTS stocks (
 CREATE INDEX IF NOT EXISTS idx_stocks_ticker ON stocks(ticker);
 CREATE INDEX IF NOT EXISTS idx_stocks_date ON stocks(date);
 
-CREATE TABLE IF NOT EXISTS news (
+-- Drop table if exists
+DROP TABLE IF EXISTS news;
+
+-- Create table for news articles
+CREATE TABLE IF NOT EXISTS news_articles (
     id SERIAL PRIMARY KEY,
-    ticker VARCHAR(10) NOT NULL,
     title TEXT NOT NULL,
     description TEXT,
     url TEXT,
-    published_at TIMESTAMP,
-    source VARCHAR(100),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    published_at TIMESTAMP WITH TIME ZONE,
+    source_name TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX IF NOT EXISTS idx_news_ticker ON news(ticker);
-CREATE INDEX IF NOT EXISTS idx_news_published_at ON news(published_at); 
+-- Create index on published_at for better query performance
+CREATE INDEX IF NOT EXISTS idx_news_published_at ON news_articles(published_at); 
