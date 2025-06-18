@@ -1,0 +1,63 @@
+{
+  "TSLA": {
+    "company": "Tesla",
+    "keywords": [
+      "Tesla",
+      "Elon Musk",
+      "Tesla Motors",
+      "Cybertruck",
+      "Model S",
+      "Model 3",
+      "Model Y",
+      "Tesla Autopilot"
+    ]
+  },
+  "AAPL": {
+    "company": "Apple",
+    "keywords": [
+      "Apple",
+      "iPhone",
+      "Tim Cook",
+      "MacBook",
+      "iOS",
+      "App Store",
+      "Apple Vision Pro"
+    ]
+  },
+  "NVDA": {
+    "company": "NVIDIA",
+    "keywords": [
+      "NVIDIA",
+      "Jensen Huang",
+      "GPU",
+      "GeForce",
+      "AI chips",
+      "semiconductor",
+      "CUDA"
+    ]
+  },
+  "MSFT": {
+    "company": "Microsoft",
+    "keywords": [
+      "Microsoft",
+      "Satya Nadella",
+      "Windows",
+      "Azure",
+      "Xbox",
+      "Office 365",
+      "Teams"
+    ]
+  },
+  "GOOGL": {
+    "company": "Google",
+    "keywords": [
+      "Google",
+      "Alphabet",
+      "Sundar Pichai",
+      "Android",
+      "Chrome",
+      "Google Cloud",
+      "YouTube"
+    ]
+  }
+} 
