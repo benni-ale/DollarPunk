@@ -113,7 +113,6 @@ def main():
             st.subheader("Summary Statistics")
             summary = filtered_df.groupby('Ticker').agg({
                 'Close': ['last', 'mean', 'std', 'min', 'max'],
-                'Volume': 'mean',
                 'Daily_Return': ['mean', 'std'],
                 'Volatility': 'mean'
             }).round(4)
@@ -157,7 +156,7 @@ def main():
                 (df['Date'] <= pd.to_datetime(date_range[1]))
             ]
             # Mostra solo le colonne principali se esistono
-            main_cols = [c for c in ['Date', 'Ticker', 'Open', 'High', 'Low', 'Close', 'Volume'] if c in filtered_table.columns]
+            main_cols = [c for c in ['Date', 'Ticker', 'Open', 'High', 'Low', 'Close'] if c in filtered_table.columns]
             st.dataframe(filtered_table[main_cols].sort_values(['Ticker', 'Date']))
             
     elif operation == "📰 Fetch News":
