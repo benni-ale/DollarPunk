@@ -375,11 +375,21 @@ def main():
                 details = log.get('details', {})
                 # Estrai output_file se presente
                 output_file = details.get('output_file', '') if isinstance(details, dict) else ''
+                # Ottieni la data/ora di creazione del file di output
+                output_file_time = ''
+                if output_file and os.path.exists(output_file):
+                    try:
+                        ts_file = os.path.getmtime(output_file)
+                        dt_file = datetime.fromtimestamp(ts_file, tz=ZoneInfo('Europe/Rome'))
+                        output_file_time = dt_file.strftime('%Y-%m-%d %H:%M:%S')
+                    except Exception:
+                        output_file_time = ''
                 log_data.append({
                     'Time': timestamp,
                     'Status': f"{status_emoji} {log.get('status', 'unknown')}",
                     'Script': log.get('script', 'unknown'),
                     'Output File': output_file,
+                    'Output File Time': output_file_time,
                     'Details': str(details),
                     'Error': log.get('error', '')
                 })
@@ -406,10 +416,21 @@ def main():
                             'failed': '🔴'
                         }.get(log.get('status', ''), '❓')
                         
+                        # Ottieni la data/ora di creazione del file di output
+                        output_file = log.get('details', {{}}).get('output_file', '') if isinstance(log.get('details', {{}}), dict) else ''
+                        output_file_time = ''
+                        if output_file and os.path.exists(output_file):
+                            try:
+                                ts_file = os.path.getmtime(output_file)
+                                dt_file = datetime.fromtimestamp(ts_file, tz=ZoneInfo('Europe/Rome'))
+                                output_file_time = dt_file.strftime('%Y-%m-%d %H:%M:%S')
+                            except Exception:
+                                output_file_time = ''
                         filtered_data.append({
                             'Time': timestamp,
                             'Status': f"{status_emoji} {log.get('status', 'unknown')}",
-                            'Output File': log.get('details', {{}}).get('output_file', '') if isinstance(log.get('details', {{}}), dict) else '',
+                            'Output File': output_file,
+                            'Output File Time': output_file_time,
                             'Details': str(log.get('details', {{}})),
                             'Error': log.get('error', '')
                         })
