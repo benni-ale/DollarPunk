@@ -86,5 +86,28 @@
       "failed_tickers": []
     },
     "error": null
+  },
+  {
+    "timestamp": "2025-06-19T14:46:13.592509",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T14:46:21.860794",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
   }
 ]

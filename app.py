@@ -157,7 +157,7 @@ def main():
             ]
             # Mostra solo le colonne principali se esistono
             main_cols = [c for c in ['Date', 'Ticker', 'Open', 'High', 'Low', 'Close'] if c in filtered_table.columns]
-            st.dataframe(filtered_table[main_cols].sort_values(['Ticker', 'Date']))
+            st.dataframe(filtered_table[main_cols].sort_values(['Ticker', 'Date']), use_container_width=True, height=500)
             
     elif operation == "📰 Fetch News":
         st.header("Fetch Financial News")
@@ -338,7 +338,7 @@ def main():
                 })
             
             script_df = pd.DataFrame(script_data)
-            st.dataframe(script_df, use_container_width=True)
+            st.dataframe(script_df, use_container_width=True,  height=300)
         else:
             st.info("No execution logs found yet. Run some scripts to see statistics here!")
         
@@ -366,7 +366,7 @@ def main():
                 })
             
             log_df = pd.DataFrame(log_data)
-            st.dataframe(log_df, use_container_width=True)
+            st.dataframe(log_df, use_container_width=True, height=400)
             
             # Filter by script
             st.subheader("🔍 Filter Logs by Script")
