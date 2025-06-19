@@ -3,7 +3,7 @@ import json
 import os
 from datetime import datetime
 import glob
-from fetch_news import fetch_and_save_news
+from fetch_news import fetch_and_save_news, fetch_and_save_news_custom
 from sentiment_analysis import process_json_file, load_finbert
 from fetch_historical_prices import main as fetch_historical_prices
 import pandas as pd
@@ -166,18 +166,70 @@ def main():
     elif operation == "📰 Fetch News":
         st.header("Fetch Financial News")
         
-        # Load and display current portfolio
+        # Carica portfolio e keywords
+        portfolio = []
         if os.path.exists('portfolio.json'):
-            portfolio = load_json_file('portfolio.json')
-            st.write("Current Portfolio Stocks:", ", ".join(portfolio))
-        
-        if st.button("🚀 Fetch Latest News"):
+            portfolio = load_json_file('portfolio.json').get('stocks', [])
+        # Placeholder: keyword suggerite da LLM (qui statiche, poi puoi collegare a LLM)
+        llm_suggested_keywords = ["AI", "earnings", "merger", "dividend"]
+        if 'custom_query_bar' not in st.session_state:
+            st.session_state['custom_query_bar'] = ''
+        # UI: barra centrale
+        st.markdown("<div style='text-align:center'><h3>Query User</h3></div>", unsafe_allow_html=True)
+        # Barra di ricerca centrale
+        custom_query = st.text_input(
+            "Search financial news (tickers, keywords, free text)",
+            value=st.session_state['custom_query_bar'],
+            key="custom_query_bar_input",
+            placeholder="e.g. TSLA, Apple, AI chips, ...",
+            help="Type anything: ticker, keyword, phrase..."
+        )
+        # Multiselect tickers (opzionale, compatto)
+        selected_tickers = st.multiselect(
+            "Portfolio stocks (optional):",
+            options=portfolio,
+            default=[],
+            help="Restrict the search to one or more stocks",
+            max_selections=5
+        )
+        # Keyword suggerite (max 4, una sola riga, cliccabili)
+        st.caption("Suggested keywords (AI):")
+        kw_cols = st.columns(len(llm_suggested_keywords))
+        for i, kw in enumerate(llm_suggested_keywords):
+            if kw_cols[i].button(kw, key=f"llm_kw_{kw}"):
+                if kw.lower() not in custom_query.lower():
+                    if custom_query.strip():
+                        st.session_state['custom_query_bar'] = custom_query.strip() + ", " + kw
+                    else:
+                        st.session_state['custom_query_bar'] = kw
+                    st.experimental_rerun()
+        # Componi la query finale
+        composed_query = custom_query
+        if selected_tickers:
+            composed_query = ', '.join(selected_tickers) + (', ' + custom_query if custom_query.strip() else '')
+        # Bottoni sulla stessa linea, centrati
+        btn_col1, btn_col2, _ = st.columns([1,1,2])
+        with btn_col1:
+            fetch_btn = st.button("🚀 Fetch Latest News (Portfolio)")
+        with btn_col2:
+            search_btn = st.button("🔎 Search News by Custom Query")
+        # Azioni bottoni
+        if fetch_btn:
             with st.spinner('Fetching news...'):
                 try:
                     output_file = fetch_and_save_news()
                     st.success(f"News fetched successfully! Saved to: {output_file}")
                 except Exception as e:
                     st.error(f"Error fetching news: {str(e)}")
+        if search_btn and composed_query.strip():
+            with st.spinner('Fetching news for your custom query...'):
+                try:
+                    output_file = fetch_and_save_news_custom(composed_query)
+                    st.success(f"News fetched successfully! Saved to: {output_file}")
+                except Exception as e:
+                    st.error(f"Error fetching news: {str(e)}")
+        # Query composta in piccolo sotto i bottoni
+        st.markdown(f"<div style='text-align:center; font-size:0.9em; color:gray;'>Composed Query: <code>{composed_query}</code></div>", unsafe_allow_html=True)
     
     elif operation == "🎭 Analyze Sentiment":
         st.header("Sentiment Analysis")

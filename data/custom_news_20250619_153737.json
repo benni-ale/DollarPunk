@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-19T15:37:37.268863",
+    "source_api": "NewsAPI",
+    "api_version": "v2",
+    "query": "GOOGL",
+    "total_articles": 10
+  },
+  "articles": [
+    {
+      "source": {
+        "id": null,
+        "name": "Forbes"
+      },
+      "author": "Brett Owens, Contributor, \n Brett Owens, Contributor\n https://www.forbes.com/sites/brettowens/",
+      "title": "3 Big AI Dividends Cashing In On The Next Big Leap",
+      "description": "Still wondering if AI will replace human workers? Well, you can stop. Because it’s already happening—and boosting corporate profits (and AI dividends!) as it does.",
+      "url": "https://www.forbes.com/sites/brettowens/2025/06/18/3-big-ai-dividends-cashing-in-on-the-next-big-leap/",
+      "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/660c2583330b28ea4166d7da/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+      "publishedAt": "2025-06-18T13:58:00Z",
+      "content": "Young Asian couple managing finance and investment online, analyzing stock market trades with mobile ... More app on laptop and smartphone. Making financial plans. Banking and finance, investment, fi… [+5262 chars]",
+      "id": "2d098227c8348eb9",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266784",
+        "custom_query": "GOOGL"
+      }
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ETF Daily News"
+      },
+      "author": "MarketBeat News",
+      "title": "Conway Capital Management Inc. Has $3.94 Million Holdings in Alphabet Inc. (NASDAQ:GOOGL)",
+      "description": "Conway Capital Management Inc. cut its holdings in Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 1.4% during the 1st quarter, according to the company in its most recent disclosure with the SEC. The firm owned 25,465 shares of the information services provide…",
+      "url": "https://www.etfdailynews.com/2025/06/18/conway-capital-management-inc-has-3-94-million-holdings-in-alphabet-inc-nasdaqgoogl/",
+      "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/google-inc-logo-1200x675.png&w=240&h=240&zc=2",
+      "publishedAt": "2025-06-18T08:44:52Z",
+      "content": "Conway Capital Management Inc. cut its holdings in Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 1.4% during the 1st quarter, according to the company in its most recent disclosure with the SEC. The … [+6163 chars]",
+      "id": "f1d65336c8f1a212",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266814",
+        "custom_query": "GOOGL"
+      }
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ETF Daily News"
+      },
+      "author": "MarketBeat News",
+      "title": "Hanson & Doremus Investment Management Cuts Position in Alphabet Inc. (NASDAQ:GOOGL)",
+      "description": "Hanson & Doremus Investment Management reduced its position in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 0.4% in the 1st quarter, Holdings Channel.com reports. The institutional investor owned 36,408 shares of the information services provider’s…",
+      "url": "https://www.etfdailynews.com/2025/06/18/hanson-doremus-investment-management-cuts-position-in-alphabet-inc-nasdaqgoogl/",
+      "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/google-inc-logo-1200x675.png&w=240&h=240&zc=2",
+      "publishedAt": "2025-06-18T08:45:03Z",
+      "content": "Hanson &amp; Doremus Investment Management reduced its position in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 0.4% in the 1st quarter, Holdings Channel.com reports. The institutional inv… [+6034 chars]",
+      "id": "038e403a8350e872",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266821",
+        "custom_query": "GOOGL"
+      }
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ETF Daily News"
+      },
+      "author": "MarketBeat News",
+      "title": "Stillwater Capital Advisors LLC Has $24.37 Million Holdings in Alphabet Inc. (NASDAQ:GOOGL)",
+      "description": "Stillwater Capital Advisors LLC boosted its stake in Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 0.3% in the 1st quarter, according to the company in its most recent 13F filing with the Securities & Exchange Commission. The firm owned 157,562 shares of the …",
+      "url": "https://www.etfdailynews.com/2025/06/18/stillwater-capital-advisors-llc-has-24-37-million-holdings-in-alphabet-inc-nasdaqgoogl/",
+      "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/google-inc-logo-1200x675.png&w=240&h=240&zc=2",
+      "publishedAt": "2025-06-18T08:44:59Z",
+      "content": "Stillwater Capital Advisors LLC boosted its stake in Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 0.3% in the 1st quarter, according to the company in its most recent 13F filing with the Securities … [+6427 chars]",
+      "id": "0b77571ae3e9c090",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266826",
+        "custom_query": "GOOGL"
+      }
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ETF Daily News"
+      },
+      "author": "MarketBeat News",
+      "title": "Trust Point Inc. Has $5.95 Million Position in Alphabet Inc. (NASDAQ:GOOGL)",
+      "description": "Trust Point Inc. decreased its stake in Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 27.4% in the 1st quarter, HoldingsChannel reports. The institutional investor owned 38,450 shares of the information services provider’s stock after selling 14,488 shares du…",
+      "url": "https://www.etfdailynews.com/2025/06/18/trust-point-inc-has-5-95-million-position-in-alphabet-inc-nasdaqgoogl/",
+      "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/google-inc-logo-1200x675.png&w=240&h=240&zc=2",
+      "publishedAt": "2025-06-18T09:29:03Z",
+      "content": "Trust Point Inc. decreased its stake in Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 27.4% in the 1st quarter, HoldingsChannel reports. The institutional investor owned 38,450 shares of the informat… [+6434 chars]",
+      "id": "dcd82928b616b675",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266832",
+        "custom_query": "GOOGL"
+      }
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ETF Daily News"
+      },
+      "author": "MarketBeat News",
+      "title": "Citadel Investment Advisory Inc. Boosts Position in Alphabet Inc. (NASDAQ:GOOGL)",
+      "description": "Citadel Investment Advisory Inc. increased its stake in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 2.7% during the 1st quarter, Holdings Channel.com reports. The fund owned 51,060 shares of the information services provider’s stock after purchasi…",
+      "url": "https://www.etfdailynews.com/2025/06/18/citadel-investment-advisory-inc-boosts-position-in-alphabet-inc-nasdaqgoogl/",
+      "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/google-inc-logo-1200x675.png&w=240&h=240&zc=2",
+      "publishedAt": "2025-06-18T08:44:58Z",
+      "content": "Citadel Investment Advisory Inc. increased its stake in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 2.7% during the 1st quarter, Holdings Channel.com reports. The fund owned 51,060 shares… [+6700 chars]",
+      "id": "867d172a2c514c35",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266837",
+        "custom_query": "GOOGL"
+      }
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ETF Daily News"
+      },
+      "author": "MarketBeat News",
+      "title": "Alphabet Inc. (NASDAQ:GOOGL) is Forefront Wealth Management Inc.’s 10th Largest Position",
+      "description": "Forefront Wealth Management Inc. reduced its stake in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 1.3% in the first quarter, according to its most recent disclosure with the Securities and Exchange Commission. The firm owned 23,894 shares of the i…",
+      "url": "https://www.etfdailynews.com/2025/06/18/alphabet-inc-nasdaqgoogl-is-forefront-wealth-management-inc-s-10th-largest-position/",
+      "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/google-inc-logo-1200x675.png&w=240&h=240&zc=2",
+      "publishedAt": "2025-06-18T08:44:52Z",
+      "content": "Forefront Wealth Management Inc. reduced its stake in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 1.3% in the first quarter, according to its most recent disclosure with the Securities an… [+5985 chars]",
+      "id": "1bfcb7e09c5e775b",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266842",
+        "custom_query": "GOOGL"
+      }
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ETF Daily News"
+      },
+      "author": "MarketBeat News",
+      "title": "Christensen King & Associates Investment Services Inc. Sells 103 Shares of Alphabet Inc. (NASDAQ:GOOGL)",
+      "description": "Christensen King & Associates Investment Services Inc. cut its position in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 7.5% in the first quarter, according to the company in its most recent disclosure with the SEC. The institutional investor owned…",
+      "url": "https://www.etfdailynews.com/2025/06/18/christensen-king-associates-investment-services-inc-sells-103-shares-of-alphabet-inc-nasdaqgoogl/",
+      "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/google-inc-logo-1200x675.png&w=240&h=240&zc=2",
+      "publishedAt": "2025-06-18T08:45:03Z",
+      "content": "Christensen King &amp; Associates Investment Services Inc. cut its position in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 7.5% in the first quarter, according to the company in its most … [+6265 chars]",
+      "id": "339c3c6a92cd9cdb",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266861",
+        "custom_query": "GOOGL"
+      }
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ETF Daily News"
+      },
+      "author": "MarketBeat News",
+      "title": "Top Infrastructure Stocks To Consider – June 16th",
+      "description": "NVIDIA, Oracle, Broadcom, Alphabet, Coinbase Global, Quantum Computing, and Marvell Technology are the seven Infrastructure stocks to watch today, according to MarketBeat’s stock screener tool. Infrastructure stocks are equity shares in companies that develop…",
+      "url": "https://www.etfdailynews.com/2025/06/18/top-infrastructure-stocks-to-consider-june-16th/",
+      "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+      "publishedAt": "2025-06-18T09:06:56Z",
+      "content": "NVIDIA, Oracle, Broadcom, Alphabet, Coinbase Global, Quantum Computing, and Marvell Technology are the seven Infrastructure stocks to watch today, according to MarketBeat’s stock screener tool. Infra… [+8370 chars]",
+      "id": "50df551f9413c09d",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266867",
+        "custom_query": "GOOGL"
+      }
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "ETF Daily News"
+      },
+      "author": "MarketBeat News",
+      "title": "PayPay Securities Corp Cuts Stock Holdings in Alphabet Inc. (NASDAQ:GOOGL)",
+      "description": "PayPay Securities Corp reduced its position in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 32.2% in the 1st quarter, according to the company in its most recent 13F filing with the Securities and Exchange Commission. The institutional investor own…",
+      "url": "https://www.etfdailynews.com/2025/06/18/paypay-securities-corp-cuts-stock-holdings-in-alphabet-inc-nasdaqgoogl/",
+      "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/google-inc-logo-1200x675.png&w=240&h=240&zc=2",
+      "publishedAt": "2025-06-18T08:44:53Z",
+      "content": "PayPay Securities Corp reduced its position in shares of Alphabet Inc. (NASDAQ:GOOGL – Free Report) by 32.2% in the 1st quarter, according to the company in its most recent 13F filing with the Securi… [+6695 chars]",
+      "id": "4fc6629bf8eeb02c",
+      "data_source": {
+        "api": "NewsAPI",
+        "version": "v2",
+        "endpoint": "everything",
+        "fetch_timestamp": "2025-06-19T15:37:37.266873",
+        "custom_query": "GOOGL"
+      }
+    }
+  ]
+}

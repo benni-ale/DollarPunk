@@ -183,5 +183,56 @@ def fetch_and_save_news():
         logger.log_execution("fetch_news.py", "failed", {"error": str(e)})
         raise e
 
+def fetch_and_save_news_custom(query):
+    """
+    Fetch and save news using a custom query string (tickers, keywords, testo libero)
+    """
+    logger.log_execution("fetch_news.py", "started", {"function": "fetch_and_save_news_custom", "query": query})
+    try:
+        yesterday = datetime.now() - timedelta(days=1)
+        news = newsapi.get_everything(
+            q=query,
+            language='en',
+            from_param=yesterday.strftime('%Y-%m-%d'),
+            sort_by='relevancy',
+            page_size=50  # Più ampio per query custom
+        )
+        all_articles = news['articles']
+        # Aggiungi info extra
+        for article in all_articles:
+            article['id'] = generate_article_id(article['url'], article['publishedAt'])
+            article['data_source'] = {
+                'api': 'NewsAPI',
+                'version': 'v2',
+                'endpoint': 'everything',
+                'fetch_timestamp': datetime.now().isoformat(),
+                'custom_query': query
+            }
+        # Salva in un file unico
+        os.makedirs('data', exist_ok=True)
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f"data/custom_news_{timestamp}.json"
+        output_data = {
+            'metadata': {
+                'generated_at': datetime.now().isoformat(),
+                'source_api': 'NewsAPI',
+                'api_version': 'v2',
+                'query': query,
+                'total_articles': len(all_articles)
+            },
+            'articles': all_articles
+        }
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(output_data, f, indent=2, ensure_ascii=False)
+        logger.log_execution("fetch_news.py", "completed", {
+            "output_file": filename,
+            "articles_count": len(all_articles),
+            "query": query
+        })
+        return filename
+    except Exception as e:
+        logger.log_execution("fetch_news.py", "failed", {"error": str(e), "query": query})
+        raise e
+
 if __name__ == "__main__":
     fetch_and_save_news() 

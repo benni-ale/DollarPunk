@@ -218,5 +218,164 @@
       "failed_tickers": []
     },
     "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:25:18.830276",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:25:25.864423",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:32:30.179913",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:32:37.010268",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:36:09.083094",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:36:16.024244",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:37:35.807102",
+    "script": "fetch_news.py",
+    "status": "started",
+    "details": {
+      "function": "fetch_and_save_news_custom",
+      "query": "GOOGL"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:37:37.282010",
+    "script": "fetch_news.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/custom_news_20250619_153737.json",
+      "articles_count": 10,
+      "query": "GOOGL"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:49:07.721681",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:49:15.894030",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:53:43.907304",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:53:52.113391",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:58:02.955646",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:58:12.306131",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
   }
 ]
