@@ -11,6 +11,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from simple_logger import logger
+from zoneinfo import ZoneInfo
 
 st.set_page_config(page_title="DollarPunk Dashboard", layout="wide")
 
@@ -157,7 +158,10 @@ def main():
             ]
             # Mostra solo le colonne principali se esistono
             main_cols = [c for c in ['Date', 'Ticker', 'Open', 'High', 'Low', 'Close'] if c in filtered_table.columns]
-            st.dataframe(filtered_table[main_cols].sort_values(['Ticker', 'Date']), use_container_width=True, height=500)
+            table = filtered_table[main_cols].sort_values(['Ticker', 'Date'])
+            st.dataframe(table, use_container_width=True, height=500)
+            if len(table.columns) > 5:
+                st.info("Scrolla a destra per vedere tutte le colonne →")
             
     elif operation == "📰 Fetch News":
         st.header("Fetch Financial News")
@@ -338,7 +342,9 @@ def main():
                 })
             
             script_df = pd.DataFrame(script_data)
-            st.dataframe(script_df, use_container_width=True,  height=300)
+            st.dataframe(script_df, use_container_width=True, height=300)
+            if len(script_df.columns) > 5:
+                st.info("Scrolla a destra per vedere tutte le colonne →")
         else:
             st.info("No execution logs found yet. Run some scripts to see statistics here!")
         
@@ -350,13 +356,22 @@ def main():
             # Create a more readable format for logs
             log_data = []
             for log in recent_logs:
-                timestamp = log.get('timestamp', '')[:19]  # Remove microseconds
+                # Convert timestamp to Europe/Rome
+                ts = log.get('timestamp', '')
+                if ts:
+                    try:
+                        dt = datetime.fromisoformat(ts)
+                        dt = dt.replace(tzinfo=ZoneInfo('UTC')).astimezone(ZoneInfo('Europe/Rome'))
+                        timestamp = dt.strftime('%Y-%m-%d %H:%M:%S')
+                    except Exception:
+                        timestamp = ts[:19]
+                else:
+                    timestamp = ''
                 status_emoji = {
                     'started': '🟡',
                     'completed': '🟢', 
                     'failed': '🔴'
                 }.get(log.get('status', ''), '❓')
-                
                 log_data.append({
                     'Time': timestamp,
                     'Status': f"{status_emoji} {log.get('status', 'unknown')}",
@@ -367,6 +382,8 @@ def main():
             
             log_df = pd.DataFrame(log_data)
             st.dataframe(log_df, use_container_width=True, height=400)
+            if len(log_df.columns) > 5:
+                st.info("Scrolla a destra per vedere tutte le colonne →")
             
             # Filter by script
             st.subheader("🔍 Filter Logs by Script")
