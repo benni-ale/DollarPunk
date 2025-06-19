@@ -12,6 +12,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from simple_logger import logger
 from zoneinfo import ZoneInfo
+import hashlib
 
 st.set_page_config(page_title="DollarPunk Dashboard", layout="wide")
 
@@ -39,14 +40,179 @@ def calculate_percentage_change(value1, value2):
         return 0
     return ((value2 - value1) / abs(value1)) * 100
 
+def create_unified_news_table():
+    """
+    Crea una tabella unica deduplicata che unisce tutti i JSON di news (custom e portfolio)
+    Processo idempotente: ogni file JSON viene processato una sola volta
+    """
+    import glob
+    import pandas as pd
+    
+    # File di tracking per i JSON già processati
+    tracking_file = 'data/processed_news_files.json'
+    
+    # Carica tracking esistente
+    processed_files = {}
+    if os.path.exists(tracking_file):
+        try:
+            with open(tracking_file, 'r', encoding='utf-8') as f:
+                processed_files = json.load(f)
+        except Exception:
+            processed_files = {}
+    
+    all_articles = []
+    seen_ids = set()
+    new_files_processed = []
+    
+    # Trova tutti i file JSON di news
+    news_files = glob.glob('data/*_news_*.json')
+    
+    for file_path in news_files:
+        # Calcola hash del file per tracking
+        try:
+            with open(file_path, 'rb') as f:
+                file_hash = hashlib.md5(f.read()).hexdigest()
+        except Exception:
+            continue
+            
+        file_name = os.path.basename(file_path)
+        
+        # Controlla se il file è già stato processato e non è cambiato
+        if file_name in processed_files and processed_files[file_name]['hash'] == file_hash:
+            # File già processato, carica articoli dal tracking
+            if 'articles' in processed_files[file_name]:
+                for article in processed_files[file_name]['articles']:
+                    article_id = article.get('id')
+                    if article_id and article_id not in seen_ids:
+                        seen_ids.add(article_id)
+                        all_articles.append(article)
+            continue
+        
+        # File nuovo o modificato, processalo
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            # Estrai metadata
+            metadata = data.get('metadata', {})
+            file_type = 'custom' if 'articles' in data else 'portfolio'
+            
+            file_articles = []  # Articoli di questo file
+            
+            # Gestisci struttura custom
+            if 'articles' in data:
+                articles = data['articles']
+                for article in articles:
+                    article_id = article.get('id')
+                    if article_id and article_id not in seen_ids:
+                        seen_ids.add(article_id)
+                        # Normalizza articolo
+                        normalized_article = {
+                            'id': article_id,
+                            'title': article.get('title', ''),
+                            'description': article.get('description', ''),
+                            'url': article.get('url', ''),
+                            'urlToImage': article.get('urlToImage', ''),
+                            'publishedAt': article.get('publishedAt', ''),
+                            'content': article.get('content', ''),
+                            'author': article.get('author', ''),
+                            'source_name': article.get('source', {}).get('name', ''),
+                            'source_id': article.get('source', {}).get('id', ''),
+                            'ticker': None,  # Custom news non ha ticker specifico
+                            'company': None,
+                            'file_type': file_type,
+                            'file_name': file_name,
+                            'query': metadata.get('query', ''),
+                            'fetch_timestamp': metadata.get('fetch_timestamp', ''),
+                            'page_size': metadata.get('page_size', ''),
+                            'sources': metadata.get('sources', '')
+                        }
+                        all_articles.append(normalized_article)
+                        file_articles.append(normalized_article)
+            
+            # Gestisci struttura portfolio
+            elif 'stocks' in data:
+                stocks = data['stocks']
+                for ticker, articles in stocks.items():
+                    for article in articles:
+                        article_id = article.get('id')
+                        if article_id and article_id not in seen_ids:
+                            seen_ids.add(article_id)
+                            # Normalizza articolo
+                            normalized_article = {
+                                'id': article_id,
+                                'title': article.get('title', ''),
+                                'description': article.get('description', ''),
+                                'url': article.get('url', ''),
+                                'urlToImage': article.get('urlToImage', ''),
+                                'publishedAt': article.get('publishedAt', ''),
+                                'content': article.get('content', ''),
+                                'author': article.get('author', ''),
+                                'source_name': article.get('source', {}).get('name', ''),
+                                'source_id': article.get('source', {}).get('id', ''),
+                                'ticker': article.get('ticker', ticker),
+                                'company': article.get('company', ''),
+                                'file_type': file_type,
+                                'file_name': file_name,
+                                'query': None,  # Portfolio news non ha query specifica
+                                'fetch_timestamp': metadata.get('fetch_timestamp', ''),
+                                'page_size': metadata.get('page_size', ''),
+                                'sources': metadata.get('sources', '')
+                            }
+                            all_articles.append(normalized_article)
+                            file_articles.append(normalized_article)
+            
+            # Salva nel tracking
+            processed_files[file_name] = {
+                'hash': file_hash,
+                'processed_at': datetime.now().isoformat(),
+                'articles': file_articles,
+                'file_type': file_type,
+                'total_articles': len(file_articles)
+            }
+            new_files_processed.append(file_name)
+                            
+        except Exception as e:
+            st.error(f"Errore nel leggere {file_path}: {str(e)}")
+    
+    # Salva tracking aggiornato
+    try:
+        with open(tracking_file, 'w', encoding='utf-8') as f:
+            json.dump(processed_files, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        st.error(f"Errore nel salvare tracking: {str(e)}")
+    
+    # Mostra info sui file processati
+    if new_files_processed:
+        st.info(f"🆕 Nuovi file processati: {', '.join(new_files_processed)}")
+    
+    # Crea DataFrame
+    if all_articles:
+        df = pd.DataFrame(all_articles)
+        # Converti timestamp in datetime
+        df['publishedAt'] = pd.to_datetime(df['publishedAt'], utc=True)
+        df['fetch_timestamp'] = pd.to_datetime(df['fetch_timestamp'], utc=True)
+        # Ordina per data pubblicazione (più recenti prima)
+        df = df.sort_values('publishedAt', ascending=False)
+        return df
+    else:
+        return pd.DataFrame()
+
 def main():
     st.title("🤑 DollarPunk Dashboard")
     
     # Sidebar for operation selection
     st.sidebar.title("Operations")
-    operation = st.sidebar.radio(
-        "Select Operation",
-        ["📈 Historical Analysis", "📰 Fetch News", "🎭 Analyze Sentiment", "📊 View Results", "📈 Compare Changes", "📋 Execution Logs"]
+    operation = st.sidebar.selectbox(
+        "Seleziona Operazione:",
+        [
+            "📰 Fetch News",
+            "🧠 Sentiment Analysis", 
+            "📈 Historical Analysis",
+            "📊 Unified News Table",
+            "📋 View Results",
+            "🔄 Compare Changes"
+        ]
     )
     
     if operation == "📈 Historical Analysis":
@@ -192,6 +358,21 @@ def main():
             help="Restrict the search to one or more stocks",
             max_selections=5
         )
+        # Parametri avanzati: numero articoli e fonti
+        st.markdown("<div style='text-align:center; font-size:1em; margin-top:10px;'><b>Advanced Options</b></div>", unsafe_allow_html=True)
+        col_a, col_b = st.columns(2)
+        with col_a:
+            page_size = st.number_input("Number of articles per query", min_value=1, max_value=100, value=10, step=1)
+        with col_b:
+            # Fonti disponibili da NewsAPI (statiche demo, puoi popolare dinamicamente)
+            available_sources = [
+                "bloomberg", "cnbc", "financial-times", "fortune", "the-wall-street-journal", "reuters", "business-insider", "forbes"
+            ]
+            selected_sources = st.multiselect(
+                "News sources (optional):",
+                options=available_sources,
+                help="Restrict to specific news sources (NewsAPI short codes)"
+            )
         # Keyword suggerite (max 4, una sola riga, cliccabili)
         st.caption("Suggested keywords (AI):")
         kw_cols = st.columns(len(llm_suggested_keywords))
@@ -214,17 +395,18 @@ def main():
         with btn_col2:
             search_btn = st.button("🔎 Search News by Custom Query")
         # Azioni bottoni
+        sources_str = ','.join(selected_sources) if selected_sources else None
         if fetch_btn:
             with st.spinner('Fetching news...'):
                 try:
-                    output_file = fetch_and_save_news()
+                    output_file = fetch_and_save_news(page_size=page_size, sources=sources_str)
                     st.success(f"News fetched successfully! Saved to: {output_file}")
                 except Exception as e:
                     st.error(f"Error fetching news: {str(e)}")
         if search_btn and composed_query.strip():
             with st.spinner('Fetching news for your custom query...'):
                 try:
-                    output_file = fetch_and_save_news_custom(composed_query)
+                    output_file = fetch_and_save_news_custom(composed_query, page_size=page_size, sources=sources_str)
                     st.success(f"News fetched successfully! Saved to: {output_file}")
                 except Exception as e:
                     st.error(f"Error fetching news: {str(e)}")
@@ -497,6 +679,106 @@ def main():
         # Manual refresh button
         if st.button("🔄 Refresh Logs"):
             st.rerun()
+    
+    elif operation == "📊 Unified News Table":
+        st.header("📊 Unified News Table")
+        st.write("Tabella unificata di tutte le news (custom e portfolio) deduplicate per ID")
+        
+        # Crea tabella unificata
+        df = create_unified_news_table()
+        
+        if df.empty:
+            st.warning("Nessuna news trovata. Esegui prima un fetch delle news.")
+        else:
+            # Statistiche generali
+            col1, col2, col3, col4 = st.columns(4)
+            with col1:
+                st.metric("Totale Articoli", len(df))
+            with col2:
+                st.metric("Articoli Custom", len(df[df['file_type'] == 'custom']))
+            with col3:
+                st.metric("Articoli Portfolio", len(df[df['file_type'] == 'portfolio']))
+            with col4:
+                st.metric("Tickers Unici", df['ticker'].nunique())
+            
+            # Filtri
+            st.subheader("🔍 Filtri")
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                # Filtro per ticker
+                tickers = ['Tutti'] + sorted(df['ticker'].dropna().unique().tolist())
+                selected_ticker = st.selectbox("Ticker:", tickers)
+                
+            with col2:
+                # Filtro per tipo file
+                file_types = ['Tutti'] + sorted(df['file_type'].unique().tolist())
+                selected_file_type = st.selectbox("Tipo File:", file_types)
+                
+            with col3:
+                # Filtro per fonte
+                sources = ['Tutte'] + sorted(df['source_name'].dropna().unique().tolist())
+                selected_source = st.selectbox("Fonte:", sources)
+            
+            # Applica filtri
+            filtered_df = df.copy()
+            if selected_ticker != 'Tutti':
+                filtered_df = filtered_df[filtered_df['ticker'] == selected_ticker]
+            if selected_file_type != 'Tutti':
+                filtered_df = filtered_df[filtered_df['file_type'] == selected_file_type]
+            if selected_source != 'Tutte':
+                filtered_df = filtered_df[filtered_df['source_name'] == selected_source]
+            
+            # Mostra risultati
+            st.subheader(f"📋 Risultati ({len(filtered_df)} articoli)")
+            
+            # Converti timestamp per visualizzazione
+            display_df = filtered_df.copy()
+            display_df['publishedAt'] = display_df['publishedAt'].dt.strftime('%Y-%m-%d %H:%M')
+            display_df['fetch_timestamp'] = display_df['fetch_timestamp'].dt.strftime('%Y-%m-%d %H:%M')
+            
+            # Seleziona colonne da mostrare
+            columns_to_show = ['title', 'source_name', 'ticker', 'publishedAt', 'file_type', 'query']
+            display_df = display_df[columns_to_show]
+            
+            # Rinomina colonne per visualizzazione
+            display_df.columns = ['Titolo', 'Fonte', 'Ticker', 'Data Pubblicazione', 'Tipo', 'Query']
+            
+            st.dataframe(
+                display_df, 
+                use_container_width=True, 
+                height=400,
+                column_config={
+                    "Titolo": st.column_config.TextColumn("Titolo", width="large"),
+                    "Fonte": st.column_config.TextColumn("Fonte", width="medium"),
+                    "Ticker": st.column_config.TextColumn("Ticker", width="small"),
+                    "Data Pubblicazione": st.column_config.TextColumn("Data", width="medium"),
+                    "Tipo": st.column_config.TextColumn("Tipo", width="small"),
+                    "Query": st.column_config.TextColumn("Query", width="medium")
+                }
+            )
+            
+            # Statistiche dettagliate
+            if st.checkbox("📊 Mostra statistiche dettagliate"):
+                st.subheader("Statistiche Dettagliate")
+                
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.write("**Articoli per Ticker:**")
+                    ticker_counts = df['ticker'].value_counts().head(10)
+                    st.bar_chart(ticker_counts)
+                
+                with col2:
+                    st.write("**Articoli per Fonte:**")
+                    source_counts = df['source_name'].value_counts().head(10)
+                    st.bar_chart(source_counts)
+                
+                # Timeline articoli
+                st.write("**Timeline Articoli:**")
+                df_timeline = df.groupby(df['publishedAt'].dt.date).size().reset_index()
+                df_timeline.columns = ['Data', 'Numero Articoli']
+                st.line_chart(df_timeline.set_index('Data'))
     
     else:  # View Results
         st.header("View Results")

@@ -377,5 +377,246 @@
       "failed_tickers": []
     },
     "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:03:49.778846",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:03:58.383660",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:04:55.935689",
+    "script": "fetch_news.py",
+    "status": "started",
+    "details": {
+      "function": "fetch_and_save_news_custom",
+      "query": "TSLA, NVDA, AAPL, MSFT, GOOGL",
+      "page_size": 50,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:04:56.769647",
+    "script": "fetch_news.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/custom_news_20250619_160456.json",
+      "articles_count": 0,
+      "query": "TSLA, NVDA, AAPL, MSFT, GOOGL",
+      "page_size": 50,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:06:20.919921",
+    "script": "fetch_news.py",
+    "status": "started",
+    "details": {
+      "function": "fetch_and_save_news_custom",
+      "query": "AAPL",
+      "page_size": 10,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:06:21.428830",
+    "script": "fetch_news.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/custom_news_20250619_160621.json",
+      "articles_count": 10,
+      "query": "AAPL",
+      "page_size": 10,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:06:44.563520",
+    "script": "fetch_news.py",
+    "status": "started",
+    "details": {
+      "function": "fetch_and_save_news_custom",
+      "query": "AAPL",
+      "page_size": 100,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:06:45.498242",
+    "script": "fetch_news.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/custom_news_20250619_160645.json",
+      "articles_count": 18,
+      "query": "AAPL",
+      "page_size": 100,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:07:22.058853",
+    "script": "fetch_news.py",
+    "status": "started",
+    "details": {
+      "function": "fetch_and_save_news_custom",
+      "query": "Iphone",
+      "page_size": 100,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:07:22.875981",
+    "script": "fetch_news.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/custom_news_20250619_160722.json",
+      "articles_count": 99,
+      "query": "Iphone",
+      "page_size": 100,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:11:10.487064",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T16:11:20.025255",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T17:23:14.889474",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T17:23:21.797556",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T17:24:33.968989",
+    "script": "fetch_news.py",
+    "status": "started",
+    "details": {
+      "function": "fetch_and_save_news_custom",
+      "query": "TSLA",
+      "page_size": 100,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T17:24:34.928286",
+    "script": "fetch_news.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/custom_news_20250619_172434.json",
+      "articles_count": 14,
+      "query": "TSLA",
+      "page_size": 100,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T17:24:36.985190",
+    "script": "fetch_news.py",
+    "status": "started",
+    "details": {
+      "function": "fetch_and_save_news",
+      "page_size": 100,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T17:24:42.186716",
+    "script": "fetch_news.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/portfolio_news_20250619_172442.json",
+      "articles_count": 484,
+      "stocks_processed": 5,
+      "page_size": 100,
+      "sources": null
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T17:43:24.421020",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T17:43:31.423342",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
   }
 ]
