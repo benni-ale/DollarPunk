@@ -152,5 +152,48 @@
       "stocks_processed": 5
     },
     "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:07:44.937748",
+    "script": "fetch_historical_prices.py",
+    "status": "started",
+    "details": {
+      "function": "main"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:07:56.621921",
+    "script": "fetch_historical_prices.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/historical_prices.csv",
+      "summary_file": "data/price_summary.json",
+      "tickers_processed": 5,
+      "tickers_successful": 5,
+      "tickers_failed": 0,
+      "failed_tickers": []
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:10:33.947084",
+    "script": "fetch_news.py",
+    "status": "started",
+    "details": {
+      "function": "fetch_and_save_news"
+    },
+    "error": null
+  },
+  {
+    "timestamp": "2025-06-19T15:10:36.776813",
+    "script": "fetch_news.py",
+    "status": "completed",
+    "details": {
+      "output_file": "data/portfolio_news_20250619_151036.json",
+      "articles_count": 50,
+      "stocks_processed": 5
+    },
+    "error": null
   }
 ]

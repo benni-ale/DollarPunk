@@ -372,11 +372,15 @@ def main():
                     'completed': '🟢', 
                     'failed': '🔴'
                 }.get(log.get('status', ''), '❓')
+                details = log.get('details', {})
+                # Estrai output_file se presente
+                output_file = details.get('output_file', '') if isinstance(details, dict) else ''
                 log_data.append({
                     'Time': timestamp,
                     'Status': f"{status_emoji} {log.get('status', 'unknown')}",
                     'Script': log.get('script', 'unknown'),
-                    'Details': str(log.get('details', {})),
+                    'Output File': output_file,
+                    'Details': str(details),
                     'Error': log.get('error', '')
                 })
             
@@ -405,7 +409,8 @@ def main():
                         filtered_data.append({
                             'Time': timestamp,
                             'Status': f"{status_emoji} {log.get('status', 'unknown')}",
-                            'Details': str(log.get('details', {})),
+                            'Output File': log.get('details', {{}}).get('output_file', '') if isinstance(log.get('details', {{}}), dict) else '',
+                            'Details': str(log.get('details', {{}})),
                             'Error': log.get('error', '')
                         })
                     
