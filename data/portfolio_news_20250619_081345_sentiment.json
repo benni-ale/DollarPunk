@@ -1,0 +1,1269 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-19T08:13:45.682496",
+    "source_api": "NewsAPI",
+    "api_version": "v2",
+    "stocks_count": 5,
+    "total_articles": 48
+  },
+  "stocks": {
+    "TSLA": [
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Tesla (NASDAQ:TSLA) Shares Down 2% on Insider Selling",
+        "description": "Shares of Tesla, Inc. (NASDAQ:TSLA \u2013 Get Free Report) dropped 2% during trading on Tuesday after an insider sold shares in the company. The company traded as low as $320.12 and last traded at $322.51. Approximately 23,978,306 shares changed hands during mid-d\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/tesla-nasdaqtsla-shares-down-2-on-insider-selling/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/tesla-inc-logo-1200x675.png?v=20221020135629&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T05:30:50Z",
+        "content": "Shares of Tesla, Inc. (NASDAQ:TSLA \u2013 Get Free Report) dropped 2% during trading on Tuesday after an insider sold shares in the company. The company traded as low as $320.12 and last traded at $322.51\u2026 [+5007 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "139828b2de023aed",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:43.299841"
+        },
+        "sentiment_positive": 0.007056615315377712,
+        "sentiment_negative": 0.9740461111068726,
+        "sentiment_neutral": 0.018897291272878647,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Electric Vehicle Stocks To Keep An Eye On \u2013 June 16th",
+        "description": "Tesla, Navitas Semiconductor, and Shell are the three Electric Vehicle stocks to watch today, according to MarketBeat\u2019s stock screener tool. Electric vehicle stocks are shares of publicly traded companies involved in the design, manufacture or support of batt\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/electric-vehicle-stocks-to-keep-an-eye-on-june-16th/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/tesla-inc-logo-1200x675.png?v=20221020135629&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T07:08:43Z",
+        "content": "Tesla, Navitas Semiconductor, and Shell are the three Electric Vehicle stocks to watch today, according to MarketBeat\u2019s stock screener tool. Electric vehicle stocks are shares of publicly traded comp\u2026 [+3695 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "777dc7b613dad5e2",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:43.299866"
+        },
+        "sentiment_positive": 0.019700530916452408,
+        "sentiment_negative": 0.02955101989209652,
+        "sentiment_neutral": 0.9507485032081604,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Promising Solar Stocks To Add to Your Watchlist \u2013 June 16th",
+        "description": "Tesla, Berkshire Hathaway, GE Vernova, United States Steel, Constellation Energy, Vistra, and NextEra Energy are the seven Solar stocks to watch today, according to MarketBeat\u2019s stock screener tool. Solar stocks are shares of publicly traded companies that de\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/promising-solar-stocks-to-add-to-your-watchlist-june-16th/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/tesla-inc-logo-1200x675.png?v=20221020135629&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T06:03:05Z",
+        "content": "Tesla, Berkshire Hathaway, GE Vernova, United States Steel, Constellation Energy, Vistra, and NextEra Energy are the seven Solar stocks to watch today, according to MarketBeat\u2019s stock screener tool. \u2026 [+8066 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "d2bd3fccbfcf7eda",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:43.299873"
+        },
+        "sentiment_positive": 0.03849594295024872,
+        "sentiment_negative": 0.016762716695666313,
+        "sentiment_neutral": 0.9447413682937622,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Top Retail Stocks To Consider \u2013 June 16th",
+        "description": "Tesla, Apple, Amazon.com, Microsoft, UnitedHealth Group, Adobe, and Micron Technology are the seven Retail stocks to watch today, according to MarketBeat\u2019s stock screener tool. Retail stocks are shares of publicly traded companies whose primary business is se\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/top-retail-stocks-to-consider-june-16th/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/tesla-inc-logo-1200x675.png?v=20221020135629&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T06:03:07Z",
+        "content": "Tesla, Apple, Amazon.com, Microsoft, UnitedHealth Group, Adobe, and Micron Technology are the seven Retail stocks to watch today, according to MarketBeat\u2019s stock screener tool. Retail stocks are shar\u2026 [+8629 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "18e39bf6327f9e9e",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:43.299879"
+        },
+        "sentiment_positive": 0.02294725738465786,
+        "sentiment_negative": 0.028620002791285515,
+        "sentiment_neutral": 0.9484327435493469,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Decrypt"
+        },
+        "author": "Callan Quinn",
+        "title": "China\u2019s JD Eyes Global Stablecoin Licenses to Slash Payment Costs",
+        "description": "Chinese e-commerce giant JD.com says it could cut cross-border settlement costs as it plans to acquire stablecoin licenses",
+        "url": "https://decrypt.co/325723/chinas-jd-eyes-global-stablecoin-licenses",
+        "urlToImage": "https://cdn.decrypt.co/resize/1024/height/512/wp-content/uploads/2025/06/JD-gID_7.jpg",
+        "publishedAt": "2025-06-18T03:00:46Z",
+        "content": "In brief\r\n<ul><li>JD.com is planning to apply for stablecoin licenses in major economies.</li><li>It will initially focus on using them for B2B payments before expanding to consumers.</li><li>It is p\u2026 [+3009 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "5930c661d26f1a71",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:43.299885"
+        },
+        "sentiment_positive": 0.7511867880821228,
+        "sentiment_negative": 0.22297687828540802,
+        "sentiment_neutral": 0.025836331769824028,
+        "sentiment_label": "positive"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Electrek"
+        },
+        "author": "Fred Lambert",
+        "title": "Tesla manager fired for sounding the alarm explains why the automaker is screwed",
+        "description": "A Tesla manager who was recently fired for warning that CEO Elon Musk was ruining the company, Matthew LaBrot, has given an interview to give more details about the situation and how he doesn\u2019t see Tesla coming out of it.\n\n\n\n more\u2026",
+        "url": "http://electrek.co/2025/06/18/tesla-manager-fired-sounding-the-alarm-explains-why-automaker-screwed/",
+        "urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2021/06/Tesla-Supercharger-hero-1.jpeg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+        "publishedAt": "2025-06-18T08:10:33Z",
+        "content": "A Tesla manager who was recently fired for warning that CEO Elon Musk was ruining the company, Matthew LaBrot, has given an interview to give more details about the situation and how he doesn\u2019t see T\u2026 [+5284 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "6151e036dd12371f",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:43.299890"
+        },
+        "sentiment_positive": 0.013043336570262909,
+        "sentiment_negative": 0.8909555077552795,
+        "sentiment_neutral": 0.09600109606981277,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": "the-times-of-india",
+          "name": "The Times of India"
+        },
+        "author": "Reuters",
+        "title": "Elon Musk's X sues New York to block social media hate speech law",
+        "description": "New York Attorney General Letitia James, a Democrat who enforces the state's laws, is the named defendant in X's lawsuit. Her office did not immediately respond to requests for comment. Musk, the world's richest person and recently a close adviser to Republic\u2026",
+        "url": "https://economictimes.indiatimes.com/tech/technology/elon-musks-x-sues-new-york-to-block-social-media-hate-speech-law/articleshow/121920895.cms",
+        "urlToImage": "https://img.etimg.com/thumb/msid-121920923,width-1200,height-630,imgsize-74654,overlay-ettech/articleshow.jpg",
+        "publishedAt": "2025-06-18T02:34:07Z",
+        "content": "Elon Musk's X Corp sued New York on Tuesday, challenging the constitutionality of a state law requiring social media companies to disclose how they monitor hate speech, extremism, disinformation, har\u2026 [+2347 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "bcd491c3fed0f9c3",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:43.299895"
+        },
+        "sentiment_positive": 0.03143030405044556,
+        "sentiment_negative": 0.3357331454753876,
+        "sentiment_neutral": 0.6328365802764893,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Pypi.org"
+        },
+        "author": "aihubadmin@126.com",
+        "title": "finance-agent-mcp-server added to PyPI",
+        "description": "Add your description here",
+        "url": "https://pypi.org/project/finance-agent-mcp-server/",
+        "urlToImage": "https://pypi.org/static/images/twitter.abaf4b19.webp",
+        "publishedAt": "2025-06-18T01:50:10Z",
+        "content": "finance-agent-mcp-server\r\nMCP Server of free and public available Financial Data without need of API keys from trusted sites or institues.\r\nThis MCP server is a mcp wrapper of pypi package FinanceAge\u2026 [+2558 chars]",
+        "ticker": "TSLA",
+        "company": "Tesla",
+        "id": "6fb93fcac5c22fe3",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:43.299908"
+        },
+        "sentiment_positive": 0.029014952480793,
+        "sentiment_negative": 0.01943313516676426,
+        "sentiment_neutral": 0.9515519738197327,
+        "sentiment_label": "neutral"
+      }
+    ],
+    "AAPL": [
+      {
+        "source": {
+          "id": null,
+          "name": "Geeky Gadgets"
+        },
+        "author": "Roland Hutchinson",
+        "title": "Apple Confirms Battery Drain in iOS 18.6 Beta 1 and iOS 26 Beta 1.5",
+        "description": "Apple has officially acknowledged a significant battery performance issue affecting devices running iOS 18.6 Beta 1 and iOS 26 Beta 1.5. Users of these beta versions may have noticed their devices experiencing faster-than-usual battery drain or inconsistent p\u2026",
+        "url": "https://www.geeky-gadgets.com/apple-confirms-battery-drain-in-ios-18-6-beta-1-and-ios-26-beta-1-5/",
+        "urlToImage": "https://www.geeky-gadgets.com/wp-content/uploads/2025/06/ios-18-6-beta-battery-drain-problem_optimized.jpg",
+        "publishedAt": "2025-06-18T07:00:26Z",
+        "content": "Apple has officially acknowledged a significant battery performance issue affecting devices running iOS 18.6 Beta 1 and iOS 26 Beta 1.5. Users of these beta versions may have noticed their devices ex\u2026 [+4411 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "92fe3fce97d417bb",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169414"
+        },
+        "sentiment_positive": 0.011728675104677677,
+        "sentiment_negative": 0.965856671333313,
+        "sentiment_neutral": 0.022414665669202805,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Nofilmschool.com"
+        },
+        "author": "Jason Hellerman",
+        "title": "An Extensive List of Filmmaking Terms You Should Know",
+        "description": "Filmmaking is a complex art form woven from countless individual threads covering many different departments. From the initial spark of an idea to its grand premiere on the big screen, every step in the process demands a unique vocabulary and a deep understan\u2026",
+        "url": "https://nofilmschool.com/filmmaking-terms",
+        "urlToImage": "https://nofilmschool.com/media-library/image.jpg?id=34049516&width=1200&height=600&coordinates=0%2C94%2C0%2C94",
+        "publishedAt": "2025-06-18T00:45:13Z",
+        "content": "How The iPhone Solved A Problem on the 'F1' Set\r\nF1 cars are notoriously fast and lightweight. They whip around corners and hit top speeds and g-forces that really only fighter jets can match. \r\nSo w\u2026 [+5875 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "b736336343f95a22",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169439"
+        },
+        "sentiment_positive": 0.046746499836444855,
+        "sentiment_negative": 0.03210451826453209,
+        "sentiment_neutral": 0.921148955821991,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": "techradar",
+          "name": "TechRadar"
+        },
+        "author": "mark.wilson@futurenet.com (Mark Wilson) , Mark Wilson",
+        "title": "Can the Trump Mobile T1 Phone really be 'made in the USA'? Here's what experts say",
+        "description": "The Trump Organization says its forthcoming T1 Phone will be \"built in the United States.\" But how realistic is that? Here's what experts are saying.",
+        "url": "https://www.techradar.com/phones/can-the-trump-mobile-t1-phone-really-be-made-in-the-usa-heres-what-experts-say",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/zUQYCSmjrNnQQVRfhxzhUJ.jpg",
+        "publishedAt": "2025-06-18T01:00:00Z",
+        "content": "<ul><li>The Trump Organization says a new T1 Phone will launch in August</li><li>It will apparently be \"designed and built in the United States\"</li><li>But experts say the phone is more likely to ha\u2026 [+5589 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "6dc4fbc11c437e51",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169446"
+        },
+        "sentiment_positive": 0.057399097830057144,
+        "sentiment_negative": 0.01963074319064617,
+        "sentiment_neutral": 0.922970175743103,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "The Mac Observer"
+        },
+        "author": "Rajat Saini",
+        "title": "Goldman Sachs Stands by Apple With Renewed \u2018Buy\u2019 Rating",
+        "description": "Goldman Sachs continues to back Apple Inc., maintaining its \u201cBuy\u201d rating on the stock. The firm views Apple as a resilient investment and includes it among a select group of companies with strong growth potential. Analysts believe the market underestimates th\u2026",
+        "url": "https://www.macobserver.com/news/goldman-sachs-stands-by-apple-with-renewed-buy-rating/",
+        "urlToImage": "https://www.macobserver.com/wp-content/uploads/2025/06/apple-stocks-illustration.jpg",
+        "publishedAt": "2025-06-18T06:43:23Z",
+        "content": "Goldman Sachs continues to back Apple Inc., maintaining its Buy rating on the stock. The firm views Apple as a resilient investment and includes it among a select group of companies with strong growt\u2026 [+1471 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "697b99a3291f4ffd",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169451"
+        },
+        "sentiment_positive": 0.9036331176757812,
+        "sentiment_negative": 0.02206610143184662,
+        "sentiment_neutral": 0.07430076599121094,
+        "sentiment_label": "positive"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Apple Inc. (NASDAQ:AAPL) is Taylor Hoffman Capital Management LLC\u2019s Largest Position",
+        "description": "Taylor Hoffman Capital Management LLC cut its stake in Apple Inc. (NASDAQ:AAPL \u2013 Free Report) by 1.3% in the 4th quarter, according to the company in its most recent disclosure with the Securities & Exchange Commission. The fund owned 94,974 shares of the iPh\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/apple-inc-nasdaqaapl-is-taylor-hoffman-capital-management-llcs-largest-position/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/apple-inc-logo-1200x675.png&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T07:46:52Z",
+        "content": "Taylor Hoffman Capital Management LLC cut its stake in Apple Inc. (NASDAQ:AAPL \u2013 Free Report) by 1.3% in the 4th quarter, according to the company in its most recent disclosure with the Securities &a\u2026 [+6920 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "77ca1e3287f13e38",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169456"
+        },
+        "sentiment_positive": 0.012194199487566948,
+        "sentiment_negative": 0.9633737802505493,
+        "sentiment_neutral": 0.024432053789496422,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Castleark Management LLC Buys 97,730 Shares of Apple Inc. (NASDAQ:AAPL)",
+        "description": "Castleark Management LLC increased its stake in shares of Apple Inc. (NASDAQ:AAPL \u2013 Free Report) by 16.9% during the 4th quarter, HoldingsChannel.com reports. The fund owned 677,429 shares of the iPhone maker\u2019s stock after purchasing an additional 97,730 shar\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/castleark-management-llc-buys-97730-shares-of-apple-inc-nasdaqaapl/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/apple-inc-logo-1200x675.png&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T07:46:52Z",
+        "content": "Castleark Management LLC increased its stake in shares of Apple Inc. (NASDAQ:AAPL \u2013 Free Report) by 16.9% during the 4th quarter, HoldingsChannel.com reports. The fund owned 677,429 shares of the iPh\u2026 [+6810 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "14108838f8dc26e4",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169462"
+        },
+        "sentiment_positive": 0.9215508103370667,
+        "sentiment_negative": 0.011224565096199512,
+        "sentiment_neutral": 0.06722455471754074,
+        "sentiment_label": "positive"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "McIlrath & Eck LLC Boosts Stock Holdings in Apple Inc. (NASDAQ:AAPL)",
+        "description": "McIlrath & Eck LLC grew its position in shares of Apple Inc. (NASDAQ:AAPL \u2013 Free Report) by 2.3% during the fourth quarter, Holdings Channel.com reports. The fund owned 57,527 shares of the iPhone maker\u2019s stock after purchasing an additional 1,297 shares duri\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/mcilrath-eck-llc-boosts-stock-holdings-in-apple-inc-nasdaqaapl/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/apple-inc-logo-1200x675.png&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T07:46:53Z",
+        "content": "McIlrath &amp; Eck LLC grew its position in shares of Apple Inc. (NASDAQ:AAPL \u2013 Free Report) by 2.3% during the fourth quarter, Holdings Channel.com reports. The fund owned 57,527 shares of the iPhon\u2026 [+6129 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "e84bd1dbe6aae55c",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169467"
+        },
+        "sentiment_positive": 0.9487283825874329,
+        "sentiment_negative": 0.01617966592311859,
+        "sentiment_neutral": 0.035091906785964966,
+        "sentiment_label": "positive"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "10Elms LLP Acquires Shares of 650 Apple Inc. (NASDAQ:AAPL)",
+        "description": "10Elms LLP bought a new position in shares of Apple Inc. (NASDAQ:AAPL \u2013 Free Report) during the 4th quarter, according to its most recent disclosure with the Securities and Exchange Commission (SEC). The firm bought 650 shares of the iPhone maker\u2019s stock, val\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/10elms-llp-acquires-shares-of-650-apple-inc-nasdaqaapl/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/apple-inc-logo-1200x675.png&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T07:46:53Z",
+        "content": "10Elms LLP bought a new position in shares of Apple Inc. (NASDAQ:AAPL \u2013 Free Report) during the 4th quarter, according to its most recent disclosure with the Securities and Exchange Commission (SEC).\u2026 [+6600 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "bb68c62a211c13a1",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169472"
+        },
+        "sentiment_positive": 0.10570815205574036,
+        "sentiment_negative": 0.010092257522046566,
+        "sentiment_neutral": 0.8841995596885681,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Note Advisors LLC Invests $945,000 in Apple Inc. (NASDAQ:AAPL)",
+        "description": "Note Advisors LLC acquired a new position in Apple Inc. (NASDAQ:AAPL \u2013 Free Report) during the 4th quarter, Holdings Channel.com reports. The institutional investor acquired 3,774 shares of the iPhone maker\u2019s stock, valued at approximately $945,000. Several o\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/note-advisors-llc-invests-945000-in-apple-inc-nasdaqaapl/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/apple-inc-logo-1200x675.png&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T07:13:00Z",
+        "content": "Note Advisors LLC acquired a new position in Apple Inc. (NASDAQ:AAPL \u2013 Free Report) during the 4th quarter, Holdings Channel.com reports. The institutional investor acquired 3,774 shares of the iPhon\u2026 [+6739 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "6529f9bfd6e25c8a",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169477"
+        },
+        "sentiment_positive": 0.08790434151887894,
+        "sentiment_negative": 0.009307275526225567,
+        "sentiment_neutral": 0.9027883410453796,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Focus Partners Advisor Solutions LLC Purchases 6,422 Shares of Apple Inc. (NASDAQ:AAPL)",
+        "description": "Focus Partners Advisor Solutions LLC increased its position in Apple Inc. (NASDAQ:AAPL \u2013 Free Report) by 1.8% during the fourth quarter, HoldingsChannel.com reports. The firm owned 372,938 shares of the iPhone maker\u2019s stock after acquiring an additional 6,422\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/focus-partners-advisor-solutions-llc-purchases-6422-shares-of-apple-inc-nasdaqaapl/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/apple-inc-logo-1200x675.png&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T07:46:58Z",
+        "content": "Focus Partners Advisor Solutions LLC increased its position in Apple Inc. (NASDAQ:AAPL \u2013 Free Report) by 1.8% during the fourth quarter, HoldingsChannel.com reports. The firm owned 372,938 shares of \u2026 [+6900 chars]",
+        "ticker": "AAPL",
+        "company": "Apple",
+        "id": "354609b0781c6cbd",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.169482"
+        },
+        "sentiment_positive": 0.9466126561164856,
+        "sentiment_negative": 0.013194783590734005,
+        "sentiment_neutral": 0.04019255191087723,
+        "sentiment_label": "positive"
+      }
+    ],
+    "NVDA": [
+      {
+        "source": {
+          "id": "techradar",
+          "name": "TechRadar"
+        },
+        "author": "Efosa Udinmwen",
+        "title": "Remember that mysterious RTX 5080 GPU with an SSD slot? Well, turns out Asus has a plan for it, and of course it involves AI and LLM",
+        "description": "Asus ProArt RTX 5080 SSD Edition pairs GPU power with onboard storage, targeting AI workflows with a custom design and new software for local model handling.",
+        "url": "https://www.techradar.com/pro/remember-that-mysterious-rtx-5080-gpu-with-an-ssd-slot-well-turns-out-asus-has-a-plan-for-it-and-yes-it-involves-ai-and-llm",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/JNCRY9Wbd75RHnoLK7cW5V.jpg",
+        "publishedAt": "2025-06-18T00:04:00Z",
+        "content": "<ul><li>Asus RTX 5080 now doubles as AI hardware and a surprisingly cool SSD bay</li><li>PCIe lanes aren\u2019t just for GPUs anymore, thanks to Asus\u2019 hybrid hardware approach</li><li>Asus is developing M\u2026 [+2980 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "1777074b41bb671c",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990404"
+        },
+        "sentiment_positive": 0.18773487210273743,
+        "sentiment_negative": 0.009219936095178127,
+        "sentiment_neutral": 0.8030452132225037,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "CoinDesk"
+        },
+        "author": "Sam Reynolds",
+        "title": "Ark Invest Dumps Nearly $45M Worth of Circle Shares as U.S. Senate Passes GENIUS Act",
+        "description": "The GENIUS Act is seen as a major win for stablecoin issuers like Circle and the crypto industry at large.",
+        "url": "https://www.coindesk.com/markets/2025/06/18/ark-invest-dumps-nearly-45m-worth-of-circle-shares-as-us-senate-passes-genius-act",
+        "urlToImage": "https://cdn.sanity.io/images/s3y3vcno/production/b8ecca269d6e54f7c5ca165c080ca55ab09dee66-6443x3624.jpg",
+        "publishedAt": "2025-06-18T06:39:55Z",
+        "content": "Cathie Woods Ark Invest sold a combined 300,108 shares of Circle Internet Group on Tuesday across three of its ETFs, continuing to take profit for a second day in a row, this time to the tune of $44.\u2026 [+877 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "8487f907a4f6dfda",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990428"
+        },
+        "sentiment_positive": 0.11282260715961456,
+        "sentiment_negative": 0.7788732051849365,
+        "sentiment_neutral": 0.10830413550138474,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Wccftech"
+        },
+        "author": "Hassan Mujtaba",
+        "title": "NVIDIA Preps GeForce RTX 5090 DD For China As Export-Compliant Model, Reportedly Features Blackwell GB202-240 GPU",
+        "description": "NVIDIA is reportedly going to launch the GeForce RTX 5090 DD as the next flagship GPU for China to comply with export regulations. NVIDIA GeForce RTX 5090 DD To Be The Replacement For Banned GeForce RTX 5090 D, GB202-240 \"Blackwell\" Chip To Tick All Export Re\u2026",
+        "url": "https://wccftech.com/nvidia-geforce-rtx-5090-dd-china-export-compliant-blackwell-gb202-240-gpu/",
+        "urlToImage": "https://cdn.wccftech.com/wp-content/uploads/2025/06/NVIDIA-GeForce-RTX-5090-DD-GPU.jpg",
+        "publishedAt": "2025-06-18T04:53:37Z",
+        "content": "NVIDIA is reportedly going to launch the GeForce RTX 5090 DD as the next flagship GPU for China to comply with export regulations.\r\nNVIDIA GeForce RTX 5090 DD To Be The Replacement For Banned GeForce\u2026 [+2990 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "93f89aca99c2c529",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990434"
+        },
+        "sentiment_positive": 0.3227100372314453,
+        "sentiment_negative": 0.008608609437942505,
+        "sentiment_neutral": 0.6686813235282898,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Digitimes"
+        },
+        "author": "Sherri Wang",
+        "title": "Canon Machinery targets 2026 launch for hybrid bonding tools amid surge in advanced packaging demand",
+        "description": "Canon Machinery, a subsidiary of Japan's Canon Inc., is intensifying its development of hybrid bonding technology as it seeks to expand beyond its conventional die-bonding equipment. The company plans to introduce its advanced packaging solutions to the marke\u2026",
+        "url": "https://www.digitimes.com/news/a20250616PD222/canon-demand-2026-packaging-subsidiary.html",
+        "urlToImage": "https://img.digitimes.com/newsshow/20250616pd222_files/1_b.jpg",
+        "publishedAt": "2025-06-18T02:12:59Z",
+        "content": "Save my User ID and Password\r\nSome subscribers prefer to save their log-in information so they do not have to enter their User ID and Password each time they visit the site. To activate this function\u2026 [+307 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "c5a7c38e02d1e134",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990439"
+        },
+        "sentiment_positive": 0.8475580215454102,
+        "sentiment_negative": 0.007099030539393425,
+        "sentiment_neutral": 0.14534296095371246,
+        "sentiment_label": "positive"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "A. D. Beadell Investment Counsel Inc. Increases Stock Holdings in NVIDIA Corporation (NASDAQ:NVDA)",
+        "description": "A. D. Beadell Investment Counsel Inc. boosted its position in shares of NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 13.6% in the 1st quarter, Holdings Channel.com reports. The fund owned 2,387 shares of the computer hardware maker\u2019s stock after purchasi\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/a-d-beadell-investment-counsel-inc-increases-stock-holdings-in-nvidia-corporation-nasdaqnvda/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T08:00:52Z",
+        "content": "A. D. Beadell Investment Counsel Inc. boosted its position in shares of NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 13.6% in the 1st quarter, Holdings Channel.com reports. The fund owned 2,387 \u2026 [+5905 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "f64789105493b6bb",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990444"
+        },
+        "sentiment_positive": 0.952366828918457,
+        "sentiment_negative": 0.019159561023116112,
+        "sentiment_neutral": 0.02847355604171753,
+        "sentiment_label": "positive"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "NVIDIA Corporation (NASDAQ:NVDA) Shares Sold by Davis Capital Management",
+        "description": "Davis Capital Management cut its position in NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 7.3% during the 1st quarter, according to the company in its most recent filing with the Securities & Exchange Commission. The fund owned 4,774 shares of the comput\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/nvidia-corporation-nasdaqnvda-shares-sold-by-davis-capital-management/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T08:00:49Z",
+        "content": "Davis Capital Management cut its position in NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 7.3% during the 1st quarter, according to the company in its most recent filing with the Securities &amp\u2026 [+5933 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "235eb9fadd606cfb",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990449"
+        },
+        "sentiment_positive": 0.008894829079508781,
+        "sentiment_negative": 0.9722332954406738,
+        "sentiment_neutral": 0.018871912732720375,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Oppenheimer Reaffirms Outperform Rating for NVIDIA (NASDAQ:NVDA)",
+        "description": "NVIDIA (NASDAQ:NVDA \u2013 Get Free Report)\u2018s stock had its \u201coutperform\u201d rating reaffirmed by equities research analysts at Oppenheimer in a research report issued to clients and investors on Monday,Benzinga reports. They presently have a $175.00 price target on t\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/oppenheimer-reaffirms-outperform-rating-for-nvidia-nasdaqnvda/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T05:50:55Z",
+        "content": "NVIDIA (NASDAQ:NVDA \u2013 Get Free Report)\u2018s stock had its \u201coutperform\u201d rating reaffirmed by equities research analysts at Oppenheimer in a research report issued to clients and investors on Monday,Benzi\u2026 [+5504 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "f38e4bdffb6eeb21",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990454"
+        },
+        "sentiment_positive": 0.7015226483345032,
+        "sentiment_negative": 0.03236805275082588,
+        "sentiment_neutral": 0.26610928773880005,
+        "sentiment_label": "positive"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Generali Investments Management Co LLC Buys 31,950 Shares of NVIDIA Corporation (NASDAQ:NVDA)",
+        "description": "Generali Investments Management Co LLC grew its position in shares of NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 19.0% during the 1st quarter, according to the company in its most recent filing with the SEC. The firm owned 199,934 shares of the compute\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/generali-investments-management-co-llc-buys-31950-shares-of-nvidia-corporation-nasdaqnvda/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T07:24:58Z",
+        "content": "Generali Investments Management Co LLC grew its position in shares of NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 19.0% during the 1st quarter, according to the company in its most recent filin\u2026 [+6845 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "6fd91eb4a3c0dc6f",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990459"
+        },
+        "sentiment_positive": 0.9463145136833191,
+        "sentiment_negative": 0.016241228207945824,
+        "sentiment_neutral": 0.0374443382024765,
+        "sentiment_label": "positive"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Procyon Advisors LLC Purchases 44,158 Shares of NVIDIA Corporation (NASDAQ:NVDA)",
+        "description": "Procyon Advisors LLC increased its position in NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 13.5% in the 1st quarter, HoldingsChannel.com reports. The institutional investor owned 370,414 shares of the computer hardware maker\u2019s stock after acquiring an a\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/procyon-advisors-llc-purchases-44158-shares-of-nvidia-corporation-nasdaqnvda/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T08:01:03Z",
+        "content": "Procyon Advisors LLC increased its position in NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 13.5% in the 1st quarter, HoldingsChannel.com reports. The institutional investor owned 370,414 shares\u2026 [+5870 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "76640d4b12fc0daf",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990464"
+        },
+        "sentiment_positive": 0.9390513896942139,
+        "sentiment_negative": 0.011139670386910439,
+        "sentiment_neutral": 0.04980894923210144,
+        "sentiment_label": "positive"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "AGH Wealth Advisors LLC Sells 687 Shares of NVIDIA Corporation (NASDAQ:NVDA)",
+        "description": "AGH Wealth Advisors LLC lowered its position in shares of NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 2.2% in the first quarter, Holdings Channel reports. The firm owned 30,818 shares of the computer hardware maker\u2019s stock after selling 687 shares durin\u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/agh-wealth-advisors-llc-sells-687-shares-of-nvidia-corporation-nasdaqnvda/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/nvidia-co-logo-1200x675.jpg?v=20221020142916&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T08:01:03Z",
+        "content": "AGH Wealth Advisors LLC lowered its position in shares of NVIDIA Corporation (NASDAQ:NVDA \u2013 Free Report) by 2.2% in the first quarter, Holdings Channel reports. The firm owned 30,818 shares of the co\u2026 [+6032 chars]",
+        "ticker": "NVDA",
+        "company": "NVIDIA",
+        "id": "250b1ccf5140080a",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:44.990469"
+        },
+        "sentiment_positive": 0.015341338701546192,
+        "sentiment_negative": 0.965065598487854,
+        "sentiment_neutral": 0.01959299109876156,
+        "sentiment_label": "negative"
+      }
+    ],
+    "MSFT": [
+      {
+        "source": {
+          "id": "espn",
+          "name": "ESPN"
+        },
+        "author": "David Purdum",
+        "title": "Sportsbooks divided on Cup favorite for 2026",
+        "description": "Odds to win the 2026 Stanley Cup are already up at sportsbooks, and there is disagreement in the betting market regarding which team should be the favorite heading into the offseason.",
+        "url": "https://www.espn.com/espn/betting/story/_/id/45534814/panthers-oilers-avalanche-hurricanes-favorites-win-2026-stanley-cup",
+        "urlToImage": "https://a2.espncdn.com/combiner/i?img=%2Fphoto%2F2025%2F0618%2Fr1508072_2_1296x729_16%2D9.jpg",
+        "publishedAt": "2025-06-18T03:05:38Z",
+        "content": "Odds to win the 2026 Stanley Cup are already up at sportsbooks, and there is disagreement in the betting market regarding which team should be the favorite heading into the offseason.\r\nDepending on w\u2026 [+1805 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "db9db0e4c908f679",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328921"
+        },
+        "sentiment_positive": 0.013663051649928093,
+        "sentiment_negative": 0.888581395149231,
+        "sentiment_neutral": 0.09775564819574356,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": "business-insider",
+          "name": "Business Insider"
+        },
+        "author": "Lee Chong Ming,Katherine Tangalakis-Lippert",
+        "title": "Amazon's CEO told employees to get on board with AI. Career coaches and tech leaders agree: It's the only way forward.",
+        "description": "Employees need to work AI into their jobs now. \"It's neither doom nor utopia,\" said one career coach.",
+        "url": "https://www.businessinsider.com/amazon-ceo-andy-jassy-advice-ai-job-cuts-career-2025-6",
+        "urlToImage": "https://i.insider.com/6852375d85e81483682c4d5c?width=1200&format=jpeg",
+        "publishedAt": "2025-06-18T06:16:41Z",
+        "content": "Amazon's CEO, Andy Jassy, told employees to expect cuts to white-collar jobs because of AI.Noah Berger/Getty Images for Amazon Web Services\r\n<ul><li>Amazon's CEO, Andy Jassy, offered advice in a publ\u2026 [+4043 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "c925364a9f7c8ee2",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328945"
+        },
+        "sentiment_positive": 0.16267408430576324,
+        "sentiment_negative": 0.036629144102334976,
+        "sentiment_neutral": 0.8006967902183533,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": "business-insider",
+          "name": "Business Insider"
+        },
+        "author": "Katherine Tangalakis-Lippert,Tim Paradis",
+        "title": "Employees were already freaked out about AI \u2014 Amazon just proved them right",
+        "description": "Amazon CEO Andy Jassy acknowledged in a Tuesday statement what many workers have been scared of: Artificial intelligence will soon mean job cuts.",
+        "url": "https://www.businessinsider.com/amazon-announcement-proof-workers-rightly-worry-about-ai-layoffs-2025-6",
+        "urlToImage": "https://i.insider.com/6851fef985e81483682c4bde?width=1200&format=jpeg",
+        "publishedAt": "2025-06-18T03:45:25Z",
+        "content": "Many workers are increasingly concerned about job security, and on Tuesday,\u00a0Amazon's CEO, Andy Jassy, acknowledged they're right to worry.Peter Dazeley/Getty Images\r\n<ul><li>On Tuesday, Amazon's CEO,\u2026 [+3779 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "85f8bfd6cd991bd1",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328950"
+        },
+        "sentiment_positive": 0.00837511382997036,
+        "sentiment_negative": 0.9660007953643799,
+        "sentiment_neutral": 0.025624075904488564,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Vibhas Ratanjee, Contributor, \n Vibhas Ratanjee, Contributor\n https://www.forbes.com/sites/vibhasratanjee/",
+        "title": "Leading The Five-Generation Workforce: From Age Gaps To Advantages",
+        "description": "Only 9% of employees say multigenerational teams improve collaboration. This piece explores 3 leadership strategies to unlock their full potential.",
+        "url": "https://www.forbes.com/sites/vibhasratanjee/2025/06/17/leading-the-five-generation-workforce-from-age-gaps-to-advantages/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/683e3c370abbaefd74b24151/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-18T03:18:17Z",
+        "content": "Older and younger employees\r\ngetty\r\nImagine youre coaching a sports team. Everyones focused on one goal to win. But thats where the alignment ends.\r\nVeteran players lean on experience and structure. \u2026 [+8861 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "846ff8622ea03636",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328955"
+        },
+        "sentiment_positive": 0.19899798929691315,
+        "sentiment_negative": 0.011164994910359383,
+        "sentiment_neutral": 0.7898370623588562,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Joe McKendrick, Senior Contributor, \n Joe McKendrick, Senior Contributor\n https://www.forbes.com/sites/joemckendrick/",
+        "title": "AI First? Make Sure Your People Understand It First",
+        "description": "Leaders and employees need to adopt an AI-first mindset that prepares everyone for the changes ahead.",
+        "url": "https://www.forbes.com/sites/joemckendrick/2025/06/17/ai-first-make-sure-your-people-understand-it-first/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/685218a45c6abc2e6bcd67f9/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-18T01:42:17Z",
+        "content": "AI: Educate first.\r\ngetty\r\nAI-first thinking doesnt just spring out of a vacuum. Leaders and employees need to adopt an AI-first mindset that prepares everyone for the changes ahead. This makes train\u2026 [+4469 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "369b98dedf8b1848",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328960"
+        },
+        "sentiment_positive": 0.096690833568573,
+        "sentiment_negative": 0.012786944396793842,
+        "sentiment_neutral": 0.8905222415924072,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Theregister.com"
+        },
+        "author": "Iain Thomson",
+        "title": "Eat or be eaten by AI, Amazon CEO warns staff",
+        "description": "Expect headcount reductions over the next few years, says Andy Jassy\nAmazon staff on Tuesday got an email from their CEO advising that some of them will probably be replaced by bots.\u2026<!--#include virtual='/data_centre/_whitepaper_textlinks_top.html' -->",
+        "url": "https://www.theregister.com/2025/06/18/amazon_ceo_warns_ai_job_cuts/",
+        "urlToImage": "https://regmedia.co.uk/2019/11/05/shutterstock_eat_bugs.jpg",
+        "publishedAt": "2025-06-18T00:44:10Z",
+        "content": "Amazon staff on Tuesday got an email from their CEO advising that some of them will probably be replaced by bots.\r\nCEO Andy Jassys memo said that Amazon is accelerating its use of generative AI, both\u2026 [+3429 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "cf06a5b44d8636a6",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328966"
+        },
+        "sentiment_positive": 0.007977839559316635,
+        "sentiment_negative": 0.9615392684936523,
+        "sentiment_neutral": 0.030482908710837364,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": "techradar",
+          "name": "TechRadar"
+        },
+        "author": "Steve Flavell",
+        "title": "The future of enterprise comms is simple: use locally and act globally. Here's what's next",
+        "description": "Why global UC but local telco? Discover how cloud telephony is unifying enterprise communications worldwide.",
+        "url": "https://www.techradar.com/pro/the-future-of-enterprise-comms-is-simple-use-locally-and-act-globally-heres-whats-next",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/dhuaJQQCDzJk5vEgKP9hpj.jpg",
+        "publishedAt": "2025-06-18T07:43:08Z",
+        "content": "In a world where enterprises now manage their unified communications (UC) platforms, such as Microsoft Teams, on a global basis, why are these same enterprises all too often still procuring and manag\u2026 [+5666 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "68de992c4e11d626",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328971"
+        },
+        "sentiment_positive": 0.06581011414527893,
+        "sentiment_negative": 0.015003045089542866,
+        "sentiment_neutral": 0.9191868901252747,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Madshrimps.be"
+        },
+        "author": "Stefan",
+        "title": "Xbox\u2019s AMD partnership sheds light on the future of the division\u2019s ecosystem",
+        "description": "Microsoft has no plans to get out of the console business anytime soon. The company has been reiterating for a while that it\u2019s going to make at least one more generation of Xbox consoles. It\u2019s now been confirmed that AMD will power the upcoming hardware, as i\u2026",
+        "url": "https://www.madshrimps.be/news/xboxs-amd-partnership-sheds-light-on-the-future-of-the-divisions-ecosystem/",
+        "urlToImage": null,
+        "publishedAt": "2025-06-18T08:00:20Z",
+        "content": "Microsoft has no plans to get out of the console business anytime soon. The company has been reiterating for a while that it\u2019s going to make at least one more generation of Xbox consoles. It\u2019s now be\u2026 [+101 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "53cbf82e3d6a0cb0",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328976"
+        },
+        "sentiment_positive": 0.18139143288135529,
+        "sentiment_negative": 0.0173342227935791,
+        "sentiment_neutral": 0.8012743592262268,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Digiday"
+        },
+        "author": "Kimeko McCoy",
+        "title": "Digiday Podcast at Cannes: From center stage to closed doors, inside X\u2019s quiet Cannes strategy",
+        "description": "Once a Cannes hotspot, Twitter Beach is no more. In this episode, we explore X\u2019s quiet retreat from the Croisette\u2014and why no one\u2019s talking about the TikTok ban either.",
+        "url": "http://digiday.com/marketing/digiday-podcast-at-cannes-from-center-stage-to-closed-doors-inside-xs-quiet-cannes-strategy/",
+        "urlToImage": "https://digiday.com/wp-content/uploads/sites/3/2025/06/1cannes-podcast-covers_1030x600-1.jpg",
+        "publishedAt": "2025-06-18T04:01:00Z",
+        "content": "Digiday covers the latest from marketing and media at the annual Cannes Lions International Festival of Creativity. More from the series \u2192A few years ago, Twitter Beach was one of the Cannes Lions In\u2026 [+1678 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "d88d0b4a2c7614d8",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328981"
+        },
+        "sentiment_positive": 0.05228128656744957,
+        "sentiment_negative": 0.0290369875729084,
+        "sentiment_neutral": 0.9186817407608032,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ETF Daily News"
+        },
+        "author": "MarketBeat News",
+        "title": "Continuum Advisory LLC Buys 202 Shares of Microsoft Corporation (NASDAQ:MSFT)",
+        "description": "Continuum Advisory LLC increased its holdings in Microsoft Corporation (NASDAQ:MSFT \u2013 Free Report) by 0.5% during the fourth quarter, HoldingsChannel reports. The fund owned 43,823 shares of the software giant\u2019s stock after acquiring an additional 202 shares \u2026",
+        "url": "https://www.etfdailynews.com/2025/06/18/continuum-advisory-llc-buys-202-shares-of-microsoft-corporation-nasdaqmsft/",
+        "urlToImage": "https://www.americanbankingnews.com/wp-content/timthumb/timthumb.php?src=https://www.marketbeat.com/logos/microsoft-corporation-logo-1200x675.png&w=240&h=240&zc=2",
+        "publishedAt": "2025-06-18T07:46:51Z",
+        "content": "Continuum Advisory LLC increased its holdings in Microsoft Corporation (NASDAQ:MSFT \u2013 Free Report) by 0.5% during the fourth quarter, HoldingsChannel reports. The fund owned 43,823 shares of the soft\u2026 [+5983 chars]",
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "id": "9f5915d275d29162",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.328985"
+        },
+        "sentiment_positive": 0.9399545192718506,
+        "sentiment_negative": 0.01313256286084652,
+        "sentiment_neutral": 0.046912986785173416,
+        "sentiment_label": "positive"
+      }
+    ],
+    "GOOGL": [
+      {
+        "source": {
+          "id": null,
+          "name": "Phandroid - News for Android"
+        },
+        "author": "Tyler Lee",
+        "title": "Galaxy Z Fold 7 AI perks could include free Google AI Pro access",
+        "description": "Galaxy Z Fold 7 AI features may include a free trial of Google AI Pro, according to a teardown of the latest Google app beta.\nThe post Galaxy Z Fold 7 AI perks could include free Google AI Pro access appeared first on Phandroid.",
+        "url": "https://phandroid.com/2025/06/18/galaxy-z-fold-7-ai-perks-could-include-free-google-ai-pro-access/",
+        "urlToImage": "https://phandroid.com/wp-content/uploads/2024/07/samsung-galaxy-flip-6-1.jpg",
+        "publishedAt": "2025-06-18T04:11:42Z",
+        "content": "Samsungs next foldables might come with a little bonus: free Google AI Pro access. If you\u2019re eyeing the Galaxy Z Fold 7 or Z Flip 7, theres a good chance youll get more than just new hardware. You mi\u2026 [+1446 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "aabb84d7a12c87a4",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680724"
+        },
+        "sentiment_positive": 0.043248601257801056,
+        "sentiment_negative": 0.013560259714722633,
+        "sentiment_neutral": 0.9431911110877991,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Phandroid - News for Android"
+        },
+        "author": "Phandroid Editors",
+        "title": "7 Android Apps To Help You Manage Crypto",
+        "description": "Managing cryptocurrency on the go has never been easier thanks to a new wave of Android apps designed for everything from tracking market prices to securing your wallets. With these apps you can trade altcoins, monitor Bitcoin volatility, or start your crypto\u2026",
+        "url": "https://phandroid.com/2025/06/18/7-android-apps-to-help-you-manage-crypto/",
+        "urlToImage": "https://phandroid.com/wp-content/uploads/2022/10/mkeke-iphone-case-4.jpg",
+        "publishedAt": "2025-06-18T07:27:48Z",
+        "content": "Managing cryptocurrency on the go has never been easier thanks to a new wave of Android apps designed for everything from tracking market prices to securing your wallets. With these apps you can trad\u2026 [+6166 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "d47c40da3da5351f",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680745"
+        },
+        "sentiment_positive": 0.12045657634735107,
+        "sentiment_negative": 0.012673851102590561,
+        "sentiment_neutral": 0.8668695092201233,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Android Authority"
+        },
+        "author": "Mishaal Rahman",
+        "title": "OnePlus tablets are getting one of Android\u2019s best, and one of its worst, productivity features",
+        "description": "OnePlus is rolling out an update that adds Google's Circle to Search and floating taskbar features to its tablets, but not everyone is happy.",
+        "url": "https://www.androidauthority.com/oneplus-tablets-circle-to-search-taskbar-update-3568386/",
+        "urlToImage": "https://www.androidauthority.com/wp-content/uploads/2025/06/OnePlus-Pad-3-taskbar.jpg",
+        "publishedAt": "2025-06-18T08:00:37Z",
+        "content": "<ul><li>The latest OxygenOS 15 update brings Googles Circle to Search and a new floating taskbar to the OnePlus Open and OnePlus Pad 2.</li><li>Circle to Search allows users to quickly search anythin\u2026 [+4502 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "8c4150286a859312",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680751"
+        },
+        "sentiment_positive": 0.2438356876373291,
+        "sentiment_negative": 0.10488040000200272,
+        "sentiment_neutral": 0.651283860206604,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Theregister.com"
+        },
+        "author": "Simon Sharwood",
+        "title": "Japan set to join the re-usable rocket club after Honda sticks a landing",
+        "description": "France announced its own effort to build re-usable engines on the same day\nJapanese automotive giant Honda has successfully launched and landed a small rocket.\u2026",
+        "url": "https://www.theregister.com/2025/06/18/honda_france_reusable_rockets/",
+        "urlToImage": "https://regmedia.co.uk/2025/06/18/screenshot_honda_rocket_landing.jpg",
+        "publishedAt": "2025-06-18T05:27:05Z",
+        "content": "Japanese automotive giant Honda has successfully launched and landed a small rocket.\r\nHonda operates an R&amp;D unit that pursues space technology and, in 2021, announced its intention to build and f\u2026 [+2138 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "cba0bf747e2e19aa",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680756"
+        },
+        "sentiment_positive": 0.45191940665245056,
+        "sentiment_negative": 0.009132984094321728,
+        "sentiment_neutral": 0.5389476418495178,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Phandroid - News for Android"
+        },
+        "author": "Tyler Lee",
+        "title": "Nintendo Switch 2 bans triggered by MiG cartridges\u2014even if you own the game",
+        "description": "Nintendo Switch 2 bans are being triggered by MiG cartridges. Even backups of games you own could get your console locked out permanently.\nThe post Nintendo Switch 2 bans triggered by MiG cartridges\u2014even if you own the game appeared first on Phandroid.",
+        "url": "https://phandroid.com/2025/06/18/nintendo-switch-2-bans-triggered-by-mig-cartridges-even-if-you-own-the-game/",
+        "urlToImage": "https://phandroid.com/wp-content/uploads/2025/01/nintendo-switch-2-4.png",
+        "publishedAt": "2025-06-18T04:11:32Z",
+        "content": "Some Nintendo Switch 2 owners are already facing bansand its not for piracy. The issue? Using the MiG Switch cartridge to load game backups, even if those games were legally purchased. Nintendo Switc\u2026 [+1558 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "04c8699089784639",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680761"
+        },
+        "sentiment_positive": 0.014170857146382332,
+        "sentiment_negative": 0.7190957069396973,
+        "sentiment_neutral": 0.26673340797424316,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Skift"
+        },
+        "author": "Rashaad Jorden",
+        "title": "A Google Hotels Threat, JetBlue Cost Cutting and Dual-Brand Hotels",
+        "description": "For today\u2019s episode we look at threats to Google Travel, more hotels with a dual identity, and JetBlue\u2019s money woes.",
+        "url": "http://skift.com/2025/06/18/a-google-hotels-threat-jetblue-cost-cutting-and-dual-brand-hotels/",
+        "urlToImage": "https://skift.com/wp-content/uploads/2024/02/hilton-multi-brand-1.jpg?resize=1024,683",
+        "publishedAt": "2025-06-18T07:47:22Z",
+        "content": "Good morning from Skift. Its Wednesday, June 18. Heres what you need to know about the business of travel today. \r\nGoogle Hotels may not be losing relevance in search results, but its facing growing \u2026 [+2328 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "994432135dba804e",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680766"
+        },
+        "sentiment_positive": 0.028292488306760788,
+        "sentiment_negative": 0.4151943325996399,
+        "sentiment_neutral": 0.5565131902694702,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Digiday"
+        },
+        "author": "Tim Peterson",
+        "title": "Future of TV Briefing: Upfront ad buyers debate the value of out-of-home viewership",
+        "description": "This week\u2019s Future of TV Briefing looks at the question of how TV and streaming audiences watching in a bar or other public place should be counted \u2014 and, more importantly, charged for \u2014 compared to people watching at home.",
+        "url": "http://digiday.com/future-of-tv/future-of-tv-briefing-upfront-ad-buyers-debate-the-value-of-out-of-home-viewership/",
+        "urlToImage": "https://digiday.com/wp-content/uploads/sites/3/2024/09/tv-cash-digiday.jpg",
+        "publishedAt": "2025-06-18T04:01:00Z",
+        "content": "This Future of TV Briefing covers the latest in streaming and TV for Digiday+ members and is distributed over email every Wednesday at 10 a.m. ET. More from the series \u2192This weeks Future of TV Briefi\u2026 [+9477 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "8c1b0e81b3c57c82",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680771"
+        },
+        "sentiment_positive": 0.057910315692424774,
+        "sentiment_negative": 0.04808059707283974,
+        "sentiment_neutral": 0.8940091133117676,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Forbes"
+        },
+        "author": "Zak Doffman, Contributor, \n Zak Doffman, Contributor\n https://www.forbes.com/sites/zakdoffman/",
+        "title": "Samsung Confirms User Account Deletion\u2014Now Just 6 Weeks Away",
+        "description": "Act now to protect your accounts \u2014 what to know.",
+        "url": "https://www.forbes.com/sites/zakdoffman/2025/06/18/samsung-confirms-user-account-deletion-now-just-6-weeks-away/",
+        "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/67273554c7669650aab2438b/0x0.jpg?format=jpg&crop=1381,777,x2095,y103,safe&height=900&width=1600&fit=bounds",
+        "publishedAt": "2025-06-18T06:22:05Z",
+        "content": "Account deletion warning for Samsung users.\r\nFuture Publishing via Getty Images\r\nYou may have seen warnings this week for Samsung users (1,2), as the Galaxy-maker prepares to delete user accounts. Th\u2026 [+1858 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "3c7d5890a3a4cdfc",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680776"
+        },
+        "sentiment_positive": 0.025985481217503548,
+        "sentiment_negative": 0.04031801596283913,
+        "sentiment_neutral": 0.9336965680122375,
+        "sentiment_label": "neutral"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Boredpanda.com"
+        },
+        "author": "Jonas Zvilius",
+        "title": "Woman Threatens Divorce After One Too Many Loud And Obnoxious MrBeast Videos",
+        "description": "Is the wife being too judgmental about her husband watching MrBeast?",
+        "url": "https://www.boredpanda.com/divorce-boyfriend-watching-mrbeast/",
+        "urlToImage": "https://www.boredpanda.com/blog/wp-content/uploads/2025/06/divorce-boyfriend-watching-mrbeast-fb.png",
+        "publishedAt": "2025-06-18T07:00:53Z",
+        "content": "Couples disagreeing about the volume of the TV is as old as the advent of television itself. According to one study, couples have four fights a week on average over TV, and the volume is the top reas\u2026 [+4329 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "59911bcec5214a5b",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680780"
+        },
+        "sentiment_positive": 0.01622592844069004,
+        "sentiment_negative": 0.7712388634681702,
+        "sentiment_neutral": 0.21253523230552673,
+        "sentiment_label": "negative"
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Cointelegraph"
+        },
+        "author": "Cointelegraph by Tarang Khaitan",
+        "title": "Agriculture firm AgriFORCE powers 120 crypto miners with natural gas",
+        "description": "AgriFORCE says it launched a site that uses stranded gas to power 120 Bitcoin mining rigs and will expand to two additional sites in Canada.",
+        "url": "https://cointelegraph.com/news/agriforce-powers-120-crypto-miners-stranded-natural-gas",
+        "urlToImage": "https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1200/https://s3.cointelegraph.com/uploads/2025-06/019780db-8f38-7047-b011-50daf4855b8e",
+        "publishedAt": "2025-06-18T06:12:34Z",
+        "content": "Canadian agricultural firm AgriFORCE Growing Systems Ltd. has launched an initiative to use stranded gas to power 120 Bitcoin mining rigs, which the company says it plans to expand.\r\nThe site, locate\u2026 [+2341 chars]",
+        "ticker": "GOOGL",
+        "company": "Google",
+        "id": "76fec03268d808dd",
+        "data_source": {
+          "api": "NewsAPI",
+          "version": "v2",
+          "endpoint": "everything",
+          "fetch_timestamp": "2025-06-19T08:13:45.680785"
+        },
+        "sentiment_positive": 0.612216591835022,
+        "sentiment_negative": 0.008297608233988285,
+        "sentiment_neutral": 0.37948575615882874,
+        "sentiment_label": "positive"
+      }
+    ]
+  }
+}
