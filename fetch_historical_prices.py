@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 import os
 import time
 from dotenv import load_dotenv
+from simple_logger import logger
 
 def load_portfolio():
     """Load stock tickers from portfolio.json"""
@@ -75,42 +76,68 @@ def fetch_historical_data(ticker, start_date, end_date, max_retries=3):
                 return None
 
 def main():
-    os.makedirs('data', exist_ok=True)
-    end_date = datetime.now()
-    start_date = end_date - timedelta(days=5*365)
-    tickers = load_portfolio()
-    all_data = []
-    failed_tickers = []
-    for ticker in tickers:
-        print(f"\nFetching historical data for {ticker}...")
-        hist_data = fetch_historical_data(ticker, start_date, end_date)
-        if hist_data is not None:
-            all_data.append(hist_data)
+    # Log start of execution
+    logger.log_execution("fetch_historical_prices.py", "started", {"function": "main"})
+    
+    try:
+        os.makedirs('data', exist_ok=True)
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=5*365)
+        tickers = load_portfolio()
+        all_data = []
+        failed_tickers = []
+        
+        for ticker in tickers:
+            print(f"\nFetching historical data for {ticker}...")
+            hist_data = fetch_historical_data(ticker, start_date, end_date)
+            if hist_data is not None:
+                all_data.append(hist_data)
+            else:
+                failed_tickers.append(ticker)
+            time.sleep(0.5)
+        
+        if all_data:
+            combined_data = pd.concat(all_data, ignore_index=True)
+            combined_data = combined_data.sort_values(['Date', 'Ticker'])
+            output_file = os.path.join('data', 'historical_prices.csv')
+            combined_data.to_csv(output_file, index=False)
+            print(f"\nHistorical data saved to {output_file}")
+            
+            # Calcola summary solo sulle colonne esistenti
+            summary_cols = {k: v for k, v in {
+                'Close': ['last', 'mean', 'std', 'min', 'max'],
+                'Volume': 'mean',
+                'Daily_Return': ['mean', 'std'],
+                'Volatility': 'mean'
+            }.items() if k in combined_data.columns}
+            summary = combined_data.groupby('Ticker').agg(summary_cols).round(4)
+            summary_file = os.path.join('data', 'price_summary.json')
+            summary.to_json(summary_file)
+            print(f"Summary statistics saved to {summary_file}")
+            
+            if failed_tickers:
+                print(f"\nWarning: Failed to fetch data for: {', '.join(failed_tickers)}")
+            
+            # Log successful completion
+            logger.log_execution("fetch_historical_prices.py", "completed", {
+                "output_file": output_file,
+                "summary_file": summary_file,
+                "tickers_processed": len(tickers),
+                "tickers_successful": len(tickers) - len(failed_tickers),
+                "tickers_failed": len(failed_tickers),
+                "failed_tickers": failed_tickers
+            })
+            
         else:
-            failed_tickers.append(ticker)
-        time.sleep(0.5)
-    if all_data:
-        combined_data = pd.concat(all_data, ignore_index=True)
-        combined_data = combined_data.sort_values(['Date', 'Ticker'])
-        output_file = os.path.join('data', 'historical_prices.csv')
-        combined_data.to_csv(output_file, index=False)
-        print(f"\nHistorical data saved to {output_file}")
-        # Calcola summary solo sulle colonne esistenti
-        summary_cols = {k: v for k, v in {
-            'Close': ['last', 'mean', 'std', 'min', 'max'],
-            'Volume': 'mean',
-            'Daily_Return': ['mean', 'std'],
-            'Volatility': 'mean'
-        }.items() if k in combined_data.columns}
-        summary = combined_data.groupby('Ticker').agg(summary_cols).round(4)
-        summary_file = os.path.join('data', 'price_summary.json')
-        summary.to_json(summary_file)
-        print(f"Summary statistics saved to {summary_file}")
-        if failed_tickers:
-            print(f"\nWarning: Failed to fetch data for: {', '.join(failed_tickers)}")
-    else:
-        print("\nError: No data was fetched successfully for any ticker")
-        raise Exception("Failed to fetch data for all tickers")
+            error_msg = "Failed to fetch data for all tickers"
+            logger.log_execution("fetch_historical_prices.py", "failed", {"error": error_msg})
+            print("\nError: No data was fetched successfully for any ticker")
+            raise Exception(error_msg)
+            
+    except Exception as e:
+        # Log error
+        logger.log_execution("fetch_historical_prices.py", "failed", {"error": str(e)})
+        raise e
 
 if __name__ == "__main__":
     main() 

@@ -1,0 +1,16 @@
+quindi usiamo heroku per il dashboard.
+
+per prima cosa devo creare un account su heroku.
+poi devo creare un repository su github.
+poi devo collegare il repository a heroku.
+poi devo fare il deploy.
+poi devo testare il deploy.
+poi devo fare il deploy su heroku.
+
+
+
+
+
+
+
+

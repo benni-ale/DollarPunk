@@ -10,6 +10,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from simple_logger import logger
 
 st.set_page_config(page_title="DollarPunk Dashboard", layout="wide")
 
@@ -44,7 +45,7 @@ def main():
     st.sidebar.title("Operations")
     operation = st.sidebar.radio(
         "Select Operation",
-        ["📈 Historical Analysis", "📰 Fetch News", "🎭 Analyze Sentiment", "📊 View Results", "📈 Compare Changes"]
+        ["📈 Historical Analysis", "📰 Fetch News", "🎭 Analyze Sentiment", "📊 View Results", "📈 Compare Changes", "📋 Execution Logs"]
     )
     
     if operation == "📈 Historical Analysis":
@@ -304,6 +305,104 @@ def main():
                 
             except Exception as e:
                 st.error(f"Error comparing changes: {str(e)}")
+    
+    elif operation == "📋 Execution Logs":
+        st.header("📋 Script Execution Logs")
+        
+        # Get execution statistics
+        stats = logger.get_execution_stats()
+        
+        # Display summary metrics
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("Total Executions", stats['total_executions'])
+        with col2:
+            st.metric("Successful", stats['successful'])
+        with col3:
+            st.metric("Failed", stats['failed'])
+        with col4:
+            success_rate = (stats['successful'] / stats['total_executions'] * 100) if stats['total_executions'] > 0 else 0
+            st.metric("Success Rate", f"{success_rate:.1f}%")
+        
+        # Script-specific stats
+        st.subheader("📊 Script Statistics")
+        if stats['scripts']:
+            script_data = []
+            for script_name, script_stats in stats['scripts'].items():
+                script_data.append({
+                    'Script': script_name,
+                    'Total Executions': script_stats['total'],
+                    'Successful': script_stats['successful'],
+                    'Failed': script_stats['failed'],
+                    'Success Rate': f"{(script_stats['successful'] / script_stats['total'] * 100):.1f}%" if script_stats['total'] > 0 else "0%",
+                    'Last Execution': script_stats['last_execution'][:19] if script_stats['last_execution'] else "Never"
+                })
+            
+            script_df = pd.DataFrame(script_data)
+            st.dataframe(script_df, use_container_width=True)
+        else:
+            st.info("No execution logs found yet. Run some scripts to see statistics here!")
+        
+        # Recent logs
+        st.subheader("🕒 Recent Execution Logs")
+        recent_logs = logger.get_recent_logs(20)
+        
+        if recent_logs:
+            # Create a more readable format for logs
+            log_data = []
+            for log in recent_logs:
+                timestamp = log.get('timestamp', '')[:19]  # Remove microseconds
+                status_emoji = {
+                    'started': '🟡',
+                    'completed': '🟢', 
+                    'failed': '🔴'
+                }.get(log.get('status', ''), '❓')
+                
+                log_data.append({
+                    'Time': timestamp,
+                    'Status': f"{status_emoji} {log.get('status', 'unknown')}",
+                    'Script': log.get('script', 'unknown'),
+                    'Details': str(log.get('details', {})),
+                    'Error': log.get('error', '')
+                })
+            
+            log_df = pd.DataFrame(log_data)
+            st.dataframe(log_df, use_container_width=True)
+            
+            # Filter by script
+            st.subheader("🔍 Filter Logs by Script")
+            all_scripts = list(set(log.get('script', '') for log in recent_logs))
+            selected_script = st.selectbox("Select script to filter:", ['All'] + all_scripts)
+            
+            if selected_script != 'All':
+                filtered_logs = [log for log in recent_logs if log.get('script') == selected_script]
+                if filtered_logs:
+                    filtered_data = []
+                    for log in filtered_logs:
+                        timestamp = log.get('timestamp', '')[:19]
+                        status_emoji = {
+                            'started': '🟡',
+                            'completed': '🟢', 
+                            'failed': '🔴'
+                        }.get(log.get('status', ''), '❓')
+                        
+                        filtered_data.append({
+                            'Time': timestamp,
+                            'Status': f"{status_emoji} {log.get('status', 'unknown')}",
+                            'Details': str(log.get('details', {})),
+                            'Error': log.get('error', '')
+                        })
+                    
+                    filtered_df = pd.DataFrame(filtered_data)
+                    st.dataframe(filtered_df, use_container_width=True)
+                else:
+                    st.info(f"No logs found for {selected_script}")
+        else:
+            st.info("No execution logs found yet. Run some scripts to see logs here!")
+        
+        # Manual refresh button
+        if st.button("🔄 Refresh Logs"):
+            st.rerun()
     
     else:  # View Results
         st.header("View Results")

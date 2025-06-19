@@ -4,6 +4,7 @@ import hashlib
 from datetime import datetime, timedelta
 from newsapi import NewsApiClient
 from dotenv import load_dotenv
+from simple_logger import logger
 
 # Load environment variables
 load_dotenv()
@@ -133,31 +134,54 @@ def fetch_and_save_news():
     """
     Main function to fetch and save news, returns the filename where news was saved
     """
-    # Load portfolio and keywords
-    portfolio = load_portfolio()
-    keywords = load_keywords()
+    # Log start of execution
+    logger.log_execution("fetch_news.py", "started", {"function": "fetch_and_save_news"})
     
-    if not portfolio:
-        raise Exception("No stocks found in portfolio!")
-    
-    if not keywords:
-        raise Exception("No keywords found!")
-    
-    # Fetch news for each stock in portfolio
-    all_articles = []
-    for ticker in portfolio:
-        if ticker in keywords:
-            print(f"Fetching news for {ticker}...")
-            articles = fetch_stock_news(ticker, keywords[ticker])
-            all_articles.extend(articles)
-        else:
-            print(f"No keywords found for {ticker}, skipping...")
-    
-    # Save all articles organized by stock
-    filename = save_news_by_stock(all_articles)
-    if not filename:
-        raise Exception("Failed to save news articles")
-    return filename
+    try:
+        # Load portfolio and keywords
+        portfolio = load_portfolio()
+        keywords = load_keywords()
+        
+        if not portfolio:
+            error_msg = "No stocks found in portfolio!"
+            logger.log_execution("fetch_news.py", "failed", {"error": error_msg})
+            raise Exception(error_msg)
+        
+        if not keywords:
+            error_msg = "No keywords found!"
+            logger.log_execution("fetch_news.py", "failed", {"error": error_msg})
+            raise Exception(error_msg)
+        
+        # Fetch news for each stock in portfolio
+        all_articles = []
+        for ticker in portfolio:
+            if ticker in keywords:
+                print(f"Fetching news for {ticker}...")
+                articles = fetch_stock_news(ticker, keywords[ticker])
+                all_articles.extend(articles)
+            else:
+                print(f"No keywords found for {ticker}, skipping...")
+        
+        # Save all articles organized by stock
+        filename = save_news_by_stock(all_articles)
+        if not filename:
+            error_msg = "Failed to save news articles"
+            logger.log_execution("fetch_news.py", "failed", {"error": error_msg})
+            raise Exception(error_msg)
+        
+        # Log successful completion
+        logger.log_execution("fetch_news.py", "completed", {
+            "output_file": filename,
+            "articles_count": len(all_articles),
+            "stocks_processed": len(portfolio)
+        })
+        
+        return filename
+        
+    except Exception as e:
+        # Log error
+        logger.log_execution("fetch_news.py", "failed", {"error": str(e)})
+        raise e
 
 if __name__ == "__main__":
     fetch_and_save_news() 

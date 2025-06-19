@@ -5,6 +5,7 @@ from datetime import datetime
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 from tqdm import tqdm
+from simple_logger import logger
 
 def load_finbert():
     """Load FinBERT model and tokenizer"""
@@ -28,32 +29,59 @@ def get_sentiment(text, tokenizer, model):
     }
     return sentiment_dict
 
-def process_json_file(file_path, tokenizer, model):
-    """Process a single JSON file and add sentiment analysis"""
-    with open(file_path, 'r') as f:
-        data = json.load(f)
+def process_json_file(input_file, tokenizer, model):
+    """
+    Process a JSON file containing news articles and add sentiment analysis
+    """
+    # Log start of execution
+    logger.log_execution("sentiment_analysis.py", "started", {
+        "function": "process_json_file",
+        "input_file": input_file
+    })
     
-    # Process each stock's news
-    for ticker, news_list in tqdm(data['stocks'].items(), desc=f"Processing {os.path.basename(file_path)}"):
-        for article in news_list:
-            # Combine title and description for sentiment analysis
-            text = f"{article['title']} {article['description']}"
-            
-            # Get sentiment scores
-            sentiment = get_sentiment(text, tokenizer, model)
-            
-            # Add sentiment data to article
-            article.update(sentiment)
-    
-    # Create new filename with _sentiment suffix
-    base_path = os.path.splitext(file_path)[0]
-    new_path = f"{base_path}_sentiment.json"
-    
-    # Save enriched data
-    with open(new_path, 'w') as f:
-        json.dump(data, f, indent=2)
-    
-    return new_path
+    try:
+        # Load the JSON file
+        with open(input_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Create output filename
+        base_name = os.path.splitext(input_file)[0]
+        output_file = f"{base_name}_sentiment.json"
+        
+        # Process each stock's articles
+        total_articles = 0
+        processed_articles = 0
+        
+        for ticker, articles in data.get('stocks', {}).items():
+            total_articles += len(articles)
+            for article in articles:
+                if 'title' in article and article['title']:
+                    # Analyze title sentiment
+                    sentiment_dict = get_sentiment(article['title'], tokenizer, model)
+                    article.update(sentiment_dict)
+                    processed_articles += 1
+        
+        # Save the processed data
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        
+        # Log successful completion
+        logger.log_execution("sentiment_analysis.py", "completed", {
+            "input_file": input_file,
+            "output_file": output_file,
+            "total_articles": total_articles,
+            "processed_articles": processed_articles
+        })
+        
+        return output_file
+        
+    except Exception as e:
+        # Log error
+        logger.log_execution("sentiment_analysis.py", "failed", {
+            "input_file": input_file,
+            "error": str(e)
+        })
+        raise e
 
 def main():
     print("Loading FinBERT model...")
