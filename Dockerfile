@@ -1,35 +1,29 @@
 FROM python:3.11-slim
 
+# Imposta directory di lavoro
 WORKDIR /app
 
-# Install build dependencies
+# Installa dipendenze di sistema
 RUN apt-get update && apt-get install -y \
-    build-essential \
+    gcc \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python packages one by one to better handle dependencies
-RUN pip install --no-cache-dir \
-    newsapi-python==0.2.7 \
-    python-dotenv==1.0.1 \
-    requests==2.31.0 \
-    tqdm==4.66.1 \
-    streamlit==1.29.0 \
-    transformers==4.35.2 \
-    plotly==5.18.0 \
-    pandas==2.1.4 \
-    && pip install --no-cache-dir torch==2.1.1+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
+# Copia requirements e installa dipendenze Python
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application files
-COPY . .
+# Copia codice applicazione
+COPY app_simplified.py .
+COPY portfolio.json .
+COPY keywords.json .
+COPY test_collection.py .
 
-# Create data directory and ensure it's writable
-RUN mkdir -p data && chmod 777 data
+# Crea directory per i dati
+RUN mkdir -p data
 
-# Make start script executable
-RUN chmod +x start.sh
-
-# Expose Streamlit port
+# Esponi porta Streamlit
 EXPOSE 8501
 
-# Run startup script
-CMD ["/app/start.sh"] 
+# Comando di avvio
+CMD ["streamlit", "run", "app_simplified.py", "--server.port=8501", "--server.address=0.0.0.0"] 
